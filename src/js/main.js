@@ -1,1 +1,2 @@
-import './switch-theme'
+import './switch-theme';
+import './scroll-to-top';
