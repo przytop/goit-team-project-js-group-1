@@ -1,0 +1,21 @@
+.scroll-up-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, #f87719, #f89f19);
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  display: none;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+
+.scroll-up-btn:hover {
+  opacity: 0.8;
+}
