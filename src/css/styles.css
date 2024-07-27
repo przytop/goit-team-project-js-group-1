@@ -54,41 +54,6 @@ body[data-theme='light'] {
   visibility: visible;
   opacity: 1;
 }
-.search-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-.input-text {
-  background-color: var(--black-color);
-  width: 315px;
-  height: 48px;
-  padding: 12px;
-  gap: 10px;
-  border-radius: 8px;
-  border: solid var(--white-color) 1px;
-  opacity: 0px;
-  color: var(--grey-color);
-}
-.input-year {
-  background-color: var(--black-color);
-  width: 95px;
-  height: 48px;
-  border-radius: 8px;
-  border: solid var(--white-color) 1px;
-  opacity: 0px;
-  color: var(--grey-color);
-  padding: 12px;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.input-year option:checked {
-  color: var(--orange-color);
-  font-size: 24px;
-  font-weight: 500;
-}
 
 /* .container {}
 
