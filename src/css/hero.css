@@ -1,0 +1,316 @@
+.hero {
+    width: 320px;
+    height: 380px;
+    background-image:
+        linear-gradient(to left, rgba(17, 17, 17, 0) 10%, rgba(17, 17, 17, 1) 66%),
+        url("/img/image.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-text-cont {
+    width: 242px;
+    height: 286px;
+    padding-top: 40px;
+    margin-left: 20px;
+}
+
+.title {
+    width: 232px;
+    padding-bottom: 12px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 37.5px;
+    text-align: left;
+}
+
+.star-rating {
+    display: flex;
+    gap: 4px;
+    padding-bottom: 20px;
+}
+
+.desc {
+    width: 177px;
+    height: 66px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.41px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.watch-btn {
+    width: 117px;
+    height: 38px;
+    border-radius: 74px;
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.06px;
+    text-align: center;
+    color: #111111;
+    position: relative;
+    transition: all .2s;
+}
+
+.watch-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.details-btn {
+    width: 117px;
+    height: 38px;
+    border-radius: 74px;
+    border: 1px solid #fff;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.06px;
+    text-align: center;
+    transition: all .2s;
+    position: relative;
+}
+
+.details-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-btn {
+    width: 242px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width: 321px) {
+    .hero {
+        width: 768px;
+        height: 434px;
+        background-image:
+            linear-gradient(270deg, rgba(89, 130, 252, 0) 10%, rgba(0, 0, 0, 1) 66%),
+            url("/img/image.png");
+        background-size: cover;
+        background-position: -80%;
+    }
+
+    .hero-text-cont {
+        width: 445px;
+        height: 273px;
+        padding-top: 96px;
+        margin-left: 32px;
+    }
+    
+    .title {
+        width: 445px;
+        padding-bottom: 12px;
+        font-size: 44px;
+        font-weight: 700;
+        line-height: 51.56px;
+        text-align: left;
+    }
+    
+    .star-rating img {
+        width: 20px;
+    }
+    
+    .desc {
+        width: 254px;
+        height: 49px;
+        margin-bottom: 28px;
+    }
+    
+    .hero-btn {
+        width: 242px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 769px) {
+    .hero {
+        width: 1280px;
+        height: 722px;
+        background-image:
+            linear-gradient(270deg, rgba(89, 130, 252, 0) 10%, rgba(0, 0, 0, 1) 62%),
+            url("/img/image.png");
+        background-size: cover;
+        background-position: -95%;
+    }
+
+    .hero-text-cont {
+        width: 670px;
+        height: 361px;
+        padding-top: 178px;
+        margin-left: 135px;
+    }
+    
+    .title {
+        width: 670px;
+        padding-bottom: 16px;
+        font-size: 64px;
+        line-height: 75px;
+    }
+    
+    .star-rating img {
+        width: 24px;
+    }
+    
+    .desc {
+        width: 367px;
+        height: 58px;
+        margin-bottom: 36px;
+        font-size: 16px;
+        line-height: 18.75px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .hero-btn {
+        width: 291px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .watch-btn {
+        width: 139px;
+        height: 48px;
+    }
+
+    .watch-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+       }
+       
+    .watch-btn:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+       
+    .watch-btn::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+       
+    .watch-btn::after {
+        background-color: #FFC226;
+    }
+       
+    .watch-btn:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+    
+    .details-btn {
+        width: 139px;
+        height: 48px;
+    }
+    
+    .details-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+       }
+       
+       .details-btn:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+       }
+       
+       .details-btn::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+       }
+       
+       .details-btn::after {
+        background-color: #fff;
+       }
+       
+       .details-btn:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+       }
+} 
+
+@media (min-width: 1281px) {
+    .hero {
+        width: 100vw;
+        height: 720px;
+        background-image:
+            linear-gradient(270deg, rgba(89, 130, 252, 0) 10%, rgba(0, 0, 0, 1) 62%),
+            url("/img/image.png");
+        background-size: cover;
+        background-position: -95%;
+    }
+
+    .hero-text-cont {
+        width: 670px;
+        height: 361px;
+        padding-top: 178px;
+        margin-left: 135px;
+    }
+    
+    .title {
+        width: 670px;
+        padding-bottom: 16px;
+        font-size: 64px;
+        line-height: 75px;
+    }
+    
+    .star-rating img {
+        width: 24px;
+    }
+    
+    .desc {
+        width: 367px;
+        height: 58px;
+        margin-bottom: 36px;
+        font-size: 16px;
+        line-height: 18.75px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .hero-btn {
+        width: 291px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .watch-btn {
+        width: 139px;
+        height: 48px;
+    }
+    
+    .watch-btn:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .details-btn {
+        width: 139px;
+        height: 48px;
+    }
+    
+    .details-btn:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+}
