@@ -1,1 +1,3 @@
-import './switch-theme'
+import './switch-theme';
+import './tmdb-api';
+import './scroll-to-top';
