@@ -4,11 +4,12 @@
   | default @import url()
   |============================
 */
+
 @import url('./reset.css');
 @import url('./header.css');
 @import url('./hero.css');
 @import url('./footer.css');
-@import url('./scroll-to-top.css');
+@import url('./my-catalog.css');
 
 :root {
   --orange-color: #f87719;
