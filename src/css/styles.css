@@ -4,11 +4,13 @@
   | default @import url()
   |============================
 */
+
 @import url('./reset.css');
 @import url('./header.css');
 @import url('./hero.css');
 @import url('./footer.css');
-@import url('./modal-window.css')
+@import url('./modal-window.css');
+@import url('./my-catalog.css');
 
 :root {
   --orange-color: #f87719;
@@ -19,6 +21,8 @@
   --secondary-text: #f8f8f8;
   --white-color: #ffffff;
   --font-roboto: 'Roboto', sans-serif;
+  --gradient-button-1: linear-gradient(45deg, #f87719, #f89f19);
+  --gradient-button-2: linear-gradient(45deg, #f89f19, #f87719);
 
   font-family: var(--font-roboto);
   font-synthesis: none;
@@ -32,12 +36,12 @@ body {
   transition: background-color 1s, color 1s;
 }
 
-body[data-theme="dark"] {
+body[data-theme='dark'] {
   background-color: var(--black-color);
   color: var(--white-color);
 }
 
-body[data-theme="light"] {
+body[data-theme='light'] {
   background-color: var(--white-color);
   color: var(--black-color);
 }
@@ -55,9 +59,3 @@ body[data-theme="light"] {
   visibility: visible;
   opacity: 1;
 }
-
-/* .container {}
-
-@media screen and () {
-  .container {}
-} */
