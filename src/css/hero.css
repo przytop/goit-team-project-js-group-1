@@ -1,6 +1,6 @@
 .hero {
     width: 320px;
-    height: 380px;
+    height: 429px;
     background-image:
         linear-gradient(to left, rgba(17, 17, 17, 0) 10%, rgba(17, 17, 17, 1) 66%),
         url("/img/image.png");
@@ -11,7 +11,7 @@
 .hero-text-cont {
     width: 242px;
     height: 286px;
-    padding-top: 40px;
+    padding-top: 88px;
     margin-left: 20px;
 }
 
@@ -22,6 +22,7 @@
     font-weight: 700;
     line-height: 37.5px;
     text-align: left;
+    color: var(--white-color);
 }
 
 .star-rating {
@@ -40,6 +41,7 @@
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: var(--white-color);
 }
 
 .watch-btn {
@@ -72,6 +74,7 @@
     text-align: center;
     transition: all .2s;
     position: relative;
+    color: var(--white-color);
 }
 
 .details-btn:active {
