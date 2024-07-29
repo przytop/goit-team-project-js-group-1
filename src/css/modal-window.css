@@ -1,20 +1,22 @@
 /* MODAL AREA */
 .backdrop {
     position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(46, 47, 66, 0.25);
     transition: opacity 500ms;
-    pointer-events: none;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-window {
     display: flex;
+    z-index: 2;
     flex-direction: column;
     position: absolute;
+    pointer-events: yes;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -53,13 +55,19 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 1px solid transparent;
+    width: 24px;
+    height: 24px;
     top: 20px;
     right: 16px;
     padding: 6.75px;
     background-color: inherit;
     cursor: pointer;
     transition: background-color 250ms ease-in-out;
+}
+
+.modal-btn-close:hover {
+    background-color: yellow;
+    color: green;
 }
 
 /* @MEDIA TABLET */
