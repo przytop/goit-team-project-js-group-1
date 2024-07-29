@@ -18,55 +18,62 @@ export default class TmdbApi {
       const response = await this.axios.get(endpoint, { params });
       return response.data;
     } catch (error) {
-      console.error(
-        `Failed to fetch data from themoviedb at ${endpoint}: ${error.message}`
-      );
+      console.error(`Failed to fetch ${endpoint}: ${error.message}`);
       throw error;
     }
   }
 
   async getTrendingMovies(time_window) {
-    // time_window must be 'day or 'week'
-    const valid = ['day', 'week'];
-    if (!valid.includes(time_window)) {
+    if (!['day', 'week'].includes(time_window)) {
       throw new Error("Invalid time_window. Must be 'day' or 'week'");
     }
-    return this._fetch(`/trending/movie/${time_window}`);
+    return (await this._fetch(`/trending/movie/${time_window}`)).results;
   }
 
   async getUpcomingMovies() {
-    return this._fetch(`/movie/upcoming`);
+    return (await this._fetch(`/movie/upcoming`)).results;
   }
 
   async searchMovie(query, page = 1) {
-    return this._fetch('/search/movie', { query, page });
+    return (await this._fetch('/search/movie', { query, page })).results;
   }
 
-  async getMovieDetails(movie_id) {
-    return this._fetch(`/movie/${movie_id}`);
+  async getMovieDetails(movie_id, type_of_data) {
+    const data = await this._fetch(`/movie/${movie_id}`);
+    if (!data[type_of_data]) {
+      throw new Error(`Not found ${type_of_data} for ID ${movie_id}`);
+    }
+    return data[type_of_data];
   }
 
   async getMovieVideos(movie_id) {
-    return this._fetch(`/movie/${movie_id}/videos`);
+    return (await this._fetch(`/movie/${movie_id}/videos`)).results;
   }
 
   async getMovieGenres() {
-    return this._fetch('/genre/movie/list');
+    return (await this._fetch('/genre/movie/list')).genres;
   }
 
   async getCountriesList() {
-    return this._fetch('/configuration/countries');
+    return await this._fetch('/configuration/countries');
   }
 }
 
 // Testing
-// const tmdb = new TmdbApi();
+const tmdb = new TmdbApi();
+const test = async () => {
+  try {
+    console.log(await tmdb.getTrendingMovies('day'));
+    console.log(await tmdb.getTrendingMovies('week'));
+    console.log(await tmdb.getUpcomingMovies());
+    console.log(await tmdb.searchMovie('Dune'));
+    console.log(await tmdb.getMovieDetails(438631, 'title'));
+    console.log(await tmdb.getMovieVideos(438631));
+    console.log(await tmdb.getMovieGenres());
+    console.log(await tmdb.getCountriesList());
+  } catch (error) {
+    console.error('Test failed:', error);
+  }
+};
 
-// tmdb.getTrendingMovies('day').then(console.log).catch(console.error);
-// tmdb.getTrendingMovies('week').then(console.log).catch(console.error);
-// tmdb.getUpcomingMovies().then(console.log).catch(console.error);
-// tmdb.searchMovie('Dune').then(console.log).catch(console.error);
-// tmdb.getMovieDetails(438631).then(console.log).catch(console.error);
-// tmdb.getMovieVideos(438631).then(console.log).catch(console.error);
-// tmdb.getMovieGenres().then(console.log).catch(console.error);
-// tmdb.getCountriesList().then(console.log).catch(console.error);
+// test();
