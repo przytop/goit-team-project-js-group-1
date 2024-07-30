@@ -1,0 +1,116 @@
+/* styles.css */
+.container {
+  width: calc(100% - 64px);
+  margin: 0 32px;
+}
+
+.weekly-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.weekly-text h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.weekly-text a {
+  text-decoration: none;
+  color: #007bff;
+  margin-right: 32px;
+}
+
+#weekly-cards {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 395px;
+  height: 574px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+.card h2,
+.card p {
+  font-family: var(--font-roboto);
+  font-weight: 500;
+  font-size: 20px;
+}
+.card h2 {
+  margin: 10px 0 5px;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+}
+
+.card p {
+  color: var(--grey-color);
+  margin: 5px 0;
+  text-align: center;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  color: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.card-content h2 {
+  font-size: 1.2em;
+  margin: 10px 0 5px;
+  text-align: left;
+}
+
+.card-content p {
+  margin: 5px 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stars {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.star {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.1em;
+}
+
+.star.full use,
+.star.half use {
+  fill: url(#star-gradient);
+}
+
+.star.empty use {
+  stroke: url(#star-gradient);
+  fill: none;
+}

@@ -8,6 +8,7 @@
 @import url('./reset.css');
 @import url('./header.css');
 @import url('./hero.css');
+@import url('./weekly-cards.css');
 @import url('./footer.css');
 @import url('./my-catalog.css');
 
@@ -59,8 +60,24 @@ body[data-theme='light'] {
   opacity: 1;
 }
 
-/* .container {}
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
-@media screen and () {
-  .container {}
-} */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
