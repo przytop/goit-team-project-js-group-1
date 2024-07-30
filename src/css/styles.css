@@ -95,3 +95,89 @@ html[data-theme='light'] {
   text-align: center;
   padding-bottom: 24px;
 }
+
+@media (max-width: 768px) {
+  .my-library-header {
+    padding-left: 32px;
+    font-size: 44px;
+    width: 332px;
+    line-height: 51.56px;
+  }
+
+  .my-library-paragraph {
+    padding-left: 32px;
+    width: 385px;
+    font-size: 14px;
+  }
+
+  .genre-select {
+    width: 144px;
+  }
+
+  .my-library-movie-list-item {
+    width: 224px;
+    height: 325px;
+  }
+
+  .my-library-movie {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+  }
+
+  .my-library-sorry-message {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .my-library-background {
+    height: 380px;
+  }
+  .my-library-header {
+    padding-top: 40px;
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 37.5px;
+    text-align: left;
+    width: 250px;
+  }
+  .my-library-paragraph {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.41px;
+    text-align: left;
+    width: 280px;
+  }
+  .genre-select {
+    width: 173px;
+  }
+  .my-library-movie-list-item {
+    width: 280px;
+    height: 408px;
+  }
+  .my-library-movie {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+  }
+  .my-library-sorry-message {
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: center;
+    width: 280px;
+    margin: auto;
+  }
+}
