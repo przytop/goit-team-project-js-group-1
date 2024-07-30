@@ -45,7 +45,7 @@ export default class TmdbApi {
       throw new Error(`Not found ${type_of_data} for ID ${movie_id}`);
     }
     return data[type_of_data];
-  }
+    }
 
   async getMovieVideos(movie_id) {
     return (await this._fetch(`/movie/${movie_id}/videos`)).results;
@@ -77,4 +77,4 @@ const test = async () => {
   }
 };
 
-// test();
+test();
