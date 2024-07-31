@@ -1,0 +1,10 @@
+.container-upcoming {
+  padding: 0 32px 0 32px;
+}
+
+.upcoming-text {
+  margin: 0;
+  font-size: 28px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
