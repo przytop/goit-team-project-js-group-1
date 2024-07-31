@@ -1,7 +1,14 @@
-.search-section {
-  display: flex;
-  justify-content: center;
+.stars {
+  display: inline-flex;
   align-items: center;
+}
+
+.star {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.1em;
 }
 
 .catalog-movie-picture {
@@ -25,6 +32,13 @@
 }
 
 @media (min-width: 321px) {
+  .search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+  }
   .input-text {
     background-color: var(--black-color);
     width: 188px;
@@ -47,6 +61,7 @@
     font-size: 14px;
     padding: 12px;
     font-weight: 500;
+    display: none;
   }
 
   .input-year option:checked {
@@ -85,6 +100,7 @@
     position: relative;
     width: 280px;
     height: 406px;
+    background-image: url('/img/image.png');
   }
 
   .catalog-movie {
@@ -102,6 +118,10 @@
 
   .catalog-movie-genres {
     font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
   }
 
   .catalog-pages {
@@ -109,6 +129,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
+    margin-bottom: 40px;
   }
 
   .arrow-button {
@@ -136,6 +157,12 @@
 }
 
 @media (min-width: 769px) {
+  .search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+  }
   .input-text {
     background-color: var(--black-color);
     width: 188px;
@@ -223,6 +250,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
+    margin-bottom: 60px;
   }
 
   .arrow-button {
@@ -249,6 +277,13 @@
   }
 }
 @media (min-width: 1281px) {
+  .search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+  }
+
   .input-text {
     background-color: var(--black-color);
     width: 315px;
@@ -334,6 +369,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
+    margin-bottom: 60px;
   }
 
   .arrow-button {
