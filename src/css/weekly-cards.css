@@ -14,11 +14,13 @@
 .weekly-text h2 {
   margin: 0;
   font-size: 28px;
+  text-transform: uppercase;
 }
 
 .weekly-text a {
+  font-size: 28px;
   text-decoration: none;
-  color: #007bff;
+  color: var(--orange-color);
   margin-right: 32px;
 }
 

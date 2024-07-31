@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       const releaseDate = movie.release_date
         ? new Date(movie.release_date).getFullYear()
         : 'Unknown';
-      const rating = Math.round(movie.vote_average * 10) / 10; 
+      const rating = Math.round(movie.vote_average * 10) / 10;
 
       const genresList = await tmdb.getMovieGenres();
       const genreNames = movie.genre_ids
