@@ -35,16 +35,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body {
+html {
   transition: background-color 1s, color 1s;
 }
 
-body[data-theme='dark'] {
+html[data-theme='dark'] {
   background-color: var(--black-color);
   color: var(--white-color);
 }
 
-body[data-theme='light'] {
+html[data-theme='light'] {
   background-color: var(--white-color);
   color: var(--black-color);
 }
