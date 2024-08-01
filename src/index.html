@@ -5,6 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cinemania</title>
+    <script>
+      document.documentElement.setAttribute(
+        'data-theme',
+        localStorage.getItem('theme') || 'dark'
+      );
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,14 +27,15 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
-  <body data-theme="dark">
-    <load src="partials/header.html" />
+  <body>
+    <load ="partials/header.html" />
 
-    <load src="partials/hero.html" />
+    <load ="partials/hero.html" />
 
     <main>
       <section></section>
     </main>
+
     <load src="partials/weekly-trends.html" />
     <load src="partials/upcoming-this-month.html"/>
     <load src="partials/footer.html" />

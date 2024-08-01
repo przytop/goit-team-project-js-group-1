@@ -1,5 +1,5 @@
 /* styles.css */
-.container {
+.weekly .container {
   width: calc(100% - 64px);
   margin: 0 32px;
 }
