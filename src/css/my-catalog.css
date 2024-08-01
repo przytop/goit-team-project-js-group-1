@@ -1,7 +1,14 @@
-.search-section {
-  display: flex;
-  justify-content: center;
+.stars {
+  display: inline-flex;
   align-items: center;
+}
+
+.star {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.1em;
 }
 
 .catalog-movie-picture {
@@ -24,118 +31,132 @@
   pointer-events: none;
 }
 
-@media (min-width: 321px) {
-  .input-text {
-    background-color: var(--black-color);
-    width: 188px;
-    height: 40px;
-    padding: 12px;
-    font-size: 14px;
-    gap: 10px;
-    border-radius: 8px;
-    border: solid var(--white-color) 1px;
-    color: var(--grey-color);
-  }
+.search-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.input-text {
+  background-color: var(--black-color);
+  width: 188px;
+  height: 40px;
+  padding: 12px;
+  font-size: 14px;
+  gap: 10px;
+  border-radius: 8px;
+  border: solid var(--white-color) 1px;
+  color: var(--grey-color);
+}
 
-  .input-year {
-    background-color: var(--black-color);
-    width: 95px;
-    height: 40px;
-    border-radius: 8px;
-    border: solid var(--white-color) 1px;
-    color: var(--grey-color);
-    font-size: 14px;
-    padding: 12px;
-    font-weight: 500;
-  }
+.input-year {
+  background-color: var(--black-color);
+  width: 95px;
+  height: 40px;
+  border-radius: 8px;
+  border: solid var(--white-color) 1px;
+  color: var(--grey-color);
+  font-size: 14px;
+  padding: 12px;
+  font-weight: 500;
+}
 
-  .input-year option:checked {
-    color: var(--orange-color);
-    font-size: 18px;
-    font-weight: 500;
-  }
+.input-year option:checked {
+  color: var(--orange-color);
+  font-size: 18px;
+  font-weight: 500;
+}
 
-  .catalog-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-    cursor: pointer;
-  }
+.catalog-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  cursor: pointer;
+}
 
-  .catalog-sorry-message {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 32px;
-    text-align: center;
-    padding: 48px 20px 40px 20px;
-  }
+.catalog-sorry-message {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: center;
+  padding: 48px 20px 40px 20px;
+}
 
-  .catalog-movie-list {
-    list-style: none;
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 16px 20px 20px;
-  }
+.catalog-movie-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+}
 
-  .catalog-movie-list-item {
-    position: relative;
-    width: 280px;
-    height: 406px;
-  }
+.catalog-movie-list-item {
+  position: relative;
+  width: 280px;
+  height: 406px;
+  background-image: url('/img/image.png');
+  border-radius: 5px;
+}
 
-  .catalog-movie {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: #ffffff;
-  }
+.catalog-movie {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #ffffff;
+}
 
-  .catalog-movie-title {
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: bold;
-  }
+.catalog-movie-title {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
 
-  .catalog-movie-genres {
-    font-size: 12px;
-  }
+.catalog-movie-genres {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
 
-  .catalog-pages {
+.catalog-pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.arrow-button {
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+
+.page-number-button {
+  background-color: var(--black-color);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: solid var(--grey-color) 1px;
+  color: var(--grey-color);
+  font-size: 14px;
+}
+
+.page-number-button:active {
+  background-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  color: var(--white-color);
+  font-weight: 400;
+  border: none;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .search-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 0 20px;
   }
-
-  .arrow-button {
-    width: 20px;
-    height: 20px;
-    border: none;
-  }
-
-  .page-number-button {
-    background-color: var(--black-color);
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: solid var(--grey-color) 1px;
-    color: var(--grey-color);
-    font-size: 14px;
-  }
-
-  .page-number-button:active {
-    background-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-    color: var(--white-color);
-    font-weight: 400;
-    border: none;
-  }
-}
-
-@media (min-width: 769px) {
   .input-text {
     background-color: var(--black-color);
     width: 188px;
@@ -181,17 +202,15 @@
     font-weight: 400;
     line-height: 32px;
     text-align: center;
-    padding-top: 120px;
-    padding-bottom: 100px;
+    padding-top: 80px;
+    padding-bottom: 60px;
   }
 
   .catalog-movie-list {
-    list-style: none;
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
-    justify-content: center;
-    padding: 48px 0 40px;
+    padding-top: 36px;
   }
 
   .catalog-movie-list-item {
@@ -199,6 +218,7 @@
     width: 224px;
     height: 325px;
     padding-bottom: 28px;
+    border-radius: 5px;
   }
 
   .catalog-movie {
@@ -223,6 +243,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
+    margin-bottom: 60px;
   }
 
   .arrow-button {
@@ -248,7 +269,14 @@
     border: none;
   }
 }
-@media (min-width: 1281px) {
+@media (min-width: 1280px) {
+  .search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 20px;
+  }
+
   .input-text {
     background-color: var(--black-color);
     width: 315px;
@@ -297,12 +325,10 @@
   }
 
   .catalog-movie-list {
-    list-style: none;
     display: flex;
-    gap: 16px;
+    gap: 32px 16px;
     flex-wrap: wrap;
-    justify-content: center;
-    padding: 48px 0 40px;
+    padding-top: 48px;
   }
 
   .catalog-movie-list-item {
@@ -310,6 +336,7 @@
     width: 395px;
     height: 574px;
     padding-bottom: 32px;
+    border-radius: 5px;
   }
 
   .catalog-movie {
@@ -334,6 +361,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
+    margin-bottom: 60px;
   }
 
   .arrow-button {
