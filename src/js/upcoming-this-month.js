@@ -1,76 +1,97 @@
-import TmdbApi from './tmdb-api';
+import TmdbApi from './tmdb-api.js';
 
-const API_URL = 'https://api.themoviedb.org/3';
-const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original';
-const LOCAL_STORAGE_KEY = 'myLibrary';
+const tmdb = new TmdbApi();
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const movieContainer = document.getElementById('movie');
-  const tmdb = new TmdbApi();
-
+async function getUpcomingMovies() {
   try {
-    const movie = await fetchUpcomingMovie();
-    if (movie) {
-      movieContainer.innerHTML = createMovieMarkup(movie);
-      setupLibraryButton(movie);
+    const movies = await tmdb.getUpcomingMovies();
+    const today = new Date();
+    const thisMonthMovies = movies.filter(movie => {
+      const releaseDate = new Date(movie.release_date);
+      return (
+        releaseDate.getFullYear() === today.getFullYear() &&
+        releaseDate.getMonth() === today.getMonth()
+      );
+    });
+
+    if (thisMonthMovies.length === 0) {
+      displayMessage('No upcoming movies this month.');
     } else {
-      movieContainer.innerHTML =
-        '<p>No upcoming movies found for this month.</p>';
+      const randomMovie =
+        thisMonthMovies[Math.floor(Math.random() * thisMonthMovies.length)];
+      displayMovie(randomMovie);
     }
   } catch (error) {
-    movieContainer.innerHTML =
-      '<p>Failed to fetch movie data. Please try again later.</p>';
-    console.error(error);
+    console.error('Failed to fetch upcoming movies:', error);
   }
-});
-
-async function fetchUpcomingMovie() {
-  const response = await fetch(
-    `${API_URL}/movie/upcoming?api_key=${tmdb}&language=en-US&page=1`
-  );
-  const data = await response.json();
-  const movies = data.results;
-  if (movies.length === 0) return null;
-  const randomIndex = Math.floor(Math.random() * movies.length);
-  return movies[randomIndex];
 }
 
-function createMovieMarkup(movie) {
-  return `
-    <img src="${IMAGE_BASE_URL}/${movie.backdrop_path}" alt="${movie.title}">
-    <div class="movie-info">
-      <h3>${movie.title}</h3>
-      <p>Release date: <span>${movie.release_date}</span></p>
-      <p>Vote / Votes: <span>${movie.vote_average} / ${
-    movie.vote_count
-  }</span></p>
-      <p>Popularity: <span>${movie.popularity}</span></p>
-      <p>Genre: <span>${movie.genre_ids.join(', ')}</span></p>
-      <p>${movie.overview}</p>
-      <button id="library-button">${
-        isInLibrary(movie.id) ? 'Remove from my library' : 'Add to my library'
-      }</button>
+function displayMessage(message) {
+  const movieContainer = document.getElementById('movie-container');
+  movieContainer.innerHTML = `<p>${message}</p>`;
+}
+
+function displayMovie(movie) {
+  const movieContainer = document.getElementById('movie-container');
+  const imageUrl = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
+  const releaseDate = new Date(movie.release_date).toLocaleDateString();
+  const genres = movie.genre_ids.map(id => genreMap[id]).join(', ');
+
+  const html = `
+    <div class="upcoming-container" >
+      <div class="upcoming-img">
+        <img class="upcoming-img" src="${imageUrl}" alt="${movie.title}"></div>
+        <div class="movie-details">
+            <h2 class="movie-title">${movie.title}</h2>
+            <p class="detail-item">Release date: <span class="relase-date">${releaseDate}</span></p>
+            <p class="detail-item">Vote / Votes: <span class="vote-count">${movie.vote_count}</span></p>
+            <p class="detail-item">Popularity: <span class="popularity-value">${movie.popularity}</span></p>
+            <p class="genres-item">Genre: <span class="genres">${genres}</span></p>
+            <p class="about">ABOUT</p>
+            <p class="overview">${movie.overview}</p>
+            <button  id="library-btn" data-id="${movie.id}">Add to my library</button>
+        </div>
     </div>
-  `;
+    `;
+
+  movieContainer.innerHTML = html;
+
+  const libraryBtn = document.getElementById('library-btn');
+  libraryBtn.addEventListener('click', () => toggleLibrary(movie.id));
 }
 
-function setupLibraryButton(movie) {
-  const button = document.getElementById('library-button');
-  button.addEventListener('click', () => {
-    const movieId = movie.id;
-    let library = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
-    if (isInLibrary(movieId)) {
-      library = library.filter(id => id !== movieId);
-      button.textContent = 'Add to my library';
-    } else {
-      library.push(movieId);
-      button.textContent = 'Remove from my library';
-    }
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(library));
+function toggleLibrary(movieId) {
+  const library = JSON.parse(localStorage.getItem('myLibrary')) || [];
+  const movieIndex = library.indexOf(movieId);
+
+  if (movieIndex > -1) {
+    library.splice(movieIndex, 1);
+    alert('Removed from my library');
+  } else {
+    library.push(movieId);
+    alert('Added to my library');
+  }
+
+  localStorage.setItem('myLibrary', JSON.stringify(library));
+  updateLibraryButton(movieId);
+}
+
+function updateLibraryButton(movieId) {
+  const library = JSON.parse(localStorage.getItem('myLibrary')) || [];
+  const libraryBtn = document.getElementById('library-btn');
+
+  if (library.includes(movieId)) {
+    libraryBtn.textContent = 'Remove from my library';
+  } else {
+    libraryBtn.textContent = 'Add to my library';
+  }
+}
+
+const genreMap = {};
+tmdb.getMovieGenres().then(genres => {
+  genres.forEach(genre => {
+    genreMap[genre.id] = genre.name;
   });
-}
 
-function isInLibrary(movieId) {
-  const library = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
-  return library.includes(movieId);
-}
+  getUpcomingMovies();
+});
