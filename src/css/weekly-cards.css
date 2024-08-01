@@ -1,51 +1,44 @@
-/* styles.css */
-.weekly .container {
-  width: calc(100% - 64px);
-  margin: 0 32px;
+.card {
+  display: none;
+}
+
+.card:first-child {
+  display: block;
 }
 
 .weekly-text {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 28px;
+  margin: 43px 0 24px 0;
 }
-
 .weekly-text h2 {
   margin: 0;
-  font-size: 28px;
+  font-size: 16px;
   text-transform: uppercase;
 }
-
 .weekly-text a {
-  font-size: 28px;
+  font-size: 16px;
   text-decoration: none;
   color: var(--orange-color);
-  margin-right: 32px;
 }
-
 #weekly-cards {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
 }
-
 .card {
   position: relative;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 395px;
-  height: 574px;
+  width: 280px;
+  height: 406px;
   overflow: hidden;
   transition: transform 0.2s;
 }
-
 .card:hover {
   transform: scale(1.05);
 }
-
 .card img {
   width: 100%;
   height: auto;
@@ -54,7 +47,7 @@
 .card p {
   font-family: var(--font-roboto);
   font-weight: 500;
-  font-size: 20px;
+  font-size: 12px;
 }
 .card h2 {
   margin: 10px 0 5px;
@@ -80,8 +73,6 @@
 }
 
 .card-content h2 {
-  font-size: 1.2em;
-  margin: 10px 0 5px;
   text-align: left;
 }
 
@@ -96,7 +87,6 @@
 .stars {
   display: inline-flex;
   align-items: center;
-  margin-right: 20px;
 }
 
 .star {
@@ -116,3 +106,69 @@
   stroke: url(#star-gradient);
   fill: none;
 }
+
+@media screen and (min-width: 768px) {
+  .weekly-text {
+    margin: 52px 0 24px 0;
+  }
+  .weekly-text h2 {
+    font-size: 24px;
+  }
+  .weekly-text a {
+    font-size: 24px;
+  }
+  #weekly-cards {
+    gap: 15px;
+    flex-wrap: nowrap;
+  }
+  .card {
+    display: block;
+    width: 224px;
+    height: 325px;
+  }
+
+  .card h2,
+  .card p {
+    font-size: 12px;
+  }
+  .card h2 {
+    padding-bottom: 12px;
+  }
+  .stars {
+    margin-left: 22px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .weekly-text {
+    margin: 80px 0 28px 0;
+  }
+  .weekly-text h2 {
+    font-size: 28px;
+  }
+  .weekly-text a {
+    font-size: 28px;
+  }
+  #weekly-cards {
+    gap: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  .card {
+    display: block;
+    width: 395px;
+    height: 574px;
+  }
+  .card h2,
+  .card p {
+    font-size: 20px;
+  }
+  .card-content h2 {
+    margin: 10px 0 5px 0;
+    text-align: left;
+  }
+}
+
+/*@media screen and (min-width: 320px) {
+  overflow-x: auto;
+}*/
