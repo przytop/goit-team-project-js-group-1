@@ -346,7 +346,7 @@
 
   .catalog-movie-list {
     display: flex;
-    gap: 32px 16px;
+    gap: 32px 15px;
     flex-wrap: wrap;
     padding-top: 48px;
   }
@@ -357,10 +357,6 @@
     height: 574px;
     padding-bottom: 32px;
     border-radius: 5px;
-  }
-
-  .catalog-movie-list-item:nth-child(2n) {
-    width: 394px;
   }
 
   .catalog-movie {
