@@ -4,11 +4,16 @@
   | default @import url()
   |============================
 */
+
 @import url('./reset.css');
 @import url('./header.css');
 @import url('./hero.css');
+@import url('./weekly-cards.css');
 @import url('./footer.css');
 @import url('./library.css');
+@import url('./modal-window.css');
+@import url('./my-catalog.css');
+@import url('./modal-window.css');
 
 :root {
   --orange-color: #f87719;
@@ -19,15 +24,29 @@
   --secondary-text: #f8f8f8;
   --white-color: #ffffff;
   --font-roboto: 'Roboto', sans-serif;
+  --gradient-button-1: linear-gradient(45deg, #f87719, #f89f19);
+  --gradient-button-2: linear-gradient(45deg, #f89f19, #f87719);
 
   font-family: var(--font-roboto);
-  color: var(--white-color);
-  background-color: var(--black-color);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+  transition: background-color 1s, color 1s;
+}
+
+body[data-theme='dark'] {
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+body[data-theme='light'] {
+  background-color: var(--white-color);
+  color: var(--black-color);
 }
 
 .is-closed {
@@ -44,7 +63,13 @@
   opacity: 1;
 }
 
-/* .container {}
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 @media screen and () {
   .container {}

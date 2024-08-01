@@ -5,7 +5,6 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My library</title>
-    <link rel="stylesheet" href="./css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,14 +13,17 @@
     />
   </head>
 
-  <body>
+  <body data-theme="dark">
     <load ="partials/header.html" />
+    <load ="partials/hero.html" />
 
     <main>
       <load ="partials/library-partial.html" />
     </main>
 
     <load ="partials/footer.html" />
+    <load ="partials/modal-window.html" />
+    <button class="modal-btn-open" type="button">open backdrop</button>
 
     <script type="module" src="./js/main.js"></script>
   </body>
