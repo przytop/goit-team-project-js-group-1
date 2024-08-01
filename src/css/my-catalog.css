@@ -36,6 +36,13 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.catalog-searchbar {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
 .input-text {
   background-color: var(--black-color);
   width: 188px;
@@ -157,6 +164,13 @@
     align-items: center;
     gap: 0 20px;
   }
+
+  .catalog-searchbar {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
   .input-text {
     background-color: var(--black-color);
     width: 188px;
@@ -277,6 +291,12 @@
     gap: 0 20px;
   }
 
+  .catalog-searchbar {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
+
   .input-text {
     background-color: var(--black-color);
     width: 315px;
@@ -337,6 +357,10 @@
     height: 574px;
     padding-bottom: 32px;
     border-radius: 5px;
+  }
+
+  .catalog-movie-list-item:nth-child(2n) {
+    width: 394px;
   }
 
   .catalog-movie {
