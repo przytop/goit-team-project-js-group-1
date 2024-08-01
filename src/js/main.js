@@ -9,3 +9,4 @@ import './hero';
 import './upcoming-this-month';
 import './catalog';
 import './header';
+import './library.js';

@@ -15,6 +15,7 @@
 @import url('./modal-window.css');
 @import url('./upcoming-this-month.css');
 @import url('scroll-to-top.css');
+@import url('./library.css');
 
 :root {
   --orange-color: #f87719;
