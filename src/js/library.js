@@ -57,7 +57,7 @@ loadMoreButton.addEventListener('click', function () {
 // Event listener for genre selection
 genreSelect.addEventListener('change', function () {
   const selectedGenre = genreSelect.value;
-  renderMovieList(selectedGenre);
+  // renderMovieList(selectedGenre);
 });
 
-renderMovieList();
+// renderMovieList();
