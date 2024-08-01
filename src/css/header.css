@@ -1,7 +1,8 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .header .theme-switcher {
-    position: fixed;
-    top: 20px;
-    right: 20px;
     cursor: pointer;
   }
-  
