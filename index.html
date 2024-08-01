@@ -5,6 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/goit-team-project-js-group-1/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cinemania</title>
+    <script>
+      document.documentElement.setAttribute(
+        'data-theme',
+        localStorage.getItem('theme') || 'dark'
+      );
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,11 +26,11 @@
     />
     
     <script type="module" crossorigin src="/goit-team-project-js-group-1/assets/vendor-f9df95ff.js"></script>
-    <script type="module" crossorigin src="/goit-team-project-js-group-1/assets/main-f1d8f673.js"></script>
-    <link rel="stylesheet" href="/goit-team-project-js-group-1/assets/main-016fc9a8.css">
+    <script type="module" crossorigin src="/goit-team-project-js-group-1/assets/main-64c145c1.js"></script>
+    <link rel="stylesheet" href="/goit-team-project-js-group-1/assets/main-3651d020.css">
   </head>
 
-  <body data-theme="dark">
+  <body>
     <header class="header container">
   <div class="menu">
     <a href="./index.html">Home</a>
@@ -34,7 +40,7 @@
   <div class="theme-switcher">Switch Theme</div>
 </header>
 
-    
+
     <section class="hero container is-closed">
     <div class="hero-text-cont">
         <h2 class="title">Dungeons & Dragons: Honor Among Thieves</h2>
@@ -53,7 +59,7 @@
     </div>
 </section>
 
-    
+
     <main>
       <section></section>
     </main>
@@ -570,7 +576,7 @@
 </body>
 
 </html>
-    
+
     <button class="scroll-up-btn" id="scrollUpBtn">&#9650;</button>
     <!-- <div class="scroll-up-btn" id="scrollUpBtn">&#9650;</div> -->
     <button class="modal-btn-open" type="button">open backdrop</button>
