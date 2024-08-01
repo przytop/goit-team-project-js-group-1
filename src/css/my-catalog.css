@@ -150,7 +150,7 @@
   border: none;
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .search-section {
     display: flex;
     justify-content: center;
@@ -269,7 +269,7 @@
     border: none;
   }
 }
-@media (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
   .search-section {
     display: flex;
     justify-content: center;
