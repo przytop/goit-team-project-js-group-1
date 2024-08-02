@@ -1,20 +1,10 @@
 const switcher = document.querySelector('.theme-switcher');
-const body = document.body;
+const root = document.documentElement;
 
 function switchTheme() {
-  const currentTheme = body.getAttribute('data-theme') || 'dark';
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-  body.setAttribute('data-theme', newTheme);
-
-  // Save the user's preference
-  localStorage.setItem('theme', newTheme);
+  const newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);  // Save the user's preference
 }
 
 switcher.addEventListener('click', switchTheme);
-
-// Apply the saved theme on page load
-document.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme') || 'dark';
-  body.setAttribute('data-theme', savedTheme);
-});
