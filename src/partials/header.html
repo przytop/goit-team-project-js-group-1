@@ -1,8 +1,59 @@
-<header class="header container">
-  <div class="menu">
-    <a href="./index.html">Home</a>
-    <a href="./catalog.html">Catalog</a>
-    <a href="./library.html">My library</a>
+<header class="header">
+  <div class="container">
+    <div class="header-wrap">
+      <div class="header-nav-wrap">
+        <a href="./index.html" class="header-logo-box">
+          <svg class="header-logo">
+            <use href=" "></use>
+          </svg>
+          <span class="header-logo-text">Cinemania</span>
+        </a>
+        <nav class="header-menu">
+          <ul class="header-nav">
+            <li><a class="header-nav-list" href="./index.html">Home</a></li>
+            <li>
+              <a class="header-nav-list" href="./catalog.html">Catalog</a>
+            </li>
+            <li>
+              <a class="header-nav-list" href="./library.html">My library</a>
+            </li>
+          </ul>
+        </nav>
+        <button class="menu-btn" id="menu-btn" type="button">Menu</button>
+      </div>
+      <!-- ============================ SWITCHER ============================  -->
+      <div class="theme-switcher">
+        <div class="toggle-icon">
+          <svg class="moon-icon">
+            <use href=" "></use>
+          </svg>
+          <svg class="sun-icon">
+            <use href=" "></use>
+          </svg>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="theme-switcher">Switch Theme</div>
 </header>
+
+<!-- ============================ MOBILE MENU ============================  -->
+
+<div class="mobile-menu-backdrop" id="mobile-menu-backdrop"></div>
+<div class="mobile-menu-modal" id="mobile-menu-modal">
+  <div class="modal-content">
+    <a href="./index.html" class="modal-logo">
+      <svg class="logo">
+        <use href=" "></use>
+      </svg>
+    </a>
+    <nav class="modal-nav">
+      <ul class="modal-nav-list">
+        <li><a class="mobile-nav-list" href="./index.html">Home</a></li>
+        <li><a class="mobile-nav-list" href="./catalog.html">Catalog</a></li>
+        <li>
+          <a class="mobile-nav-list" href="./library.html">My library</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
