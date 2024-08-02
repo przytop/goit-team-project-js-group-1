@@ -6,7 +6,7 @@
       rgba(0, 0, 0, 0) 76%,
       rgba(0, 0, 0, 0) 100%
     ),
-    url(../img/cinema\ seats.jpg);
+    url(../img/cinema.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -28,7 +28,6 @@ body {
   padding-top: 169px;
   padding-left: 117px;
   width: 550px;
-  font-family: Roboto;
   font-size: 64px;
   font-weight: 700;
   line-height: 75px;
@@ -38,7 +37,6 @@ body {
 .my-library-paragraph {
   padding-left: 117px;
   width: 550px;
-  font-family: Roboto;
   font-size: 16px;
   font-weight: 400;
   line-height: 18.75px;
@@ -54,7 +52,6 @@ body {
   width: 200px;
   padding: 12px;
   font-size: 16px;
-  font-family: Roboto;
   color: var(--white-color);
   background-color: var(--black-color);
   border: solid 1px;
@@ -64,11 +61,6 @@ body {
   -moz-appearance: none;
   cursor: pointer;
   outline: none;
-}
-
-.genre-select option {
-  color: var(--white-color);
-  background-color: #1c1c1c;
 }
 
 .my-library-movie-list {
@@ -111,7 +103,6 @@ body {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  color: var(--white-color);
   display: flex;
   flex-direction: column;
   font-size: 20px;
@@ -123,7 +114,7 @@ body {
 
 .my-library-button {
   border: none;
-  color: #111111;
+  color: var(--black-color);
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   cursor: pointer;
   display: block;
@@ -134,7 +125,6 @@ body {
 
 .my-library-sorry-message {
   padding-top: 80px;
-  font-family: Roboto;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
@@ -166,7 +156,6 @@ body {
   }
 
   .my-library-movie {
-    font-family: Roboto;
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
@@ -174,7 +163,6 @@ body {
   }
 
   .my-library-sorry-message {
-    font-family: Roboto;
     font-size: 24px;
     font-weight: 400;
     line-height: 32px;
@@ -188,7 +176,6 @@ body {
   }
   .my-library-header {
     padding-top: 40px;
-    font-family: Roboto;
     font-size: 32px;
     font-weight: 700;
     line-height: 37.5px;
@@ -196,7 +183,6 @@ body {
     width: 250px;
   }
   .my-library-paragraph {
-    font-family: Roboto;
     font-size: 14px;
     font-weight: 400;
     line-height: 16.41px;
@@ -211,14 +197,12 @@ body {
     height: 408px;
   }
   .my-library-movie {
-    font-family: Roboto;
     font-size: 12px;
     font-weight: 500;
     line-height: 20px;
     text-align: left;
   }
   .my-library-sorry-message {
-    font-family: Roboto;
     font-size: 20px;
     font-weight: 400;
     line-height: 28px;
