@@ -1,9 +1,3 @@
-:root {
-  --black-color: #111111;
-  --orange-color: #f87719;
-  --loader-width: 5vmin;
-}
-
 loader {
   display: none;
   position: relative;
