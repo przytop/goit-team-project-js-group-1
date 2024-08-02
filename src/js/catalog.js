@@ -30,3 +30,34 @@ const trending = tmdb.getTrendingMovies('week').then(result => {
   console.log(result);
   return result;
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.querySelector('.input-text');
+  const sorryMessage = document.querySelector('.catalog-sorry-message');
+  const movieListItems = document.querySelectorAll('.catalog-movie-list-item');
+
+  sorryMessage.style.display = 'none'; // Ukryj wiadomość na początku
+
+  input.addEventListener('input', function () {
+    const query = input.value.toLowerCase();
+    let hasResults = false;
+
+    movieListItems.forEach(item => {
+      const title = item
+        .querySelector('.catalog-movie-title')
+        .textContent.toLowerCase();
+      if (title.includes(query)) {
+        item.style.display = ''; // Pokaż element
+        hasResults = true;
+      } else {
+        item.style.display = 'none'; // Ukryj element
+      }
+    });
+
+    if (!hasResults) {
+      sorryMessage.style.display = 'block'; // Pokaż wiadomość
+    } else {
+      sorryMessage.style.display = 'none'; // Ukryj wiadomość
+    }
+  });
+});
