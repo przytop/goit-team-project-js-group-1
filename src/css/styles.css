@@ -14,6 +14,7 @@
 @import url('./modal-window.css');
 @import url('./my-catalog.css');
 @import url('./modal-window.css');
+@import url('scroll-to-top.css');
 
 :root {
   --orange-color: #f87719;
@@ -35,16 +36,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body {
+html {
   transition: background-color 1s, color 1s;
 }
 
-body[data-theme='dark'] {
+html[data-theme='dark'] {
   background-color: var(--black-color);
   color: var(--white-color);
 }
 
-body[data-theme='light'] {
+html[data-theme='light'] {
   background-color: var(--white-color);
   color: var(--black-color);
 }
@@ -64,7 +65,7 @@ body[data-theme='light'] {
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 320px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
@@ -73,5 +74,19 @@ body[data-theme='light'] {
 
 @media screen and () {
   .container {
+  .container {}
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
   }
 }
