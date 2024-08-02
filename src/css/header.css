@@ -38,7 +38,6 @@
   font-size: 12px;
   text-transform: uppercase;
   text-align: center;
-  color: var(--grey-color);
   margin-left: 92px;
 }
 
@@ -68,7 +67,6 @@
     margin-left: 8px;
     display: block;
     font-size: 24px;
-    color: var(--white-color);
   }
 
   .header-nav {
@@ -81,7 +79,6 @@
     font-weight: 500;
     font-size: 14px;
     text-align: center;
-    color: var(--grey-color);
     display: block;
     font-family: var(--font-roboto);
     text-transform: uppercase;
@@ -144,7 +141,6 @@
   left: -100%;
   width: 65%;
   height: 100%;
-  background-color: #171717;
   z-index: 1000;
   transition: left 0.3s ease-in;
 }
@@ -183,7 +179,6 @@
   font-size: 14px;
   text-transform: uppercase;
   text-align: left;
-  color: var(--white-color);
   transition: color 400ms;
   cursor: pointer;
 }
@@ -215,4 +210,40 @@
   .mobile-menu-backdrop {
     background-color: transparent;
   }
+}
+
+/* Styles for light theme */
+html[data-theme='light'] .header-nav-list,
+html[data-theme='light'] .menu-btn {
+  color: var(--grey-white-theme-color);
+}
+
+html[data-theme='light'] .header-logo-text {
+  color: var(--black-secondary-color);
+}
+
+html[data-theme='light'] .mobile-menu-modal {
+  background-color: var(--secondary-text);
+}
+
+html[data-theme='light'] .header-nav-list.active,
+html[data-theme='light'] .menu-btn:hover,
+html[data-theme='light'] .menu-btn:focus {
+  color: var(--orange-color);
+}
+
+/* Styles for dark theme */
+html[data-theme='dark'] .header-nav-list,
+html[data-theme='dark'] .menu-btn {
+  color: var(--grey-color);
+}
+
+html[data-theme='dark'] .header-nav-list.active,
+html[data-theme='dark'] .menu-btn:hover,
+html[data-theme='dark'] .menu-btn:focus {
+  color: var(--orange-color);
+}
+
+html[data-theme='dark'] .mobile-menu-modal {
+  background-color: #171717;
 }
