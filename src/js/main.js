@@ -6,3 +6,5 @@ import './modal-window';
 import './local-movie-manager';
 import './footer';
 import './hero';
+import './catalog';
+import './header';
