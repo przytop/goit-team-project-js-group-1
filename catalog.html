@@ -26,8 +26,8 @@
     />
     
     <script type="module" crossorigin src="/goit-team-project-js-group-1/assets/vendor-f9df95ff.js"></script>
-    <script type="module" crossorigin src="/goit-team-project-js-group-1/assets/main-5f49713b.js"></script>
-    <link rel="stylesheet" href="/goit-team-project-js-group-1/assets/main-846abfb3.css">
+    <script type="module" crossorigin src="/goit-team-project-js-group-1/assets/main-4aa061e1.js"></script>
+    <link rel="stylesheet" href="/goit-team-project-js-group-1/assets/main-d20e5216.css">
   </head>
 
   <body>
@@ -114,16 +114,9 @@
     <main>
       <section>
         <section class="my-catalog-section container">
+  <div class="catalog-searchbar">
   <div class="search-section">
     <form class="search-form">
-      <input
-        class="input-text"
-        type="text"
-        name="query"
-        autocomplete="off"
-        placeholder="Search"
-        required
-      />
       <select class="input-year" required>
         <option value="2023" class="year">2023</option>
         <option value="2022" class="year">2022</option>
@@ -135,8 +128,21 @@
         <option value="2016" class="year">2016</option>
         <option value="2015" class="year">2015</option>
       </select>
+      <input
+        class="input-text"
+        type="text"
+        name="query"
+        autocomplete="off"
+        placeholder="Search"
+        required
+      />
+     
     </form>
-      <button class="catalog-button" type="submit"></button>
+  </div>
+  <div class="button-section">
+      <button class="catalog-button" type="submit"><img src="/goit-team-project-js-group-1/assets/search 3-7f6ea248.svg" alt="search" class="search-icon"></button>
+      
+    </div>
   </div>
   <ul class="catalog-movie-list">
     <li class="catalog-movie-list-item">
@@ -152,8 +158,7 @@
               <img src="/goit-team-project-js-group-1/assets/star-half-f09f895a.svg" alt="star" class="star">
               </span>
           </span>
-        </div></a
-      >
+        </div></a>
     </li>
 
     <li class="catalog-movie-list-item">
@@ -243,13 +248,13 @@
     We don't have any results matching your search.
   </p>
   <div class="catalog-pages">
-    <button type="button" class="arrow-button"></button>
+    <button type="button" class="arrow-button"><img src="/goit-team-project-js-group-1/assets/vector-b1195691.svg" alt="vector" class="vector-icon-left"></button>
     <button type="button" class="page-number-button">01</button>
     <button type="button" class="page-number-button">02</button>
     <button type="button" class="page-number-button">03</button>
     <p>...</p>
     <button type="button" class="page-number-button">24</button>
-    <button type="button" class="arrow-button"></button>
+    <button type="button" class="arrow-button"><img src="/goit-team-project-js-group-1/assets/vector-right-a151c7e0.svg" alt="vector" class="vector-icon-right"></button>
   </div>
 </section>
 
