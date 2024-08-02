@@ -23,6 +23,7 @@ async function getUpcomingMovies() {
     }
   } catch (error) {
     console.error('Failed to fetch upcoming movies:', error);
+    displayMessage('Failed to fetch upcoming movies. Please try again later');
   }
 }
 
