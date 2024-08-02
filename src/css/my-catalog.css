@@ -4,11 +4,10 @@
 }
 
 .star {
-  width: 1em;
-  height: 1em;
+  width: 14px;
+  height: 14px;
   display: inline-block;
   vertical-align: middle;
-  margin-left: 0.1em;
 }
 
 .catalog-movie-picture {
@@ -123,7 +122,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
+  color: var(--grey-color);
+  font-weight: bold;
 }
 
 .catalog-pages {
@@ -152,7 +153,7 @@
 }
 
 .page-number-button:active {
-  background-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   color: var(--white-color);
   font-weight: 400;
   border: none;
@@ -180,6 +181,13 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
+  .star {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
   .search-section {
     display: flex;
     justify-content: center;
@@ -272,6 +280,12 @@
 
   .catalog-movie-genres {
     font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: var(--grey-color);
+    font-weight: bold;
   }
 
   .catalog-pages {
@@ -298,7 +312,7 @@
   }
 
   .page-number-button:active {
-    background-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+    background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
     color: var(--white-color);
     font-size: 14px;
     font-weight: 400;
@@ -326,6 +340,13 @@
   }
 }
 @media screen and (min-width: 1280px) {
+  .star {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
   .search-section {
     display: flex;
     justify-content: center;
