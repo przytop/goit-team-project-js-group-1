@@ -1,3 +1,4 @@
+import './library';
 import './switch-theme';
 import './tmdb-api';
 import './weekly-trends';
@@ -9,4 +10,3 @@ import './hero';
 import './upcoming-this-month';
 import './catalog';
 import './header';
-import './library.js';
