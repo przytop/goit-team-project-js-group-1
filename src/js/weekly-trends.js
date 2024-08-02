@@ -49,8 +49,13 @@ document.addEventListener('DOMContentLoaded', async function () {
         ),
       ].join('');
 
+      card.style.backgroundImage = `url(${imageUrl})`;
+      card.style.backgroundSize = 'cover';
+      card.style.backgroundPosition = 'center';
+      card.style.height = '574px';
+      card.style.color = 'var(--white-color)';
+
       card.innerHTML = `
-        <img src="${imageUrl}" alt="${title}">
         <div class="card-content">
           <h2>${title}</h2>
           <p>${genreNames} | ${releaseDate} <span class="stars">${stars}</span></p>
