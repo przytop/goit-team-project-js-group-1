@@ -24,8 +24,6 @@ const search = async text => {
   }
 };
 
-trending('week');
-
 const trending = tmdb.getTrendingMovies('week').then(result => {
   console.log(result);
   return result;
