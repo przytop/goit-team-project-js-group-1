@@ -3,7 +3,8 @@
     height: 428px;
     background-image:
         linear-gradient(to left, rgba(17, 17, 17, 0) 10%, rgba(17, 17, 17, 1) 66%),
-        url("/img/hero-phone-2.png");
+        url("/img/hero-2-mobile@2x.jpg"),
+        url("/img/hero-2-mobile.jpg");
     background-size: cover;
     background-position: center;
     margin-bottom: 40px;
@@ -13,13 +14,15 @@
     width: 320px;
     height: 429px;
     background-image:
-        url("/img/hero-phone.png");
+        url("/img/hero-1-mobile@2x.jpg"),
+        url("/img/hero-1-mobile.jpg");
     margin-bottom: 40px;
 }
 
 .hero-text-cont {
     width: 242px;
     height: 286px;
+    padding-top: 40px;
 }
 
 .default-text-cont {
@@ -31,7 +34,7 @@
 .cinema-cont {
     width: 199px;
     height: 260px;
-    padding-top: 80px;
+    padding-top: 40px
 }
 
 .title,
@@ -145,33 +148,6 @@
     justify-content: space-between;
 }
 
-@media (min-width: 320px) {
-
-    .hero-default {
-        width: 768px;
-        height: 434px;
-        background-image: url("/img/hero-phone.png");
-        background-position: center;
-        margin-bottom: 52px;
-    }
-    
-    .title {
-        width: 445px;
-        font-size: 44px;
-        line-height: 51.56px;
-    }
-    
-    .star-rating img {
-        width: 20px;
-    }
-    
-    .desc {
-        width: 254px;
-        height: 49px;
-        margin-bottom: 28px;
-    }
-}
-
 @media (min-width: 768px) {
 
     .hero {
@@ -179,7 +155,8 @@
         height: 432px;
         background-image:
             linear-gradient(270deg, rgba(89, 130, 252, 0) 30%, rgba(0, 0, 0, 1) 62%),
-            url("/img/hero-tablet-2.png");
+            url("/img/hero-2-tablet@2x.jpg"),
+            url("/img/hero-2-tablet.jpg");
         background-position: -95%;
         margin-bottom: 80px;
     }
@@ -187,16 +164,16 @@
     .hero-default {
         width: 768px;
         height: 432px;
-        background-image: url("/img/hero-desktop.png");
+        background-image: url("/img/hero-1-tablet@2x.jpg"), url("/src/img/hero-1-tablet.jpg");
         background-position: 80%;
         margin-bottom: 80px;
     }
     
     .title {
-        max-width: 670px;
+        width: 482px;
         padding-bottom: 16px;
-        font-size: 64px;
-        line-height: 75px;
+        font-size: 44px;
+        line-height: 51.56px;
     }
 
     .title-default {
@@ -244,11 +221,11 @@
     }
     
     .desc {
-        width: 367px;
-        height: 58px;
-        margin-bottom: 36px;
-        font-size: 16px;
-        line-height: 18.75px;
+        width: 254px;
+        height: 49px;
+        margin-bottom: 28px;
+        font-size: 14px;
+        line-height: 16.41px;
         overflow: hidden;
         text-overflow: ellipsis;
     }
@@ -278,16 +255,18 @@
         width: 100vw;
         height: 720px;
         background-image:
-            linear-gradient(270deg, rgba(89, 130, 252, 0) 10%, rgba(0, 0, 0, 1) 62%),
-            url("/img/hero-desktop-2.png");
+            linear-gradient(270deg, rgba(89, 130, 252, 0) 30%, rgba(0, 0, 0, 1) 62%),
+            url("/img/hero-2-desktop@2x.jpg"),
+            url("/img/hero-2-desktop.jpg");
         background-size: cover;
         background-position: -95%;
+
     }
 
     .hero-default {
         width: 100vw;
         height: 720px;
-        background-image: url("/img/hero-desktop.png");
+        background-image: url("/img/hero-1-desktop@2x.jpg"), url("/img/hero-1-desktop.jpg");
         background-size: cover;
         background-position: -95%;
         margin-bottom: 80px;
@@ -320,7 +299,7 @@
     .cinema-cont {
         width: 464px;
         height: 242px;
-        padding-top: 229px;
+        padding-top: 158px;
     }
     
     .cinema-title {
@@ -328,7 +307,6 @@
         height: 150px;
         font-size: 64px;
         line-height: 75px;
-        margin-left: 117px;
     }
     
     .cinema-desc {
@@ -336,7 +314,7 @@
         height: 76px;
         font-size: 16px;
         line-height: 18.75px;
-        margin-left: 117px;
+        
     }
     
     .title {
