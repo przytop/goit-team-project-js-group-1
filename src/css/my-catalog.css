@@ -36,19 +36,25 @@
   align-items: center;
 }
 
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
 .catalog-searchbar {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 10px;
 }
 
 .input-text {
   background-color: var(--black-color);
-  width: 188px;
+  width: 150px;
   height: 40px;
   padding: 12px;
   font-size: 14px;
-  gap: 10px;
   border-radius: 8px;
   border: solid var(--white-color) 1px;
   color: var(--grey-color);
@@ -56,13 +62,13 @@
 
 .input-year {
   background-color: var(--black-color);
-  width: 95px;
+  width: 65px;
   height: 40px;
   border-radius: 8px;
   border: solid var(--white-color) 1px;
   color: var(--grey-color);
   font-size: 14px;
-  padding: 12px;
+  padding: 3px;
   font-weight: 500;
 }
 
@@ -159,11 +165,21 @@
   border: none;
 }
 
+.page-number-button-between {
+  background-color: var(--black-color);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  color: var(--grey-color);
+  font-size: 14px;
+}
+
 .search-icon {
   width: 20px;
   height: 20px;
   position: relative;
-  left: 12px;
+  left: 10px;
 }
 
 .vector-icon-left {
@@ -193,6 +209,13 @@
     justify-content: center;
     align-items: center;
     gap: 0 20px;
+  }
+
+  .search-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
   }
 
   .catalog-searchbar {
@@ -318,6 +341,17 @@
     font-weight: 400;
     border: none;
   }
+
+  .page-number-button-between {
+    background-color: var(--black-color);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    color: var(--grey-color);
+    font-size: 14px;
+  }
+
   .search-icon {
     width: 20px;
     height: 20px;
@@ -352,6 +386,13 @@
     justify-content: center;
     align-items: center;
     gap: 0 20px;
+  }
+
+  .search-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
   }
 
   .catalog-searchbar {
@@ -469,6 +510,23 @@
     font-weight: 400;
     border: none;
   }
+}
+
+.page-number-button-between {
+  background-color: var(--black-color);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  color: var(--grey-color);
+  font-size: 14px;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: 12px;
 }
 
 .vector-icon-left {
