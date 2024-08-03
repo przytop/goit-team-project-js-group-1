@@ -75,11 +75,16 @@ const loadHeroContent = async () => {
 
 const displayDefaultHero = () => {
   const hero = document.getElementById("hero-section");
-  hero.classList.add("hero-default")
-  const heroTextCont = document.querySelector('.hero-text-cont');
-  heroTextCont.innerHTML = `
+  const textCont = document.getElementById("text-cont");
+  hero.classList.add("hero-default");
+  textCont.classList.remove("hero-text-cont");
+  textCont.classList.add("default-text-cont");
+  const defaultTextCont = document.querySelector('.default-text-cont');
+  defaultTextCont.innerHTML = `
     <h2 class="title-default">Let’s Make Your Own Cinema</h2>
-    <p class="desc-default">Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.</p>
+    <p class="desc-default">Is a guide to creating a personalized movie theater experience. 
+    You'll need a projector, screen, and speakers. 
+    Decorate your space, choose your films, and stock up on snacks for the full experience.</p>
     <button class="get-started-btn" onclick="location.href='/catalog.html'">Get started</button>
   `;
 };
