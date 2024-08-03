@@ -16,7 +16,10 @@ const test = async () => {
   }
 };
 
+test();
+
 const displayMovieInfo = (movie) => {
+  const hero = document.getElementById("hero-section");
   const heroTextCont = document.querySelector('.hero-text-cont');
   heroTextCont.innerHTML = `
     <h2 class="title">${movie.title}</h2>
@@ -29,6 +32,12 @@ const displayMovieInfo = (movie) => {
       <button class="details-btn" onclick="showDetails(${movie.id})">More details</button>
     </div>
   `;
+
+  const imageUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
+  
+  hero.style.backgroundImage = `linear-gradient(270deg, rgba(89, 130, 252, 0) 5%, rgba(0, 0, 0, 1) 65%), url(${imageUrl})`, innerWidth;
+  hero.style.backgroundPosition = "center"
+
 };
 
 const getStarRatingHTML = (voteAverage) => {
@@ -61,8 +70,8 @@ const showDetails = (movieId) => {
 const loadHeroContent = async () => {
   try {
     const movies = await tmdb.getTrendingMovies('day');
-    if (movies.results.length > 0) {
-      const randomMovie = movies.results[Math.floor(Math.random() * movies.results.length)];
+    if (movies.length > 0) {
+      const randomMovie = movies[Math.floor(Math.random() * movies.length)];
       displayMovieInfo(randomMovie);
     } else {
       displayDefaultHero();

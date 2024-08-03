@@ -17,6 +17,11 @@
     margin-bottom: 40px;
 }
 
+.hero-text-cont {
+    width: 242px;
+    height: 286px;
+}
+
 .default-text-cont {
     width: 242px;
     height: 286px;
@@ -188,7 +193,7 @@
     }
     
     .title {
-        width: 670px;
+        max-width: 670px;
         padding-bottom: 16px;
         font-size: 64px;
         line-height: 75px;
@@ -286,6 +291,10 @@
         background-size: cover;
         background-position: -95%;
         margin-bottom: 80px;
+    }
+    
+    .hero-text-cont {
+        padding-left: 135px;
     }
 
     .title-default {
