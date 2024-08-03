@@ -26,7 +26,7 @@
 .cinema-cont {
     width: 199px;
     height: 260px;
-    padding-top: 88px;
+    padding-top: 80px;
 }
 
 .title,
@@ -305,6 +305,7 @@
     .default-text-cont {
         width: 357px;
         height: 176px;
+        padding-left: 135px;
     }
 
     .cinema-cont {
