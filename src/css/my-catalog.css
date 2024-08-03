@@ -100,6 +100,7 @@
   gap: 16px;
   flex-wrap: wrap;
   padding-top: 16px;
+  margin-bottom: 20px;
 }
 
 .catalog-movie-list-item {
@@ -163,6 +164,11 @@
   color: var(--white-color);
   font-weight: 400;
   border: none;
+}
+
+.button-section {
+  display: flex;
+  align-items: center;
 }
 
 .page-number-button-between {
@@ -278,6 +284,7 @@
     gap: 16px;
     flex-wrap: wrap;
     padding-top: 36px;
+    margin-bottom: 44px;
   }
 
   .catalog-movie-list-item {
@@ -356,7 +363,7 @@
     width: 20px;
     height: 20px;
     position: relative;
-    left: 12px;
+    left: 14px;
   }
 
   .vector-icon-left {
@@ -453,6 +460,7 @@
     gap: 32px 15px;
     flex-wrap: wrap;
     padding-top: 48px;
+    margin-bottom: 60px;
   }
 
   .catalog-movie-list-item {
