@@ -1,27 +1,70 @@
 .hero {
     width: 320px;
-    height: 429px;
+    height: 428px;
     background-image:
         linear-gradient(to left, rgba(17, 17, 17, 0) 10%, rgba(17, 17, 17, 1) 66%),
-        url("/img/image.png");
+        url("/img/hero-phone-2.png");
     background-size: cover;
     background-position: center;
+    margin-bottom: 40px;
+}
+
+.hero-default {
+    width: 320px;
+    height: 429px;
+    background-image:
+        url("/img/hero-phone.png");
+    margin-bottom: 40px;
 }
 
 .hero-text-cont {
     width: 242px;
     height: 286px;
-    padding-top: 88px;
-    margin-left: 20px;
 }
 
-.title {
+.default-text-cont {
+    width: 242px;
+    height: 286px;
+    padding-top: 88px;
+}
+
+.cinema-cont {
+    width: 199px;
+    height: 260px;
+    padding-top: 80px;
+}
+
+.title,
+.cinema-title {
     width: 232px;
     padding-bottom: 12px;
     font-size: 32px;
     font-weight: 700;
     line-height: 37.5px;
     text-align: left;
+    color: var(--white-color);
+}
+
+.title-default {
+    width: 199px;
+    padding-bottom: 8px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 37.5px;
+    text-align: left;
+    color: var(--white-color);
+}
+
+.desc-default {
+    width: 166px;
+    height: 80px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.41px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: var(--white-color);
 }
 
@@ -44,7 +87,20 @@
     color: var(--white-color);
 }
 
-.watch-btn {
+.cinema-desc {
+    width: 249px;
+    height: 112px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.41px;
+    text-align: left;
+    text-overflow: ellipsis;
+    color: var(--white-color);
+}
+
+.watch-btn,
+.get-started-btn {
     width: 117px;
     height: 38px;
     border-radius: 74px;
@@ -58,7 +114,8 @@
     transition: all .2s;
 }
 
-.watch-btn:active {
+.watch-btn:active,
+.get-started-btn:active {
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -88,22 +145,14 @@
     justify-content: space-between;
 }
 
-@media (min-width: 321px) {
-    .hero {
+@media (min-width: 320px) {
+
+    .hero-default {
         width: 768px;
         height: 434px;
-        background-image:
-            linear-gradient(270deg, rgba(89, 130, 252, 0) 10%, rgba(0, 0, 0, 1) 66%),
-            url("/img/image.png");
-        background-size: cover;
-        background-position: -80%;
-    }
-
-    .hero-text-cont {
-        width: 445px;
-        height: 273px;
-        padding-top: 96px;
-        margin-left: 32px;
+        background-image: url("/img/hero-phone.png");
+        background-position: center;
+        margin-bottom: 52px;
     }
     
     .title {
@@ -123,28 +172,71 @@
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
+
     .hero {
-        width: 1280px;
-        height: 722px;
+        width: 768px;
+        height: 432px;
         background-image:
-            linear-gradient(270deg, rgba(89, 130, 252, 0) 10%, rgba(0, 0, 0, 1) 62%),
-            url("/img/image.png");
+            linear-gradient(270deg, rgba(89, 130, 252, 0) 30%, rgba(0, 0, 0, 1) 62%),
+            url("/img/hero-tablet-2.png");
         background-position: -95%;
+        margin-bottom: 80px;
     }
 
-    .hero-text-cont {
-        width: 670px;
-        height: 361px;
-        padding-top: 178px;
-        margin-left: 135px;
+    .hero-default {
+        width: 768px;
+        height: 432px;
+        background-image: url("/img/hero-desktop.png");
+        background-position: 80%;
+        margin-bottom: 80px;
     }
     
     .title {
-        width: 670px;
+        max-width: 670px;
         padding-bottom: 16px;
         font-size: 64px;
         line-height: 75px;
+    }
+
+    .title-default {
+        width: 332px;
+        height: 104px;
+        font-size: 44px;
+        line-height: 51.56px;
+        margin-bottom: 16px;
+    }
+
+    .desc-default {
+        width: 357px;
+        height: 64px;
+        font-size: 14px;
+        line-height: 16.41px;
+        overflow: visible;
+        margin-bottom: 32px;
+    }
+
+    .default-text-cont {
+        width: 357px;
+        height: 176px;
+    }
+
+    .cinema-cont {
+        width: 357px;
+        height: 192px;
+    }
+
+    .cinema-title {
+        width: 332px;
+        height: 104px;
+        font-size: 44px;
+        line-height: 51.56px;
+        text-align: left;
+        margin-bottom: 8px;
+    }
+
+    .cinema-desc {
+        width: 357px;
     }
     
     .star-rating img {
@@ -172,64 +264,79 @@
         width: 139px;
         height: 48px;
     }
-
-    .watch-btn:hover,
-    .details-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-       }
        
     .watch-btn:active,
     .details-btn:active {
         transform: translateY(-1px);
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     }
-       
-    .watch-btn::after,
-    .details-btn::after {
-        content: "";
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        border-radius: 100px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: all .4s;
-    }
-       
-    .watch-btn::after {
-        background-color: #FFC226;
-    }
-
-    .details-btn::after {
-        background-color: #fff;
-       }
-       
-    .watch-btn:hover::after,
-    .details-btn:hover::after {
-        transform: scaleX(1.4) scaleY(1.6);
-        opacity: 0;
-    }
 } 
 
-@media (min-width: 1281px) {
+@media (min-width: 1280px) {
+
     .hero {
         width: 100vw;
         height: 720px;
         background-image:
             linear-gradient(270deg, rgba(89, 130, 252, 0) 10%, rgba(0, 0, 0, 1) 62%),
-            url("/img/image.png");
+            url("/img/hero-desktop-2.png");
         background-size: cover;
         background-position: -95%;
     }
 
+    .hero-default {
+        width: 100vw;
+        height: 720px;
+        background-image: url("/img/hero-desktop.png");
+        background-size: cover;
+        background-position: -95%;
+        margin-bottom: 80px;
+    }
+    
     .hero-text-cont {
-        width: 670px;
-        height: 361px;
-        padding-top: 178px;
-        margin-left: 135px;
+        padding-left: 135px;
+    }
+
+    .title-default {
+        width: 464px;
+        height: 150px;
+        font-size: 64px;
+        line-height: 75px;
+    }
+
+    .desc-default {
+        width: 464px;
+        height: 76px;
+        font-size: 16px;
+        line-height: 18.75px;
+    }
+
+    .default-text-cont {
+        width: 357px;
+        height: 176px;
+        padding-left: 135px;
+    }
+
+    .cinema-cont {
+        width: 464px;
+        height: 242px;
+        padding-top: 229px;
+    }
+    
+    .cinema-title {
+        width: 464px;
+        height: 150px;
+        font-size: 64px;
+        line-height: 75px;
+        margin-left: 117px;
+    }
+    
+    .cinema-desc {
+        width: 464px;
+        height: 76px;
+        font-size: 16px;
+        line-height: 18.75px;
+        margin-left: 117px;
     }
     
     .title {
@@ -238,7 +345,7 @@
         font-size: 64px;
         line-height: 75px;
     }
-    
+
     .star-rating img {
         width: 24px;
     }
