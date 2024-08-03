@@ -75,13 +75,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     function displayGenres() {
       const screenWidth = window.innerWidth;
-      let genresToShow = 2; // Domyślnie pokazujemy 2 gatunki
+      let genresToShow = 2;
 
       if (screenWidth <= 600) {
-        genresToShow = 1; // Na mobilnych pokazujemy 1 gatunek
+        genresToShow = 1;
       }
 
-      movieCardsContainer.innerHTML = ''; // Wyczyść istniejące karty
+      movieCardsContainer.innerHTML = '';
 
       movies.slice(0, 3).forEach(async movie => {
         const card = document.createElement('div');
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         const genresList = await tmdb.getMovieGenres();
         const genreNames = movie.genre_ids
-          .slice(0, genresToShow) // Pokazuj odpowiednią ilość gatunków
+          .slice(0, genresToShow)
           .map(id => {
             const genre = genresList.find(g => g.id === id);
             const genreName = genre ? genre.name : 'Unknown';
@@ -138,10 +138,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       });
     }
 
-    // Wywołaj funkcję po załadowaniu strony
     displayGenres();
 
-    // Dodaj nasłuchiwacz, który wywoła funkcję po zmianie rozmiaru okna
     window.addEventListener('resize', displayGenres);
   } catch (error) {
     console.error('Error fetching data:', error);
