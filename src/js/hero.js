@@ -16,8 +16,6 @@ const test = async () => {
   }
 };
 
-test();
-
 const displayMovieInfo = (movie) => {
   const hero = document.getElementById("hero-section");
   const heroTextCont = document.querySelector('.hero-text-cont');
