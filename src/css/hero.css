@@ -3,7 +3,8 @@
     height: 428px;
     background-image:
         linear-gradient(to left, rgba(17, 17, 17, 0) 10%, rgba(17, 17, 17, 1) 66%),
-        url("/img/hero-phone-2.png");
+        url("/img/hero-2-mobile@2x.jpg"),
+        url("/img/hero-2-mobile.jpg");
     background-size: cover;
     background-position: center;
     margin-bottom: 40px;
@@ -13,7 +14,8 @@
     width: 320px;
     height: 429px;
     background-image:
-        url("/img/hero-phone.png");
+        url("/img/hero-1-mobile@2x.jpg"),
+        url("/img/hero-1-mobile.jpg");
     margin-bottom: 40px;
 }
 
@@ -153,7 +155,8 @@
         height: 432px;
         background-image:
             linear-gradient(270deg, rgba(89, 130, 252, 0) 30%, rgba(0, 0, 0, 1) 62%),
-            url("/img/hero-tablet-2.png");
+            url("/img/hero-2-tablet@2x.jpg"),
+            url("/img/hero-2-tablet.jpg");
         background-position: -95%;
         margin-bottom: 80px;
     }
@@ -161,7 +164,7 @@
     .hero-default {
         width: 768px;
         height: 432px;
-        background-image: url("/img/hero-desktop.png");
+        background-image: url("/img/hero-1-tablet@2x.jpg"), url("/src/img/hero-1-tablet.jpg");
         background-position: 80%;
         margin-bottom: 80px;
     }
@@ -252,8 +255,9 @@
         width: 100vw;
         height: 720px;
         background-image:
-            linear-gradient(270deg, rgba(89, 130, 252, 0) 10%, rgba(0, 0, 0, 1) 62%),
-            url("/img/hero-desktop-2.png");
+            linear-gradient(270deg, rgba(89, 130, 252, 0) 30%, rgba(0, 0, 0, 1) 62%),
+            url("/img/hero-2-desktop@2x.jpg"),
+            url("/img/hero-2-desktop.jpg");
         background-size: cover;
         background-position: -95%;
 
@@ -262,7 +266,7 @@
     .hero-default {
         width: 100vw;
         height: 720px;
-        background-image: url("/img/hero-desktop.png");
+        background-image: url("/img/hero-1-desktop@2x.jpg"), url("/img/hero-1-desktop.jpg");
         background-size: cover;
         background-position: -95%;
         margin-bottom: 80px;
