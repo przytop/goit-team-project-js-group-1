@@ -2,7 +2,7 @@ import TmdbApi from './tmdb-api.js';
 import Library from './local-movie-manager.js';
 
 const tmdb = new TmdbApi();
-const library = new Library();
+const library = new Library('myLibrary');
 
 async function getUpcomingMovies() {
   try {
@@ -47,10 +47,16 @@ function displayMovie(movie) {
       </div>
       <div class="movie-details">
         <h2 class="movie-title">${movie.title}</h2>
-        <p class="detail-item">Release date: <span class="release-date">${releaseDate}</span></p>
-        <p class="detail-item">Vote / Votes: <span class="vote-count">${movie.vote_count}</span></p>
-        <p class="detail-item">Popularity: <span class="popularity-value">${movie.popularity}</span></p>
-        <p class="genres-item">Genre: <span class="genres">${genres}</span></p>
+          <div class="info-item">
+            <div class="">
+            <p class="detail-item">Release date:<span class="relase-date">${releaseDate}</span></p>
+            <p class="detail-item">Vote / Votes:<span class="vote-count">${movie.vote_count}</span></p>
+            </div>
+            <div  class="">
+            <p class="detail-item">Popularity:<span class="popularity-value">${movie.popularity}</span></p>
+            <p class="genre-item">Genre:<span class="genre">${genres}</span></p>
+            </div>
+          </div>
         <p class="about">ABOUT</p>
         <p class="overview">${movie.overview}</p>
         <button id="library-btn" data-id="${movie.id}">Add to my library</button>
@@ -67,10 +73,9 @@ function displayMovie(movie) {
 
 function toggleLibrary(movie) {
   const movieId = movie.id;
-  const libraryMovies = library.getMovies();
-  const movieIndex = libraryMovies.findIndex(ele => ele.id === movieId);
+  const isInLibrary = library.getMovies().some(m => m.id === movieId);
 
-  if (movieIndex > -1) {
+  if (isInLibrary) {
     library.removeMovie(movieId);
     alert('Removed from my library');
   } else {
@@ -82,10 +87,10 @@ function toggleLibrary(movie) {
 }
 
 function updateLibraryButton(movieId) {
-  const libraryMovies = library.getMovies();
+  const isInLibrary = library.getMovies().some(m => m.id === movieId);
   const libraryBtn = document.getElementById('library-btn');
 
-  if (libraryMovies.some(movie => movie.id === movieId)) {
+  if (isInLibrary) {
     libraryBtn.textContent = 'Remove from my library';
   } else {
     libraryBtn.textContent = 'Add to my library';
