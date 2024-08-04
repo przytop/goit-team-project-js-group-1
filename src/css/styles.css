@@ -49,7 +49,9 @@ html[data-theme='light'] {
   background-color: var(--white-color);
   color: var(--black-color);
 }
-
+.custom-cursor {
+  cursor: url('../img/cursor-arrow-2.png'), auto;
+}
 .is-closed {
   display: none;
 }

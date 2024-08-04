@@ -54,7 +54,6 @@
   margin: 10px 0 5px;
   text-align: center;
   text-transform: uppercase;
-  padding-bottom: 8px;
 }
 
 .card p {
@@ -132,9 +131,6 @@
   .card h2,
   .card p {
     font-size: 12px;
-  }
-  .card h2 {
-    padding-bottom: 12px;
   }
   .stars {
     margin-left: 22px;
