@@ -1,6 +1,3 @@
-.header .theme-switcher {
-  cursor: pointer;
-}
 .header {
   padding-top: 8px;
   padding-bottom: 8px;
@@ -58,6 +55,7 @@
   .header-logo-box {
     gap: 8px;
   }
+
   .header-logo {
     width: 48px;
     height: 48px;
@@ -83,7 +81,6 @@
     font-family: var(--font-roboto);
     text-transform: uppercase;
     transition: color 400ms;
-    cursor: pointer;
   }
 
   .header-nav-list:hover,
@@ -113,8 +110,8 @@
   height: 18px;
   background: var(--gradient-button-2);
   border-radius: 100px;
-  cursor: pointer;
 }
+
 @media screen and (min-width: 768px) {
   .theme-switcher {
     width: 60px;
@@ -123,7 +120,6 @@
 }
 
 /* ============================ MOBILE MENU ============================ */
-
 .mobile-menu-backdrop {
   position: fixed;
   top: 0;
@@ -180,7 +176,6 @@
   text-transform: uppercase;
   text-align: left;
   transition: color 400ms;
-  cursor: pointer;
 }
 
 .mobile-nav-list:hover,
@@ -207,6 +202,7 @@
   .mobile-menu-modal {
     display: none;
   }
+  
   .mobile-menu-backdrop {
     background-color: transparent;
   }
