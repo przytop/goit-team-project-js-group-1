@@ -28,7 +28,7 @@ function createMovieListItem(movie) {
 // Function to render the movie list
 function renderMovieList(genre = '') {
   movieList.innerHTML = ''; // Clear current list
-  const movies = JSON.parse(localStorage.getItem('myLibraryMovies')) || [];
+  const movies = JSON.parse(localStorage.getItem('myLibrary')) || [];
 
   const filteredMovies = genre
     ? movies.filter(movie =>
