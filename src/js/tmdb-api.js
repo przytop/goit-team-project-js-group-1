@@ -39,12 +39,8 @@ export default class TmdbApi {
     return (await this._fetch('/search/movie', { query, page })).results;
   }
 
-  async getMovieDetails(movie_id, type_of_data) {
-    const data = await this._fetch(`/movie/${movie_id}`);
-    if (!data[type_of_data]) {
-      throw new Error(`Not found ${type_of_data} for ID ${movie_id}`);
-    }
-    return data[type_of_data];
+  async getMovieDetails(movie_id) {
+    return await this._fetch(`/movie/${movie_id}`);
   }
 
   async getMovieVideos(movie_id) {
@@ -68,7 +64,7 @@ const test = async () => {
     console.log(await tmdb.getTrendingMovies('week'));
     console.log(await tmdb.getUpcomingMovies());
     console.log(await tmdb.searchMovie('Dune'));
-    console.log(await tmdb.getMovieDetails(438631, 'title'));
+    console.log(await tmdb.getMovieDetails(438631));
     console.log(await tmdb.getMovieVideos(438631));
     console.log(await tmdb.getMovieGenres());
     console.log(await tmdb.getCountriesList());
