@@ -14,7 +14,6 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  cursor: pointer;
   outline: none;
 }
 
@@ -71,7 +70,6 @@
   border: none;
   color: var(--black-color);
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-  cursor: pointer;
   display: block;
   margin: auto;
   padding: 12px 24px;

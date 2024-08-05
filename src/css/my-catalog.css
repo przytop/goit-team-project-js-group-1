@@ -84,7 +84,6 @@
   border-radius: 50%;
   border: none;
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-  cursor: pointer;
 }
 
 .catalog-sorry-message {
@@ -272,7 +271,6 @@
     border-radius: 50%;
     border: none;
     background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-    cursor: pointer;
   }
 
   .catalog-sorry-message {
@@ -453,7 +451,6 @@
     border-radius: 50%;
     border: none;
     background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-    cursor: pointer;
   }
 
   .catalog-sorry-message {
