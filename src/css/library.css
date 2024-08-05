@@ -174,6 +174,7 @@ body {
   .my-library-background {
     height: 380px;
   }
+
   .my-library-header {
     padding-top: 40px;
     font-size: 32px;
@@ -182,6 +183,7 @@ body {
     text-align: left;
     width: 250px;
   }
+
   .my-library-paragraph {
     font-size: 14px;
     font-weight: 400;
@@ -189,19 +191,23 @@ body {
     text-align: left;
     width: 280px;
   }
+
   .genre-select {
     width: 173px;
   }
+
   .my-library-movie-list-item {
     width: 280px;
     height: 408px;
   }
+
   .my-library-movie {
     font-size: 12px;
     font-weight: 500;
     line-height: 20px;
     text-align: left;
   }
+
   .my-library-sorry-message {
     font-size: 20px;
     font-weight: 400;
