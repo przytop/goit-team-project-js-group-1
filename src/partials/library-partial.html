@@ -1,35 +1,26 @@
 <section class="my-library-background">
-  <div class="containter">
-    <h1 class="my-library-header">Create Your Dream Cinema</h1>
-    <p class="my-library-paragraph">
-      Is a guide to designing a personalized movie theater experience with the
-      right equipment, customized decor, and favorite films. This guide helps
-      you bring the cinema experience into your own home with cozy seating, dim
-      lighting, and movie theater snacks.
+  <div class="my-library-main-section container">
+    <form class="genre-form">
+      <select id="genre" class="genre-select">
+        <option value="" disabled selected hidden>Genre</option>
+        <option value="romance">Romance</option>
+        <option value="detective">Detective</option>
+        <option value="thriller">Thriller</option>
+        <option value="action">Action</option>
+        <option value="documentary">Documentary</option>
+        <option value="horror">Horror</option>
+      </select>
+    </form>
+    <ul class="my-library-movie-list"></ul>
+
+    <button class="my-library-button">Load more</button>
+  </div>
+  <div class="my-library-sorry">
+    <p class="my-library-sorry-message">
+      OOPS... <br />
+      We are very sorry! <br />
+      You don't have any movies at your library.
     </p>
+    <button class="my-library-button">Search movie</button>
   </div>
 </section>
-<div class="my-library-main-section">
-  <form class="genre-form">
-    <select id="genre" class="genre-select">
-      <option value="" disabled selected hidden>Genre</option>
-      <option value="romance">Romance</option>
-      <option value="detective">Detective</option>
-      <option value="thriller">Thriller</option>
-      <option value="action">Action</option>
-      <option value="documentary">Documentary</option>
-      <option value="horror">Horror</option>
-    </select>
-  </form>
-  <ul class="my-library-movie-list"></ul>
-
-  <button class="my-library-button">Load more</button>
-</div>
-<div class="my-library-sorry">
-  <p class="my-library-sorry-message">
-    OOPS... <br />
-    We are very sorry! <br />
-    You don't have any movies at your library.
-  </p>
-  <button class="my-library-button">Search movie</button>
-</div>
