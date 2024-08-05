@@ -37,10 +37,10 @@ import{T as y,L as C}from"./assets/main-a72fe81b.js";import"./assets/vendor-f9df
                 error nulla? Nostrum aperiam magni aut magnam ipsam maiores quaerat placeat omnis</p>
           <button id="library-actions-btn" type="submit">Add to my library</button>
       </div>
-    `,a.classList.remove("is-closed"),a.classList.add("is-visible")}function d(){a.classList.remove("is-visible"),a.classList.add("is-closed")}a.addEventListener("click",i=>{i.target===a&&d()});try{let m=function(){const $=window.innerWidth;let u=2;$<=600&&(u=1),e.innerHTML="",i.slice(0,3).forEach(async r=>{const o=document.createElement("div");o.classList.add("card");const k=`https://image.tmdb.org/t/p/w500${r.poster_path}`,E=r.title,A=r.release_date?new Date(r.release_date).getFullYear():"Unknown",p=Math.round(r.vote_average*10)/10,S=await t.getMovieGenres(),D=r.genre_ids.slice(0,u).map(I=>{const b=S.find(_=>_.id===I),f=b?b.name:"Unknown";return s[f]||f}).join(", "),T=5,g=Math.floor(p/2),v=p%2>=1?1:0,q=T-g-v,B=[...Array(g).fill('<svg class="star full"><use xlink:href="#icon-star"></use></svg>'),...Array(v).fill('<svg class="star half"><use xlink:href="#icon-star-half"></use></svg>'),...Array(q).fill('<svg class="star empty"><use xlink:href="#icon-star-outline"></use></svg>')].join("");o.style.backgroundImage=`url(${k})`,o.style.backgroundSize="cover",o.style.backgroundPosition="center",o.innerHTML=`
+    `,a.classList.remove("is-closed"),a.classList.add("is-visible")}function d(){a.classList.remove("is-visible"),a.classList.add("is-closed")}a.addEventListener("click",i=>{i.target===a&&d()});try{let m=function(){const $=window.innerWidth;let u=2;$<=600&&(u=1),e.innerHTML="",i.slice(0,3).forEach(async r=>{const o=document.createElement("div");o.classList.add("card");const k=`https://image.tmdb.org/t/p/w500${r.poster_path}`,E=r.title,A=r.release_date?new Date(r.release_date).getFullYear():"Unknown",p=Math.round(r.vote_average*10)/10,S=await t.getMovieGenres(),D=r.genre_ids.slice(0,u).map(B=>{const b=S.find(I=>I.id===B),f=b?b.name:"Unknown";return s[f]||f}).join(", "),T=5,g=Math.floor(p/2),v=p%2>=1?1:0,_=T-g-v,q=[...Array(g).fill('<svg class="star full"><use xlink:href="#icon-star"></use></svg>'),...Array(v).fill('<svg class="star half"><use xlink:href="#icon-star-half"></use></svg>'),...Array(_).fill('<svg class="star empty"><use xlink:href="#icon-star-outline"></use></svg>')].join("");o.style.backgroundImage=`url(${k})`,o.style.backgroundSize="cover",o.style.backgroundPosition="center",o.innerHTML=`
           <div class="card-content">
             <h2>${E}</h2>
-            <p>${D} | ${A} <span class="stars">${B}</span></p>
+            <p>${D} | ${A} <span class="stars">${q}</span></p>
           </div>
         `,o.addEventListener("click",c),e.appendChild(o)})};const i=await t.getTrendingMovies("week");m(),window.addEventListener("resize",m)}catch(i){console.error("Error fetching data:",i)}});const w=new y,l=new C("myLibrary");async function F(){try{const e=await w.getUpcomingMovies(),t=new Date,s=e.filter(a=>{const n=new Date(a.release_date);return n.getFullYear()===t.getFullYear()&&n.getMonth()===t.getMonth()});if(s.length===0)h("No upcoming movies this month.");else{const a=s[Math.floor(Math.random()*s.length)];x(a)}}catch(e){console.error("Failed to fetch upcoming movies:",e),h("Failed to fetch upcoming movies. Please try again later")}}function h(e){const t=document.getElementById("movie-container");t.innerHTML=`<p>${e}</p>`}function x(e){const t=document.getElementById("movie-container"),s=`https://image.tmdb.org/t/p/original/${e.backdrop_path}`,a=new Date(e.release_date).toLocaleDateString(),n=e.genre_ids.map(i=>L[i]).join(", "),c=`
     <div class="upcoming-container">
@@ -52,7 +52,7 @@ import{T as y,L as C}from"./assets/main-a72fe81b.js";import"./assets/vendor-f9df
           <div class="info-item">
             <div class="">
             <p class="detail-item">Release date:<span class="relase-date">${a}</span></p>
-            <p class="detail-item">Vote / Votes:<span class="vote-count">${e.vote_count}</span></p>
+            <p class="detail-item">Vote / Votes:<span class="vote-count">${e.vote_average} / ${e.vote_count}</span></p>
             </div>
             <div  class="">
             <p class="detail-item">Popularity:<span class="popularity-value">${e.popularity}</span></p>
