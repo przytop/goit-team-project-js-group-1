@@ -25,8 +25,9 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/goit-team-project-js-group-1/assets/vendor-f9df95ff.js"></script>
-    <script type="module" crossorigin src="/goit-team-project-js-group-1/assets/main-20a92c72.js"></script>
+    <script type="module" crossorigin src="/goit-team-project-js-group-1/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-team-project-js-group-1/assets/vendor-f9df95ff.js">
+    <link rel="modulepreload" crossorigin href="/goit-team-project-js-group-1/assets/main-a72fe81b.js">
     <link rel="stylesheet" href="/goit-team-project-js-group-1/assets/main-d73ea270.css">
   </head>
 
@@ -103,7 +104,6 @@
 
 
     <main>
-      <section>
         <section class="my-catalog-section container">
   <div class="catalog-searchbar">
     <button class="x-button" type="reset"><img src="/goit-team-project-js-group-1/assets/x-69319eaa.svg" alt="delete" class="x-icon"></button>
@@ -250,7 +250,6 @@
   </div>
 </section>
 
-      </section>
     </main>
 
     <footer class="footer container">
@@ -724,6 +723,7 @@
     <button class="scroll-up-btn" id="scrollUpBtn">&#9650;</button>
     <button class="modal-btn-open" type="button">open backdrop</button>
 
+    
     
   </body>
 </html>
