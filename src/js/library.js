@@ -12,12 +12,12 @@ function createMovieListItem(movie) {
   listItem.classList.add('my-library-movie-list-item');
 
   listItem.innerHTML = `
-      <a href="${movie.image}">
-        <img src="${movie.image}" class="my-library-movie-picture" />
+      <a href="#">
+        <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="my-library-movie-picture" />
         <div class="my-library-gradient"></div>
         <div class="my-library-movie">
           <span class="my-library-movie-title">${movie.title}</span>
-          <span class="my-library-movie-genres">${movie.genre} | ${movie.year}</span>
+          <span class="my-library-movie-genres">${movie.genre_ids} | ${movie.release_date}</span>
         </div>
       </a>
     `;
