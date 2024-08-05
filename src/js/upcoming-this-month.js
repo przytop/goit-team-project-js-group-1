@@ -1,6 +1,8 @@
 import TmdbApi from './tmdb-api.js';
+import Library from './local-movie-manager.js';
 
 const tmdb = new TmdbApi();
+const library = new Library('myLibrary');
 
 async function getUpcomingMovies() {
   try {
@@ -39,49 +41,56 @@ function displayMovie(movie) {
   const genres = movie.genre_ids.map(id => genreMap[id]).join(', ');
 
   const html = `
-    <div class="upcoming-container" >
+    <div class="upcoming-container">
       <div class="upcoming-img">
-        <img class="upcoming-img" src="${imageUrl}" alt="${movie.title}"></div>
-        <div class="movie-details">
-            <h2 class="movie-title">${movie.title}</h2>
-            <p class="detail-item">Release date: <span class="relase-date">${releaseDate}</span></p>
-            <p class="detail-item">Vote / Votes: <span class="vote-count">${movie.vote_count}</span></p>
-            <p class="detail-item">Popularity: <span class="popularity-value">${movie.popularity}</span></p>
-            <p class="genres-item">Genre: <span class="genres">${genres}</span></p>
-            <p class="about">ABOUT</p>
-            <p class="overview">${movie.overview}</p>
-            <button  id="library-btn" data-id="${movie.id}">Add to my library</button>
-        </div>
+        <img class="upcoming-img" src="${imageUrl}" alt="${movie.title}">
+      </div>
+      <div class="movie-details">
+        <h2 class="movie-title">${movie.title}</h2>
+          <div class="info-item">
+            <div class="">
+            <p class="detail-item">Release date:<span class="relase-date">${releaseDate}</span></p>
+            <p class="detail-item">Vote / Votes:<span class="vote-count">${movie.vote_count}</span></p>
+            </div>
+            <div  class="">
+            <p class="detail-item">Popularity:<span class="popularity-value">${movie.popularity}</span></p>
+            <div class="genre-p"><p class="genre-item">Genre:<div class="genre-div"><span class="genre">${genres}</span></div></p>
+            </div></div>
+          </div>
+        <p class="about">ABOUT</p>
+        <p class="overview">${movie.overview}</p>
+        <button id="library-btn" data-id="${movie.id}">Add to my library</button>
+      </div>
     </div>
-    `;
+  `;
 
   movieContainer.innerHTML = html;
 
   const libraryBtn = document.getElementById('library-btn');
-  libraryBtn.addEventListener('click', () => toggleLibrary(movie.id));
+  libraryBtn.addEventListener('click', () => toggleLibrary(movie));
+  updateLibraryButton(movie.id);
 }
 
-function toggleLibrary(movieId) {
-  const library = JSON.parse(localStorage.getItem('myLibrary')) || [];
-  const movieIndex = library.indexOf(movieId);
+function toggleLibrary(movie) {
+  const movieId = movie.id;
+  const isInLibrary = library.getMovies().some(m => m.id === movieId);
 
-  if (movieIndex > -1) {
-    library.splice(movieIndex, 1);
+  if (isInLibrary) {
+    library.removeMovie(movieId);
     alert('Removed from my library');
   } else {
-    library.push(movieId);
+    library.addMovie(movie);
     alert('Added to my library');
   }
 
-  localStorage.setItem('myLibrary', JSON.stringify(library));
   updateLibraryButton(movieId);
 }
 
 function updateLibraryButton(movieId) {
-  const library = JSON.parse(localStorage.getItem('myLibrary')) || [];
+  const isInLibrary = library.getMovies().some(m => m.id === movieId);
   const libraryBtn = document.getElementById('library-btn');
 
-  if (library.includes(movieId)) {
+  if (isInLibrary) {
     libraryBtn.textContent = 'Remove from my library';
   } else {
     libraryBtn.textContent = 'Add to my library';
