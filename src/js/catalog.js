@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   });
 
   try {
-    const movies = await tmdb.getTrendingMovies('week');
+    const movies = await tmdb.getTrendingMovies('day');
 
     function displayGenres() {
       const screenWidth = window.innerWidth;
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
       catalogCardsContainer.innerHTML = '';
 
-      movies.slice(0, 3).forEach(async movie => {
+      movies.slice(0, 9).forEach(async movie => {
         const card = document.createElement('div');
         card.classList.add('card');
 
