@@ -1,20 +1,10 @@
 import TmdbApi from "./tmdb-api";
+import ModalVideo from 'modal-video';
+import 'modal-video/css/modal-video.min.css';
+
 
 const tmdb = new TmdbApi();
-const test = async () => {
-  try {
-    console.log(await tmdb.getTrendingMovies('day'));
-    console.log(await tmdb.getTrendingMovies('week'));
-    console.log(await tmdb.getUpcomingMovies());
-    console.log(await tmdb.searchMovie('Dune'));
-    console.log(await tmdb.getMovieDetails(438631, 'title'));
-    console.log(await tmdb.getMovieVideos(438631));
-    console.log(await tmdb.getMovieGenres());
-    console.log(await tmdb.getCountriesList());
-  } catch (error) {
-    console.error('Test failed:', error);
-  }
-};
+
 
 const displayMovieInfo = (movie) => {
   const hero = document.getElementById("hero-section");
@@ -26,15 +16,18 @@ const displayMovieInfo = (movie) => {
     </div>
     <p class="desc">${movie.overview}</p>
     <div class="hero-btn">
-      <button class="watch-btn" onclick="watchTrailer(${movie.id})">Watch trailer</button> 
+      <button class="watch-btn" data-video-id="${movie.id}" onclick="watchTrailer(${movie.id})">Watch trailer</button> 
       <button class="details-btn" onclick="showDetails(${movie.id})">More details</button>
     </div>
   `;
 
-  const imageUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
+  const imageUrl = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
   
-  hero.style.backgroundImage = `linear-gradient(270deg, rgba(89, 130, 252, 0) 5%, rgba(0, 0, 0, 1) 65%), url(${imageUrl})`, innerWidth;
+  hero.style.backgroundImage = `linear-gradient(270deg, rgba(89, 130, 252, 0) 5%, rgba(0, 0, 0, 1) 70%), url(${imageUrl})`, innerWidth;
   hero.style.backgroundPosition = "center"
+
+  const watchBtn = document.querySelector('.watch-btn');
+  watchBtn.addEventListener('click', watchTrailer)
 
 };
 
@@ -52,14 +45,50 @@ const getStarRatingHTML = (voteAverage) => {
 };
 
 const watchTrailer = async (movieId) => {
-  const videos = await tmdb.getMovieVideos(movieId);
-  const trailer = videos.results.find(video => video.type === 'Trailer');
-  if (trailer) {
-    window.open(`https://www.youtube.com/watch?v=${trailer.key}`, '_blank');
-  } else {
-    alert('Trailer not available');
+  try {
+    const videos = await tmdb.getMovieVideos(movieId);
+    const trailer = videos.results.find(video => video.type === 'Trailer');
+    if (trailer) {
+      new ModalVideo('.watch-btn', {
+        channel: 'youtube',
+        autoplay: 1,
+        url: `https://www.youtube.com/watch?v=${trailer.key}`
+      }).open();
+    } else {
+      window.alert('Trailer not available');
+    }
+  } catch (error) {
+    console.error('Failed to load movie videos:', error);
+    modalOopsie()
   }
 };
+
+let modalOpened = false;
+
+const modalOopsie = () => {
+  if(modalOpened) return;
+  modalOpened = true;
+
+  const hero = document.getElementById('hero-section')
+  const modalDiv = document.createElement("div");
+  modalDiv.className = 'modal-oopsie fade-in';
+  modalDiv.id = 'modal-cont';
+  hero.appendChild(modalDiv);
+
+  const modalCont = document.getElementById("modal-cont");
+  modalCont.innerHTML = `
+        <p>OOPS... <br> We are very sorry! <br> But we couldn’t find the trailer.</p>
+        <img class="image-cont">
+        <button id="modal-close">
+            <img src="/img/x.svg">
+        </button>`
+
+  document.getElementById('modal-close').addEventListener('click', function() {
+    modalOpened = false;
+    modalDiv.remove();
+  });
+};
+   
 
 const showDetails = (movieId) => {
   window.location.href = `/details.html?movieId=${movieId}`;
