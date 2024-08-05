@@ -202,6 +202,11 @@
   height: 11.25px;
 }
 
+.x-button {
+  position: relative;
+  left: 60px;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .star {
     width: 10px;
@@ -379,6 +384,11 @@
     width: 7.88px;
     height: 15.75px;
   }
+
+  .x-button {
+    position: relative;
+    left: 190px;
+  }
 }
 @media screen and (min-width: 1280px) {
   .star {
@@ -549,4 +559,9 @@
   left: 8px;
   width: 7.88px;
   height: 15.75px;
+}
+
+.x-button {
+  position: relative;
+  left: 320px;
 }
