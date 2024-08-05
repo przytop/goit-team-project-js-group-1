@@ -1,0 +1,140 @@
+.genre-form {
+  padding-left: 32px;
+  padding-top: 80px;
+}
+
+.genre-select {
+  width: 200px;
+  padding: 12px;
+  font-size: 16px;
+  color: var(--white-color);
+  background-color: var(--black-color);
+  border: solid 1px;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.my-library-movie-list {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 48px 0 40px;
+}
+
+.my-library-movie-list-item {
+  position: relative;
+  width: 395px;
+  height: 574px;
+  padding-bottom: 32px;
+}
+
+.my-library-movie-picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.my-library-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  pointer-events: none; /* Umożliwia kliknięcie obrazu pod gradientem */
+}
+
+.my-library-movie {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+.my-library-movie-title {
+  text-transform: uppercase;
+}
+
+.my-library-button {
+  border: none;
+  color: var(--black-color);
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  padding: 12px 24px;
+  border-radius: 74px;
+}
+
+.my-library-sorry-message {
+  padding-top: 80px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: center;
+  padding-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .genre-select {
+    width: 144px;
+  }
+
+  .my-library-movie-list-item {
+    width: 224px;
+    height: 325px;
+  }
+
+  .my-library-movie {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+  }
+
+  .my-library-sorry-message {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .genre-select {
+    width: 173px;
+  }
+
+  .my-library-movie-list-item {
+    width: 280px;
+    height: 408px;
+  }
+
+  .my-library-movie {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+  }
+
+  .my-library-sorry-message {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: center;
+    width: 280px;
+    margin: auto;
+  }
+}

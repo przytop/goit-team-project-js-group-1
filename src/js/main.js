@@ -1,3 +1,4 @@
+import './library';
 import './switch-theme';
 import './tmdb-api';
 import './weekly-trends';
