@@ -54,8 +54,8 @@ function displayMovie(movie) {
             </div>
             <div  class="">
             <p class="detail-item">Popularity:<span class="popularity-value">${movie.popularity}</span></p>
-            <p class="genre-item">Genre:<span class="genre">${genres}</span></p>
-            </div>
+            <div class="genre-p"><p class="genre-item">Genre:<div class="genre-div"><span class="genre">${genres}</span></div></p>
+            </div></div>
           </div>
         <p class="about">ABOUT</p>
         <p class="overview">${movie.overview}</p>

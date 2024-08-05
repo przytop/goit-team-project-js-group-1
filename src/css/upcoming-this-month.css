@@ -1,56 +1,65 @@
-.upcoming-text {
+.upcoming-section .upcoming-text {
   font-size: 16px;
   margin-top: 32px;
   margin-bottom: 24px;
   border-radius: 5px;
 }
 
-.movie-title {
+.upcoming-section .genre-div {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 185px;
+  height: auto;
+  margin-left: 107px;
+}
+
+.upcoming-section .genre-p {
+  display: flex;
+  flex-direction: row;
+}
+
+.upcoming-section .movie-title {
   font-size: 20px;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
 
-p:last-child {
+.upcoming-section p:last-child {
   margin-bottom: 12px;
 }
 
-.upcoming-img {
+.upcoming-section .upcoming-img {
   margin-bottom: 24px;
   border-radius: 5px;
 }
 
-.about {
+.upcoming-section .about {
   margin-top: 20px;
   margin-bottom: 16px;
   color: var(--grey-color);
 }
 
-.overview {
+.upcoming-section .overview {
   margin-bottom: 20px;
   color: #d9d9d9;
   font-size: 14px;
 }
 
-.relase-date {
+.upcoming-section .relase-date {
   margin-left: 57px;
   color: var(--orange-color);
 }
 
-.vote-count {
+.upcoming-section .vote-count {
   margin-left: 61px;
 }
 
-.genre {
-  margin-left: 107px;
-}
-
-.popularity-value {
+.upcoming-section .popularity-value {
   margin-left: 77px;
   color: var(--white-color);
 }
 
-#library-btn {
+.upcoming-section #library-btn {
   width: 140px;
   height: 38px;
   border-radius: 74px;
@@ -65,20 +74,20 @@ p:last-child {
   margin-bottom: 40px;
 }
 
-.detail-item {
+.upcoming-section .detail-item {
   margin-bottom: 12px;
   color: var(--grey-color);
 }
 
-.genre-item {
+.upcoming-section .genre-item {
   color: var(--grey-color);
 }
 
-.genre {
+.upcoming-section .genre {
   color: var(--white-color);
 }
 
-.vote-count {
+.upcoming-section .vote-count {
   margin-left: 62px;
   color: var(--black-color);
   background-color: var(--white-color);
@@ -88,65 +97,64 @@ p:last-child {
 }
 
 @media (min-width: 1280px) {
-  .upcoming-container {
+  .upcoming-section .upcoming-container {
     display: flex;
     gap: 16px;
   }
 
-  .upcoming-text {
+  .upcoming-section .upcoming-text {
     font-size: 28px;
     margin-bottom: 28px;
   }
 
-  .upcoming-movies {
+  .upcoming-section .upcoming-movies {
     margin-bottom: 100px;
   }
 
-  .movie-title {
+  .upcoming-section .movie-title {
     font-size: 32px;
     text-transform: uppercase;
     margin-bottom: 28px;
   }
 
-  .relase-date {
+  .upcoming-section .relase-date {
     margin-left: 58px;
   }
 
-  .vote-count {
+  .upcoming-section .vote-count {
     margin-left: 62px;
   }
 
-  .popularity-value {
+  .upcoming-section .popularity-value {
     margin-left: 78px;
   }
 
-  .genre {
-    margin-left: 108px;
+  .upcoming-section .genre {
     color: var(--white-color);
   }
 
-  .about {
+  .upcoming-section .about {
     margin-top: 20px;
     margin-bottom: 16px;
     color: var(--grey-color);
   }
 
-  .overview {
+  .upcoming-section .overview {
     margin-bottom: 32px;
     color: #d9d9d9;
     font-size: 14px;
   }
 
-  .genre-item {
+  .upcoming-section .genre-item {
     color: var(--grey-color);
   }
 
-  .upcoming-img {
+  .upcoming-section .upcoming-img {
     border-radius: 5px;
     margin-bottom: 0;
   }
 
-  #library-btn {
+  .upcoming-section #library-btn {
     width: 155px;
     height: 40px;
     border-radius: 74px;
@@ -160,17 +168,17 @@ p:last-child {
     transition: all 0.2s;
   }
 
-  #library-btn:active {
+  .upcoming-section #library-btn:active {
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
 
-  #library-btn:hover {
+  .upcoming-section #library-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 
-  #library-btn::after {
+  .upcoming-section #library-btn::after {
     content: '';
     display: inline-block;
     height: 100%;
@@ -183,26 +191,26 @@ p:last-child {
     transition: all 0.4s;
   }
 
-  #library-btn::after {
+  .upcoming-section #library-btn::after {
     background-color: #ffc226;
   }
 
-  #library-btn:hover::after {
+  .upcoming-section #library-btn:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
   }
 
-  .movie-details {
+  .upcoming-section .movie-details {
     display: flex;
     flex-direction: column;
   }
 
-  .info-item {
+  .upcoming-section .info-item {
     display: flex;
     flex-direction: column;
   }
 
-  .detail-item {
+  .upcoming-section .detail-item {
     margin-bottom: 12px;
     color: var(--grey-color);
     display: flex;
@@ -211,41 +219,40 @@ p:last-child {
 
 /* @MEDIA TABLET */
 @media (min-width: 768px) and (max-width: 1279px) {
-  .upcoming-img {
+  .upcoming-section .upcoming-img {
     margin-bottom: 32px;
   }
 
-  .movie-title {
+  .upcoming-section .movie-title {
     font-size: 28px;
     margin-bottom: 24px;
   }
 
-  .info-item {
+  .upcoming-section .info-item {
     display: flex;
     flex-direction: row;
     gap: 100px;
   }
 
-  .detail-item {
+  .upcoming-section .detail-item {
     margin-bottom: 12px;
     color: var(--grey-color);
     display: flex;
   }
 
-  .vote-count {
+  .upcoming-section .vote-count {
     margin-left: 62px;
   }
 
-  .genre {
-    margin-left: 108px;
+  .upcoming-section .genre {
     color: var(--white-color);
   }
 
-  .genre-item {
+  .upcoming-section .genre-item {
     color: var(--grey-color);
   }
 
-  #library-btn {
+  .upcoming-section #library-btn {
     width: 155px;
     height: 40px;
     border-radius: 74px;
@@ -260,17 +267,17 @@ p:last-child {
     margin-bottom: 77px;
   }
 
-  #library-btn:active {
+  .upcoming-section #library-btn:active {
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
 
-  #library-btn:hover {
+  .upcoming-section #library-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 
-  #library-btn::after {
+  .upcoming-section #library-btn::after {
     content: '';
     display: inline-block;
     height: 100%;
@@ -283,43 +290,43 @@ p:last-child {
     transition: all 0.4s;
   }
 
-  #library-btn::after {
+  .upcoming-section #library-btn::after {
     background-color: #ffc226;
   }
 
-  #library-btn:hover::after {
+  .upcoming-section #library-btn:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
   }
 
-  .about {
+  .upcoming-section .about {
     margin-top: 20px;
     margin-bottom: 16px;
     color: var(--grey-color);
   }
 
-  .overview {
+  .upcoming-section .overview {
     margin-bottom: 32px;
     color: #d9d9d9;
     font-size: 14px;
   }
 
-  .upcoming-text {
+  .upcoming-section .upcoming-text {
     font-size: 28px;
     margin-bottom: 24px;
     margin-top: 44px;
   }
 
-  .popularity-value {
+  .upcoming-section .popularity-value {
     margin-left: 78px;
     color: var(--white-color);
   }
 
-  .relase-date {
+  .upcoming-section .relase-date {
     margin-left: 58px;
   }
 
-  .movie-title {
+  .upcoming-section .movie-title {
     font-size: 28px;
     text-transform: uppercase;
     margin-bottom: 24px;
