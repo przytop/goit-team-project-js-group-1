@@ -49,9 +49,11 @@ html[data-theme='light'] {
   background-color: var(--white-color);
   color: var(--black-color);
 }
-.custom-cursor {
+
+html {
   cursor: url('../img/cursor-arrow-2.png'), auto;
 }
+
 a,
 button,
 .header-nav-list,
@@ -61,6 +63,7 @@ button,
 .theme-switcher {
   cursor: url('../img/cursor-pointer-2.png'), auto;
 }
+
 .is-closed {
   display: none;
 }
