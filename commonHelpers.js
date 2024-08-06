@@ -1,4 +1,4 @@
-import{T}from"./assets/main-0dae7c59.js";import"./assets/vendor-f9df95ff.js";document.addEventListener("DOMContentLoaded",async function(){const o=document.querySelector(".catalog-movie-list"),i=new T,p={"Science Fiction":"Sci-Fi"},t=document.querySelector(".backdrop"),f=t.querySelector(".modal-window");function b(){f.innerHTML=`
+import{T}from"./assets/main-e3724075.js";import"./assets/vendor-f9df95ff.js";document.addEventListener("DOMContentLoaded",async function(){const o=document.querySelector(".catalog-movie-list"),i=new T,p={"Science Fiction":"Sci-Fi"},t=document.querySelector(".backdrop"),f=t.querySelector(".modal-window");function b(){f.innerHTML=`
     <button class="modal-btn-close" type="button">
       <svg class="modal-btn-close-icon" width="10.5" height="10.5" fill="#ffffff">
         <use href=""></use>
