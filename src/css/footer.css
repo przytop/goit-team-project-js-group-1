@@ -22,7 +22,6 @@
 .heart {
   margin: 0 10px 0 10px;
   fill: var(--orange-color);
-  /* animation: Scale 0.7s infinite alternate; */
 }
 
 .footer-btn {
@@ -143,16 +142,12 @@
   box-shadow: 0px 0px 10px var(--orange-color);
 }
 
-.team-wrap {
-  /* overflow: hidden; object-fit: cover; */
-}
-
 .team-img {
   overflow: hidden;
   object-fit: cover;
   margin-bottom: 5px;
   width: 200px;
-  height: 200px;
+  height: 240px;
 }
 
 .team-description {
@@ -160,7 +155,7 @@
   font-size: 16px;
   line-height: 1.18;
   font-weight: 500;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   margin-bottom: 3px;
 }
@@ -169,14 +164,14 @@
   font-weight: 500;
   font-size: 18px;
   color: var(--black-color);
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .team-function {
   font-weight: 500;
   font-size: 16px;
   color: var(--orange-color);
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .team-socials-list {
