@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', async function () {
           <button id="library-actions-btn" type="submit">Add to my library</button>
       </div>
     `;
-    backdrop.classList.remove('is-closed');
-    backdrop.classList.add('is-visible');
+    // backdrop.classList.remove('is-closed');
+    // backdrop.classList.add('is-visible');
   }
 
   function closeModal() {

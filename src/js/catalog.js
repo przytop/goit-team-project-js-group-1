@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const sorryMessage = document.querySelector('.catalog-sorry-message');
   const movieListItems = document.querySelectorAll('.catalog-movie-list-item');
 
-  sorryMessage.style.display = 'none'; // Ukryj wiadomość na początku
+  // sorryMessage.style.display = 'none'; // Ukryj wiadomość na początku
 
   // input.addEventListener('input', function () {
   //   const query = input.value.toLowerCase();
@@ -203,3 +203,13 @@ document.addEventListener('DOMContentLoaded', function () {
   //   }
   // });
 });
+
+
+// ___________________________
+
+const backdrop = document.querySelector('.backdrop');
+const openBtn = document.querySelector('.modal-btn-open');
+const openCokolwiek = document.querySelector('.catalog-movie-list-item');
+function coloseMovieInfoModal() {
+  backdrop.classList.add('is-closed');
+}

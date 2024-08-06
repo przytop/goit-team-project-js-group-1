@@ -67,8 +67,8 @@
 }
 
 .modal-btn-close:hover {
-  background-color: yellow;
-  color: green;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  transition: box-shadow 250ms ease-in-out;
 }
 
 /* @MEDIA TABLET */
