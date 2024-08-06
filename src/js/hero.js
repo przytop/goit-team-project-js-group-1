@@ -31,7 +31,7 @@ const displayMovieInfo = (movie) => {
     </div>
   `;
 
-  const imageUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
+  const imageUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
   
   hero.style.backgroundImage = `linear-gradient(270deg, rgba(89, 130, 252, 0) 5%, rgba(0, 0, 0, 1) 65%), url(${imageUrl})`, innerWidth;
   hero.style.backgroundPosition = "center"

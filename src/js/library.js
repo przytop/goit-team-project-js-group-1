@@ -14,7 +14,6 @@ const batchSize = 9;
 function createMovieListItem(movie) {
   const listItem = document.createElement('li');
   listItem.classList.add('my-library-movie-list-item');
-
   const genreString = movie.genre_ids.join(', ');
 
   listItem.innerHTML = `

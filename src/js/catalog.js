@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   const backdrop = document.querySelector('.backdrop');
   const modalWindow = backdrop.querySelector('.modal-window');
-  const closeButton = modalWindow.querySelector('.modal-btn-close');
+  // const closeButton = modalWindow.querySelector('.modal-btn-close');
 
   function openModal() {
     modalWindow.innerHTML = `
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     backdrop.classList.add('is-closed');
   }
 
-  closeButton.addEventListener('click', closeModal);
+  // closeButton.addEventListener('click', closeModal);
 
   backdrop.addEventListener('click', event => {
     if (event.target === backdrop) {
@@ -168,10 +168,10 @@ const search = async text => {
   }
 };
 
-const trending = tmdb.getTrendingMovies('week').then(result => {
-  console.log(result);
-  return result;
-});
+// const trending = tmdb.getTrendingMovies('week').then(result => {
+//   console.log(result);
+//   return result;
+// });
 
 document.addEventListener('DOMContentLoaded', function () {
   const input = document.querySelector('.input-text');
@@ -180,26 +180,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
   sorryMessage.style.display = 'none'; // Ukryj wiadomość na początku
 
-  input.addEventListener('input', function () {
-    const query = input.value.toLowerCase();
-    let hasResults = false;
+  // input.addEventListener('input', function () {
+  //   const query = input.value.toLowerCase();
+  //   let hasResults = false;
 
-    movieListItems.forEach(item => {
-      const title = item
-        .querySelector('.catalog-movie-title')
-        .textContent.toLowerCase();
-      if (title.includes(query)) {
-        item.style.display = ''; // Pokaż element
-        hasResults = true;
-      } else {
-        item.style.display = 'none'; // Ukryj element
-      }
-    });
+  //   movieListItems.forEach(item => {
+  //     const title = item
+  //       .querySelector('.catalog-movie-title')
+  //       .textContent.toLowerCase();
+  //     if (title.includes(query)) {
+  //       item.style.display = ''; // Pokaż element
+  //       hasResults = true;
+  //     } else {
+  //       item.style.display = 'none'; // Ukryj element
+  //     }
+  //   });
 
-    if (!hasResults) {
-      sorryMessage.style.display = 'block'; // Pokaż wiadomość
-    } else {
-      sorryMessage.style.display = 'none'; // Ukryj wiadomość
-    }
-  });
+  //   if (!hasResults) {
+  //     sorryMessage.style.display = 'block'; // Pokaż wiadomość
+  //   } else {
+  //     sorryMessage.style.display = 'none'; // Ukryj wiadomość
+  //   }
+  // });
 });

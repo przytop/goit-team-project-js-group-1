@@ -29,7 +29,6 @@
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
-  cursor: pointer;
   text-decoration: underline;
   text-decoration-skip-ink: none;
   background-color: transparent;
@@ -107,7 +106,6 @@ opacity: 0.3; transform: translate(-75%, -90%) scale(3); } */
   border: none;
   background-color: transparent;
   border-radius: 50%;
-  cursor: pointer;
 }
 
 .team-close-icon {

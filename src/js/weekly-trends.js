@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   const backdrop = document.querySelector('.backdrop');
   const modalWindow = backdrop.querySelector('.modal-window');
-  const closeButton = modalWindow.querySelector('.modal-btn-close');
+  // const closeButton = modalWindow.querySelector('.modal-btn-close');
 
   function openModal() {
     modalWindow.innerHTML = `
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     backdrop.classList.add('is-closed');
   }
 
-  closeButton.addEventListener('click', closeModal);
+  // closeButton.addEventListener('click', closeModal);
 
   backdrop.addEventListener('click', event => {
     if (event.target === backdrop) {

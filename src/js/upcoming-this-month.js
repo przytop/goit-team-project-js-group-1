@@ -50,7 +50,7 @@ function displayMovie(movie) {
           <div class="info-item">
             <div class="">
             <p class="detail-item">Release date:<span class="relase-date">${releaseDate}</span></p>
-            <p class="detail-item">Vote / Votes:<span class="vote-count">${movie.vote_count}</span></p>
+            <p class="detail-item">Vote / Votes:<span class="vote-count">${movie.vote_average} / ${movie.vote_count}</span></p>
             </div>
             <div  class="">
             <p class="detail-item">Popularity:<span class="popularity-value">${movie.popularity}</span></p>
