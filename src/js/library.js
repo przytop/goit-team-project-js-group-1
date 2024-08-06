@@ -1,3 +1,5 @@
+import openMovieInfoModal from './modal-window';
+
 const movieList = document.querySelector('.my-library-movie-list');
 const sorry = document.querySelector('.my-library-sorry');
 const loadMoreButton = document.querySelector(
