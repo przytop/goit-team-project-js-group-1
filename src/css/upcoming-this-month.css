@@ -8,7 +8,7 @@
 .upcoming-section .genre-div {
   display: flex;
   flex-wrap: wrap;
-  min-width: 185px;
+  max-width: 130px;
   height: auto;
   margin-left: 107px;
 }
@@ -215,6 +215,10 @@
     color: var(--grey-color);
     display: flex;
   }
+
+  .upcoming-section .genre-div {
+    min-width: 185px;
+  }
 }
 
 /* @MEDIA TABLET */
@@ -330,5 +334,9 @@
     font-size: 28px;
     text-transform: uppercase;
     margin-bottom: 24px;
+  }
+
+  .upcoming-section .genre-div {
+    min-width: 185px;
   }
 }
