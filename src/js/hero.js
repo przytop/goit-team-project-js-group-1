@@ -59,7 +59,7 @@ const watchTrailer = async (movieId) => {
     }
   } catch (error) {
     console.error('Failed to load movie videos:', error);
-    modalOopsie()
+      modalOopsie()
   }
 };
 
@@ -80,12 +80,21 @@ const modalOopsie = () => {
         <p>OOPS... <br> We are very sorry! <br> But we couldn’t find the trailer.</p>
         <img class="image-cont">
         <button id="modal-close">
-            <img src="/img/x.svg">
+            <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.5 4.5L4.5 13.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4.5 4.5L13.5 13.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
         </button>`
 
   document.getElementById('modal-close').addEventListener('click', function() {
     modalOpened = false;
-    modalDiv.remove();
+
+    modalDiv.classList.remove('fade-in');
+    modalDiv.classList.add('fade-out');
+    
+    setTimeout(() => {
+      modalDiv.remove();
+    }, 300)
   });
 };
    

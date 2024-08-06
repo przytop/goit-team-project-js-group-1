@@ -1,17 +1,44 @@
+html[data-theme="light"] .modal-oopsie {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    box-shadow: 1px 1px 14px 4px #00000038;
+}
+
+html[data-theme="light"] .modal-oopsie button svg {
+    stroke: var(--black-color);
+}
+
+html[data-theme="dark"] .modal-oopsie {
+    background-color: var(--black-color);
+    color: var(--white-color);
+    box-shadow: 1px 1px 14px 4px #FF6B086B;
+}
+
+html[data-theme="dark"] .modal-oopsie button svg {
+    stroke: var(--white-color);
+}
+
 .modal-oopsie {
     position: relative;
     top: -200px;
     width: 280px;
     height: 289px;
     background-color: #111111;
-    box-shadow: 1px 1px 14px 4px #FF6B086B;
     border-radius: 16px;
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: all 0.7s ease-in-out;
+}
+
+.fade-in {
+    display: flex;
+    animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
 }
 
 .modal-oopsie p {
@@ -19,10 +46,13 @@
     height: 65px;
 }
 
-.modal-oopsie button {
+.modal-oopsie button svg {
     position: absolute;
+    width: 24px;
+    height: 24px;
     top: 16px;
     right: 16px;
+    stroke: var(--white-color);
 }
 
 .image-cont {
@@ -330,6 +360,7 @@
         height: 400px;
         margin: auto;
         margin-top: 120px;
+        z-index: 3;
     }
     
     .modal-oopsie p {
@@ -439,4 +470,14 @@
         display: flex;
         justify-content: space-between;
     }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+  
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
