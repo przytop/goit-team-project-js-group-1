@@ -1,63 +1,87 @@
-// const movieList = document.querySelector('.my-library-movie-list');
-// const sorry = document.querySelector('.my-library-sorry');
-// const loadMoreButton = document.querySelector(
-//   '.my-library-main-section .my-library-button'
-// );
-// const mainSection = document.querySelector('.my-library-main-section');
-// const genreSelect = document.querySelector('#genre');
+const movieList = document.querySelector('.my-library-movie-list');
+const sorry = document.querySelector('.my-library-sorry');
+const loadMoreButton = document.querySelector(
+  '.my-library-main-section .my-library-button'
+);
+const mainSection = document.querySelector('.my-library-main-section');
+const genreSelect = document.querySelector('#genre');
 
-// // Function to create a movie list item
-// function createMovieListItem(movie) {
-//   const listItem = document.createElement('li');
-//   listItem.classList.add('my-library-movie-list-item');
+// Variables to track state
+let currentDisplayCount = 0;
+const batchSize = 9;
 
-//   listItem.innerHTML = `
-//       <a href="${movie.image}">
-//         <img src="${movie.image}" class="my-library-movie-picture" />
-//         <div class="my-library-gradient"></div>
-//         <div class="my-library-movie">
-//           <span class="my-library-movie-title">${movie.title}</span>
-//           <span class="my-library-movie-genres">${movie.genre} | ${movie.year}</span>
-//         </div>
-//       </a>
-//     `;
+// Function to create a movie list item
+function createMovieListItem(movie) {
+  const listItem = document.createElement('li');
+  listItem.classList.add('my-library-movie-list-item');
 
-//   return listItem;
-// }
+  const genreString = movie.genre_ids.join(', ');
 
-// // Function to render the movie list
-// function renderMovieList(genre = '') {
-//   movieList.innerHTML = ''; // Clear current list
-//   const movies = JSON.parse(localStorage.getItem('myLibraryMovies')) || [];
+  listItem.innerHTML = `
+      <a href="#">
+        <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="my-library-movie-picture" />
+        <div class="my-library-gradient"></div>
+        <div class="my-library-movie">
+          <span class="my-library-movie-title">${movie.title}</span>
+          <span class="my-library-movie-genres">${genreString} | ${movie.release_date}</span>
+        </div>
+      </a>
+    `;
 
-//   const filteredMovies = genre
-//     ? movies.filter(movie =>
-//         movie.genre.toLowerCase().includes(genre.toLowerCase())
-//       )
-//     : movies;
+  return listItem;
+}
 
-//   if (filteredMovies.length > 0) {
-//     mainSection.style.display = 'block';
-//     sorry.style.display = 'none';
-//     filteredMovies.forEach(movie => {
-//       const listItem = createMovieListItem(movie);
-//       movieList.appendChild(listItem);
-//     });
-//   } else {
-//     sorry.style.display = 'block';
-//     mainSection.style.display = 'none';
-//   }
-// }
+// Function to render the movie list
+function renderMovieList(genre = '', reset = true) {
+  const movies = JSON.parse(localStorage.getItem('myLibrary')) || [];
 
-// // Load more button
-// loadMoreButton.addEventListener('click', function () {
-//   renderMovieList();
-// });
+  const filteredMovies = genre
+    ? movies.filter(movie =>
+        movie.genre.toLowerCase().includes(genre.toLowerCase())
+      )
+    : movies;
 
-// // Event listener for genre selection
-// genreSelect.addEventListener('change', function () {
-//   const selectedGenre = genreSelect.value;
-//   // renderMovieList(selectedGenre);
-// });
+  if (reset) {
+    currentDisplayCount = 0;
+    movieList.innerHTML = ''; // Clear current list
+  }
 
-// // renderMovieList();
+  if (filteredMovies.length > 0) {
+    mainSection.style.display = 'block';
+    sorry.style.display = 'none';
+
+    const moviesToDisplay = filteredMovies.slice(
+      currentDisplayCount,
+      currentDisplayCount + batchSize
+    );
+    moviesToDisplay.forEach(movie => {
+      const listItem = createMovieListItem(movie);
+      movieList.appendChild(listItem);
+    });
+
+    currentDisplayCount += batchSize;
+
+    if (currentDisplayCount >= filteredMovies.length) {
+      loadMoreButton.style.display = 'none';
+    } else {
+      loadMoreButton.style.display = 'block';
+    }
+  } else {
+    sorry.style.display = 'block';
+    mainSection.style.display = 'none';
+    loadMoreButton.style.display = 'none';
+  }
+}
+
+// Load more button
+loadMoreButton.addEventListener('click', function () {
+  renderMovieList(genreSelect.value, false);
+});
+
+// Event listener for genre selection
+genreSelect.addEventListener('change', function () {
+  const selectedGenre = genreSelect.value;
+  renderMovieList(selectedGenre);
+});
+
+renderMovieList();
