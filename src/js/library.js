@@ -33,18 +33,6 @@ function createMovieListItem(movie) {
         </div>
     `;
 
-  
-        document.querySelectorAll('.my-library-movie-list-item').forEach(item => {
-          item.addEventListener('click', event => {
-            const id = event.target.getAttribute('data-id');
-            if (id) {
-              // Ensure the id is present
-            openMovieInfoModal(id);
-            }
-          });
-          
-        });
-    
   return listItem;
 }
 
@@ -103,4 +91,12 @@ genreSelect.addEventListener('change', function () {
 
 renderMovieList();
 
-
+document.querySelectorAll('.my-library-movie-list-item').forEach(item => {
+  item.addEventListener('click', event => {
+    const id = event.target.getAttribute('data-id');
+    if (id) {
+      // Ensure the id is present
+      openMovieInfoModal(id);
+    }
+  });
+});

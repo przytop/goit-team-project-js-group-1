@@ -5,6 +5,7 @@
 .genre-form {
   padding-left: 32px;
   padding-top: 80px;
+  display: none;
 }
 
 .genre-select {
@@ -78,6 +79,7 @@
   margin: auto;
   padding: 12px 24px;
   border-radius: 74px;
+  display: none;
 }
 
 .my-library-sorry {
