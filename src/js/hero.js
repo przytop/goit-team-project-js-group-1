@@ -26,12 +26,13 @@ const displayMovieInfo = (movie) => {
   hero.style.backgroundImage = `linear-gradient(270deg, rgba(89, 130, 252, 0) 5%, rgba(0, 0, 0, 1) 70%), url(${imageUrl})`, innerWidth;
   hero.style.backgroundPosition = "center"
 
+  console.log(movie.id);
+
   const watchBtn = document.querySelector('.watch-btn');
-  watchBtn.addEventListener('click', watchTrailer)
+  watchBtn.addEventListener('click', watchTrailer(movie.id))
 
   const detailsBtn = document.querySelector('.details-btn');
-  detailsBtn.addEventListener('click', showDetails)
-
+  detailsBtn.addEventListener('click', showDetails);
 };
 
 const getStarRatingHTML = (voteAverage) => {
@@ -54,8 +55,9 @@ const watchTrailer = async (movieId) => {
     if (trailer) {
       new ModalVideo('.watch-btn', {
         channel: 'youtube',
+        autoplay: 1,
         url: `https://www.youtube.com/watch?v=${trailer.key}`
-      }).open();
+      });
     }
   } catch (error) {
     console.error('Failed to load movie videos:', error);
