@@ -1,4 +1,4 @@
-import{T as y,L as C}from"./assets/main-e3724075.js";import"./assets/vendor-f9df95ff.js";document.addEventListener("DOMContentLoaded",async function(){const e=document.getElementById("weekly-cards"),t=new y,s={"Science Fiction":"Sci-Fi"},a=document.querySelector(".backdrop"),n=a.querySelector(".modal-window");function c(){n.innerHTML=`
+import{T as y,L as C}from"./assets/main-42c2b2fd.js";import"./assets/vendor-f9df95ff.js";document.addEventListener("DOMContentLoaded",async function(){const e=document.getElementById("weekly-cards"),t=new y,s={"Science Fiction":"Sci-Fi"},a=document.querySelector(".backdrop"),n=a.querySelector(".modal-window");function c(){n.innerHTML=`
       <button class="modal-btn-close" type="button">
         <svg class="modal-btn-close-icon" width="10.5" height="10.5" fill="#ffffff">
           <use href=""></use>
