@@ -59,7 +59,7 @@ const watchTrailer = async (movieId) => {
     }
   } catch (error) {
     console.error('Failed to load movie videos:', error);
-      modalOopsie()
+    modalOopsie()
   }
 };
 
