@@ -1,6 +1,7 @@
 import TmdbApi from './tmdb-api.js';
 import Library from './local-movie-manager.js';
-
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 const tmdb = new TmdbApi();
 const library = new Library('myLibrary');
 
@@ -30,8 +31,10 @@ async function getUpcomingMovies() {
 }
 
 function displayMessage(message) {
-  const movieContainer = document.getElementById('movie-container');
-  movieContainer.innerHTML = `<p>${message}</p>`;
+  iziToast.info({
+    title: 'Info',
+    message: message,
+  });
 }
 
 function displayMovie(movie) {
@@ -39,6 +42,7 @@ function displayMovie(movie) {
   const imageUrl = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
   const releaseDate = new Date(movie.release_date).toLocaleDateString();
   const genres = movie.genre_ids.map(id => genreMap[id]).join(', ');
+  const popularity = movie.popularity.toFixed(1);
 
   const html = `
     <div class="upcoming-container">
@@ -53,7 +57,7 @@ function displayMovie(movie) {
             <p class="detail-item">Vote / Votes:<span class="vote-count">${movie.vote_average} / ${movie.vote_count}</span></p>
             </div>
             <div  class="">
-            <p class="detail-item">Popularity:<span class="popularity-value">${movie.popularity}</span></p>
+            <p class="detail-item">Popularity:<span class="popularity-value">${popularity}</span></p>
             <div class="genre-p"><p class="genre-item">Genre:<div class="genre-div"><span class="genre">${genres}</span></div></p>
             </div></div>
           </div>
@@ -77,10 +81,24 @@ function toggleLibrary(movie) {
 
   if (isInLibrary) {
     library.removeMovie(movieId);
-    alert('Removed from my library');
+    iziToast.info({
+      title: 'Info',
+      message: 'Removed from my library',
+      backgroundColor: 'red',
+      messageSize: '13',
+      closeOnEscape: 'true',
+      closeOnClick: 'true',
+    });
   } else {
     library.addMovie(movie);
-    alert('Added to my library');
+    iziToast.success({
+      title: 'Success',
+      message: 'Added to my library',
+      backgroundColor: 'orange',
+      messageSize: '13',
+      closeOnEscape: 'true',
+      closeOnClick: 'true',
+    });
   }
 
   updateLibraryButton(movieId);
