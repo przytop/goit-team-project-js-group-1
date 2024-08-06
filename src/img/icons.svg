@@ -14,7 +14,7 @@
 </symbol>
 <symbol id="icon-linkedin-icon" viewBox="0 0 32 32">
 <title>linkedin-icon</title>
-<path fill="#007ebb" style="fill: var(--color3, #007ebb)" d="M3.556 32h24.889c1.964 0 3.556-1.592 3.556-3.556v-24.889c0-1.964-1.592-3.556-3.556-3.556h-24.889c-1.964 0-3.556 1.592-3.556 3.556v24.889c0 1.964 1.592 3.556 3.556 3.556z"></path>
+<path  d="M3.556 32h24.889c1.964 0 3.556-1.592 3.556-3.556v-24.889c0-1.964-1.592-3.556-3.556-3.556h-24.889c-1.964 0-3.556 1.592-3.556 3.556v24.889c0 1.964 1.592 3.556 3.556 3.556z"></path>
 <path fill="#fff" style="fill: var(--color4, #fff)" d="M27.556 27.556v-9.755c0-4.127-2.34-6.123-5.608-6.123-3.27 0-4.646 2.546-4.646 2.546v-2.075h-4.576v15.407h4.576v-8.088c0-2.167 0.998-3.457 2.907-3.457 1.755 0 2.598 1.239 2.598 3.457v8.088h4.749zM7.266 10.131c1.559 0 2.821-1.273 2.821-2.843s-1.262-2.843-2.821-2.843c-1.559 0-2.822 1.273-2.822 2.843s1.263 2.843 2.822 2.843zM4.903 27.556v-15.407h4.772v15.407h-4.772z"></path>
 </symbol>
 <symbol id="icon-popcorn" viewBox="0 0 41 32">
@@ -203,6 +203,10 @@
 <title>sun</title>
 <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M16 26c5.523 0 10-4.477 10-10s-4.477-10-10-10c-5.523 0-10 4.477-10 10s4.477 10 10 10z"></path>
 <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M25.814 6.186l0.182-0.182M6.004 25.996l0.182-0.182M16 2.112v-0.112M16 30v-0.112M2.112 16h-0.112M30 16h-0.112M6.186 6.186l-0.182-0.182M25.996 25.996l-0.182-0.182"></path>
+</symbol>
+<symbol id="icon-heart" viewBox="0 0 34 32">
+<title>heart</title>
+<path fill="none" style="fill: var(--color1, #f87719)" d="M17.231 31.705l-2.412-2.412c-8.96-7.926-14.818-13.268-14.818-19.815 0-5.342 4.135-9.477 9.477-9.477 2.929 0 5.858 1.378 7.754 3.618 1.895-2.24 4.825-3.618 7.754-3.618 5.342 0 9.477 4.135 9.477 9.477 0 6.548-5.858 11.889-14.818 19.815l-2.412 2.412z"></path>
 </symbol>
 </defs>
 </svg>

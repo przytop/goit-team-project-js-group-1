@@ -8,7 +8,7 @@ teamLink.addEventListener('click', onLinkClick);
 function onLinkClick(event) {
   event.preventDefault();
 
-  teamBackdrop.classList.remove('is-hidden');
+  teamBackdrop.classList.remove('is-closed');
   document.body.classList.add('modal-open');
 
   addAllEventListeners();
@@ -50,7 +50,7 @@ function closingModalStaff() {
   teamBackdrop.removeEventListener('click', onBackdropClick);
   teamCloseBtn.removeEventListener('click', onCloseBtnClick);
 
-  teamBackdrop.classList.add('is-hidden');
+  teamBackdrop.classList.add('is-closed');
   document.body.classList.remove('modal-open');
   bodyElement.style.overflow = 'auto';
 }

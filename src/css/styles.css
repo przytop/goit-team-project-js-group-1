@@ -51,6 +51,20 @@ html[data-theme='light'] {
   color: var(--black-color);
 }
 
+html {
+  cursor: url('../img/cursor-arrow-2.png'), auto;
+}
+
+a,
+button,
+.header-nav-list,
+.mobile-nav-list,
+.footer-btn,
+.scroll-up-btn,
+.theme-switcher {
+  cursor: url('../img/cursor-pointer-2.png'), auto;
+}
+
 .is-closed {
   display: none;
 }
