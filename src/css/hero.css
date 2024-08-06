@@ -1,3 +1,70 @@
+html[data-theme="light"] .modal-oopsie {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    box-shadow: 1px 1px 14px 4px #00000038;
+}
+
+html[data-theme="light"] .modal-oopsie button svg {
+    stroke: var(--black-color);
+    transition: all .7s ease-in-out;
+}
+
+html[data-theme="dark"] .modal-oopsie {
+    background-color: var(--black-color);
+    color: var(--white-color);
+    box-shadow: 1px 1px 14px 4px #FF6B086B;
+}
+
+html[data-theme="dark"] .modal-oopsie button svg {
+    stroke: var(--white-color);
+    transition: all .7s ease-in-out;
+}
+
+.modal-oopsie {
+    position: relative;
+    top: -200px;
+    width: 280px;
+    height: 289px;
+    background-color: #111111;
+    border-radius: 16px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all .7s ease-in-out;
+}
+
+.fade-in {
+    display: flex;
+    animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+.modal-oopsie p {
+    width: 214px;
+    height: 65px;
+}
+
+.modal-oopsie button svg {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 16px;
+    right: 16px;
+    stroke: var(--white-color);
+}
+
+.image-cont {
+    content:url("/img/oops-mobile@2x.png");
+    content:url("/img/oops-mobile.png");
+    width: 159px;
+    height: 153px;
+}
+
 .hero {
     width: 320px;
     height: 428px;
@@ -150,6 +217,46 @@
 
 @media (min-width: 768px) {
 
+    .modal-oopsie {
+        width: 609px;
+        height: 400px;
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+    }
+    
+    .modal-oopsie p {
+        width: 321px;
+        height: 92px;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 28.13px;
+        text-align: left;
+        margin-left: 44px;
+        padding-top: 132px;
+    }
+    
+    .modal-oopsie button {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+    }
+
+    .modal-oopsie button img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .image-cont {
+        content:url("/img/oops-tablet@2x.png");
+        content:url("/img/oops-tablet.png");
+        width: 296px;
+        height: 260px;
+        position: absolute;
+        bottom: 16px;
+        right: 10px;
+    }
+
     .hero {
         width: 768px;
         height: 432px;
@@ -251,6 +358,29 @@
 
 @media (min-width: 1280px) {
 
+    .modal-oopsie {
+        width: 700px;
+        height: 400px;
+        margin: auto;
+        margin-top: 120px;
+        z-index: 3;
+    }
+    
+    .modal-oopsie p {
+        height: 100px;
+        margin-left: 50px;
+        padding-top: 150px;
+    }
+    
+    .image-cont {
+        content:url("/img/oops-desktop@2x.png");
+        content:url("/img/oops-desktop.png");
+        width: 363px;
+        height: 318px;
+        bottom: 5px;
+        right: 0px;
+    }
+
     .hero {
         width: 100vw;
         height: 720px;
@@ -343,4 +473,14 @@
         display: flex;
         justify-content: space-between;
     }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+  
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
