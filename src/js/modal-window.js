@@ -7,20 +7,20 @@ const backdrop = document.querySelector('.backdrop');
 const openBtn = document.querySelector('.modal-btn-open');
 
 
-function openMovieInfoModal(id) {
+export default function openMovieInfoModal(id) {
   backdrop.classList.remove('is-closed');
   createMovieInfoMarkup(id);
 }
 
 function coloseMovieInfoModal() {
   backdrop.classList.add('is-closed');
+  backdrop.innerHTML = '';
 }
 
 export async function createMovieInfoMarkup(id) {
   const tmdb = new TmdbApi();
   const lmm = new LocalMovieManager('myLibrary');
   const backdrop = document.querySelector('.backdrop');
-  const addlibrary = document.querySelector('library-actions-btn');
 
   try {
     const {
@@ -88,10 +88,11 @@ export async function createMovieInfoMarkup(id) {
 
   } catch (error) {
     console.error('Error fetching movie details:', error);
-  }
+  }  
 }
 
-openBtn.addEventListener('click', () => openMovieInfoModal(438631));
+
+openBtn.addEventListener('click', () => openMovieInfoModal(573435));
 
 // ____________________________________________
 // ID Dune: 438631
