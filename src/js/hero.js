@@ -16,8 +16,8 @@ const displayMovieInfo = (movie) => {
     </div>
     <p class="desc">${movie.overview}</p>
     <div class="hero-btn">
-      <button class="watch-btn" data-video-id="${movie.id}" onclick="watchTrailer(${movie.id})">Watch trailer</button> 
-      <button class="details-btn" onclick="showDetails(${movie.id})">More details</button>
+      <button class="watch-btn">Watch trailer</button> 
+      <button class="details-btn">More details</button>
     </div>
   `;
 
@@ -28,6 +28,9 @@ const displayMovieInfo = (movie) => {
 
   const watchBtn = document.querySelector('.watch-btn');
   watchBtn.addEventListener('click', watchTrailer)
+
+  const detailsBtn = document.querySelector('.details-btn');
+  detailsBtn.addEventListener('click', showDetails)
 
 };
 
@@ -47,19 +50,16 @@ const getStarRatingHTML = (voteAverage) => {
 const watchTrailer = async (movieId) => {
   try {
     const videos = await tmdb.getMovieVideos(movieId);
-    const trailer = videos.results.find(video => video.type === 'Trailer');
+    const trailer = videos.find(video => video.type === 'Trailer');
     if (trailer) {
       new ModalVideo('.watch-btn', {
         channel: 'youtube',
-        autoplay: 1,
         url: `https://www.youtube.com/watch?v=${trailer.key}`
       }).open();
-    } else {
-      window.alert('Trailer not available');
     }
   } catch (error) {
     console.error('Failed to load movie videos:', error);
-    modalOopsie()
+    modalOopsie();
   }
 };
 
@@ -97,6 +97,23 @@ const modalOopsie = () => {
     }, 300)
   });
 };
+
+const cinemaContent = () => {
+  const hero = document.getElementById('hero-section');
+  const cinemaDiv = document.createElement("div");
+  const heroTextCont = document.getElementById('text-cont');
+  heroTextCont.remove();
+  cinemaDiv.className = 'cinema-cont';
+  cinemaDiv.id = 'library-cinema';
+  hero.style = 'none';
+  hero.appendChild(cinemaDiv)
+
+  const libraryCinema = document.getElementById('library-cinema');
+  libraryCinema.innerHTML = `<h2 class="cinema-title">Create Your Dream Cinema</h2>
+        <p class="cinema-desc">Is a guide to designing a personalized movie theater experience with the 
+            right equipment, customized decor, and favorite films. This guide helps you bring the cinema 
+            experience into your own home with cozy seating, dim lighting, and movie theater snacks.</p>`
+}
    
 
 const showDetails = (movieId) => {
@@ -109,6 +126,12 @@ const loadHeroContent = async () => {
     if (movies.length > 0) {
       const randomMovie = movies[Math.floor(Math.random() * movies.length)];
       displayMovieInfo(randomMovie);
+      document.querySelector('.header-nav').addEventListener('click', (event) => {
+        if (event.target.href.endsWith('library.html')) {
+          event.preventDefault();
+          cinemaContent()
+        }
+      });
     } else {
       displayDefaultHero();
     }

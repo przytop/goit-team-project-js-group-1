@@ -1,7 +1,7 @@
 html[data-theme="light"] .modal-oopsie {
     background-color: var(--white-color);
     color: var(--black-color);
-    box-shadow: 1px 1px 14px 4px #00000038;
+    box-shadow: 1px 1px 14px 4px gray;
 }
 
 html[data-theme="light"] .modal-oopsie button svg {
@@ -89,7 +89,7 @@ html[data-theme="dark"] .modal-oopsie button svg {
 .hero-text-cont {
     width: 242px;
     height: 286px;
-    padding-top: 40px;
+    padding-top: 60px;
 }
 
 .default-text-cont {
@@ -101,7 +101,7 @@ html[data-theme="dark"] .modal-oopsie button svg {
 .cinema-cont {
     width: 199px;
     height: 260px;
-    padding-top: 40px
+    padding-top: 66px
 }
 
 .title,
@@ -268,6 +268,10 @@ html[data-theme="dark"] .modal-oopsie button svg {
         margin-bottom: 80px;
     }
 
+    .hero-text-cont {
+        padding-top: 45px;
+    }
+
     .hero-default {
         width: 768px;
         height: 432px;
@@ -308,6 +312,7 @@ html[data-theme="dark"] .modal-oopsie button svg {
     .cinema-cont {
         width: 357px;
         height: 192px;
+        padding-top: 86px;
     }
 
     .cinema-title {
@@ -403,6 +408,7 @@ html[data-theme="dark"] .modal-oopsie button svg {
     }
     
     .hero-text-cont {
+        padding-top: 178px;
         padding-left: 135px;
     }
 
@@ -429,7 +435,8 @@ html[data-theme="dark"] .modal-oopsie button svg {
     .cinema-cont {
         width: 464px;
         height: 242px;
-        padding-top: 158px;
+        padding-top: 196px;
+        padding-left: 117px;
     }
     
     .cinema-title {
