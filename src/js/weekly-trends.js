@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   };
 
   const backdrop = document.querySelector('.backdrop');
-  const modalWindow = backdrop.querySelector('.modal-window');
+  // const modalWindow = backdrop.querySelector('.modal-window');
   // const closeButton = modalWindow.querySelector('.modal-btn-close');
 
   // function openModal() {

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   };
 
   const backdrop = document.querySelector('.backdrop');
-  const modalWindow = backdrop.querySelector('.modal-window');
+  // const modalWindow = backdrop.querySelector('.modal-window');
   // const closeButton = modalWindow.querySelector('.modal-btn-close');
 
   // function openModal() {
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         card.style.backgroundImage = `url(${imageUrl})`;
         card.style.backgroundSize = 'cover';
         card.style.backgroundPosition = 'center';
-        
+
         card.dataset.id = id;
 
         card.innerHTML = `
@@ -220,9 +220,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ___________________________
 
-const backdrop = document.querySelector('.backdrop');
-const openBtn = document.querySelector('.modal-btn-open');
-const openCokolwiek = document.querySelector('.catalog-movie-list-item');
-function coloseMovieInfoModal() {
-  backdrop.classList.add('is-closed');
-}
