@@ -16,8 +16,8 @@ const displayMovieInfo = (movie) => {
     </div>
     <p class="desc">${movie.overview}</p>
     <div class="hero-btn">
-      <button class="watch-btn" data-video-id="${movie.id}" onclick="watchTrailer(${movie.id})">Watch trailer</button> 
-      <button class="details-btn" onclick="showDetails(${movie.id})">More details</button>
+      <button class="watch-btn" data-video-id="${movie.id})">Watch trailer</button> 
+      <button class="details-btn">More details</button>
     </div>
   `;
 
@@ -27,7 +27,7 @@ const displayMovieInfo = (movie) => {
   hero.style.backgroundPosition = "center"
 
   const watchBtn = document.querySelector('.watch-btn');
-  watchBtn.addEventListener('click', watchTrailer)
+  watchBtn.addEventListener('click', () => watchTrailer())
 
 };
 
@@ -36,9 +36,9 @@ const getStarRatingHTML = (voteAverage) => {
   let starHTML = '';
   for (let i = 0; i < 5; i++) {
     if (i < stars) {
-      starHTML += '<img src="./img/star.svg" alt="star">';
+      starHTML += '<img src="../img/star.svg" alt="star">';
     } else {
-      starHTML += '<img src="./img/star-outline.svg" alt="star-outline">';
+      starHTML += '<img src="../img/star-outline.svg" alt="star-outline">';
     }
   }
   return starHTML;
@@ -47,7 +47,7 @@ const getStarRatingHTML = (voteAverage) => {
 const watchTrailer = async (movieId) => {
   try {
     const videos = await tmdb.getMovieVideos(movieId);
-    const trailer = videos.results.find(video => video.type === 'Trailer');
+    const trailer = videos.find(video => video.type === 'Trailer');
     if (trailer) {
       new ModalVideo('.watch-btn', {
         channel: 'youtube',
