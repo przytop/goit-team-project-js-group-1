@@ -13,17 +13,33 @@ function createMovieListItem(movie) {
   const listItem = document.createElement('li');
   listItem.classList.add('my-library-movie-list-item');
 
+  const id = movie.id;
+  listItem.dataset.id = id;
+
+  const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  listItem.style.backgroundImage = `url(${imageUrl})`;
+  listItem.style.backgroundSize = 'cover';
+  listItem.style.backgroundPosition = 'center';
   listItem.innerHTML = `
-      <a href="#">
-        <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="my-library-movie-picture" />
         <div class="my-library-gradient"></div>
         <div class="my-library-movie">
           <span class="my-library-movie-title">${movie.title}</span>
           <span class="my-library-movie-genres">${movie.genre_ids} | ${movie.release_date}</span>
         </div>
-      </a>
     `;
 
+  
+        document.querySelectorAll('.my-library-movie-list-item').forEach(item => {
+          item.addEventListener('click', event => {
+            const id = event.target.getAttribute('data-id');
+            if (id) {
+              // Ensure the id is present
+            openMovieInfoModal(id);
+            }
+          });
+          
+        });
+    
   return listItem;
 }
 
@@ -63,3 +79,5 @@ genreSelect.addEventListener('change', function () {
 });
 
 renderMovieList();
+
+

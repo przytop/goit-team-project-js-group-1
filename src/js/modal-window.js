@@ -3,6 +3,7 @@
 import TmdbApi from './tmdb-api';
 import LocalMovieManager from './local-movie-manager';
 
+
 const backdrop = document.querySelector('.backdrop');
 const openBtn = document.querySelector('.modal-btn-open');
 
@@ -96,7 +97,7 @@ openBtn.addEventListener('click', () => openMovieInfoModal(573435));
 
 // ____________________________________________
 // ID Dune: 438631
-// ID Bad Boys: 573435
+// ID Bad Boys: 438631
 // zaczytanie ID do funkcji
 // localStorage- pobranie ID z eventListener!!!
 // klucz = 'myLibrary'
