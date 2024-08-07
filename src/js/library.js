@@ -79,7 +79,6 @@ function createMovieListItem(movie) {
 
 function renderMovieList(genre = '', reset = true) {
   const movies = JSON.parse(localStorage.getItem('myLibrary')) || [];
-  console.log('Total Movies:', movies.length);
 
   if (reset) {
     currentDisplayCount = 0;
@@ -95,8 +94,6 @@ function renderMovieList(genre = '', reset = true) {
   if (reset) {
     movieList.innerHTML = '';
   }
-
-  console.log('Filtered Movies:', filteredMovies.length);
 
   if (filteredMovies.length > 0) {
     mainSection.style.display = 'block';
