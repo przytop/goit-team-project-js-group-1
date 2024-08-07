@@ -13,6 +13,7 @@ import{a as N,t as q,M as A}from"./vendor-aedd9b60.js";(function(){const t=docum
               <th class="modal-film-tab-header">Vote / Votes</th>
               <td class="modal-film-tab-data">
                 <span class="modal-window-accent-vote">${r.toFixed(1)}</span>
+                /
                 <span class="modal-window-accent-votes">${v}</span>
               </td>
             </tr>
@@ -55,4 +56,4 @@ import{a as N,t as q,M as A}from"./vendor-aedd9b60.js";(function(){const t=docum
     Decorate your space, choose your films, and stock up on snacks for the full experience.</p>
     <button class="get-started-btn" onclick="location.href='/catalog.html'">Get started</button>
   `};document.addEventListener("DOMContentLoaded",P);const F=document.querySelectorAll(".header-nav-list"),Q=document.querySelectorAll(".mobile-nav-list"),O=window.location.href;F.forEach(e=>{e.href===O?e.classList.add("active"):e.classList.remove("active")});Q.forEach(e=>{e.href===O?e.classList.add("active"):e.classList.remove("active")});const _=document.getElementById("menu-btn"),l=document.getElementById("mobile-menu-modal"),i=document.getElementById("mobile-menu-backdrop");_.addEventListener("click",function(){l.classList.add("open"),i.style.display="block"});i.addEventListener("click",function(e){e.target===i&&(l.classList.remove("open"),i.style.display="none")});document.addEventListener("click",function(e){!l.contains(e.target)&&e.target!==_&&(l.classList.remove("open"),i.style.display="none")});export{k as L,h as T,E as o};
-//# sourceMappingURL=main-4e553a2e.js.map
+//# sourceMappingURL=main-f6e4a16f.js.map
