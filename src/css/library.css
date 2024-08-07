@@ -76,6 +76,7 @@
   padding: 12px 24px;
   border-radius: 74px;
   margin-bottom: 42px;
+  display: none;
 }
 
 .my-library-sorry-message {
