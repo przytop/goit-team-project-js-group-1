@@ -1,5 +1,5 @@
 .genre-form {
-  padding-left: 32px;
+  /* padding-left: 32px; */
   padding-top: 80px;
   display: none;
 }
@@ -94,6 +94,11 @@ html[data-theme='light'] #genre {
   display: none;
 }
 
+.load {
+  margin: auto;
+  /* margin-bottom: 42px; */
+}
+
 #my-library-button-search {
   display: none;
 }
@@ -111,7 +116,9 @@ html[data-theme='light'] #genre {
   .genre-select {
     width: 144px;
   }
-
+  .my-library-button {
+    margin-bottom: 40px;
+  }
   .my-library-movie-list {
     display: flex;
     flex-direction: column;
