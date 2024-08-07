@@ -145,8 +145,8 @@ genreSelect.addEventListener('change', function () {
 });
 
 async function render() {
-  await fetchGenres();
   renderMovieList();
+  fetchGenres();
 }
 
 render();
