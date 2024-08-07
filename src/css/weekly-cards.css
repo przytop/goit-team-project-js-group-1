@@ -1,8 +1,8 @@
-/* .weekly-section .card {
+#weekly-cards .card {
   display: none;
-} */
+}
 
-.card:first-child {
+#weekly-cards .card:first-child {
   display: block;
 }
 
@@ -12,21 +12,25 @@
   align-items: center;
   margin: 43px 0 24px 0;
 }
+
 .weekly-text h2 {
   margin: 0;
   font-size: 16px;
   text-transform: uppercase;
 }
+
 .weekly-text a {
   font-size: 16px;
   text-decoration: none;
   color: var(--orange-color);
 }
+
 #weekly-cards {
   display: flex;
   justify-content: center;
   margin-bottom: 32px;
 }
+
 .card {
   position: relative;
   background-color: #fff;
@@ -37,19 +41,23 @@
   overflow: hidden;
   transition: transform 0.2s;
 }
+
 .card:hover {
   transform: scale(1.05);
 }
+
 .card img {
   width: 100%;
   height: auto;
 }
+
 .card h2,
 .card p {
   font-family: var(--font-roboto);
   font-weight: 500;
   font-size: 12px;
 }
+
 .card h2 {
   margin: 10px 0 5px;
   text-align: center;
@@ -111,17 +119,25 @@
   .weekly-text {
     margin: 52px 0 24px 0;
   }
+
   .weekly-text h2 {
     font-size: 24px;
   }
+
   .weekly-text a {
     font-size: 24px;
   }
+
+  #weekly-cards .card {
+    display: block;
+  }
+
   #weekly-cards {
     gap: 15px;
     flex-wrap: nowrap;
     margin-bottom: 34px;
   }
+
   .card {
     display: block;
     width: 224px;
@@ -132,6 +148,7 @@
   .card p {
     font-size: 12px;
   }
+
   .stars {
     margin-left: 22px;
   }
@@ -141,27 +158,33 @@
   .weekly-text {
     margin: 80px 0 28px 0;
   }
+
   .weekly-text h2 {
     font-size: 28px;
   }
+
   .weekly-text a {
     font-size: 28px;
   }
+
   #weekly-cards {
     gap: 15px;
     display: flex;
     justify-content: center;
     margin-bottom: 60px;
   }
+
   .card {
     display: block;
     width: 395px;
     height: 574px;
   }
+
   .card h2,
   .card p {
     font-size: 20px;
   }
+
   .card-content h2 {
     margin: 10px 0 5px 0;
     text-align: left;
