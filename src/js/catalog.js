@@ -1,222 +1,70 @@
-import TmbdbApi from './tmdb-api';
+import TmdbApi from './tmdb-api';
 import openMovieInfoModal from './modal-window';
 
-document.addEventListener('DOMContentLoaded', async function () {
+document.addEventListener('DOMContentLoaded', async () => {
+  const tmdb = new TmdbApi();
   const catalogCardsContainer = document.querySelector('.catalog-movie-list');
-  const tmdb = new TmbdbApi();
+  const sorryMessage = document.querySelector('.catalog-sorry-message');
+  const input = document.querySelector('.input-text');
+  const searchButton = document.querySelector('.catalog-button');
+  const yearSelect = document.querySelector('.year-select');
+  const xButton = document.querySelector('.x-button');
+  const genreAbbreviations = { 'Science Fiction': 'Sci-Fi' };
 
-  const genreAbbreviations = {
-    'Science Fiction': 'Sci-Fi',
+  sorryMessage.style.display = 'none';
+
+  const fetchMovies = async (query = '', page = 1) => {
+    try {
+      return query ? (await tmdb.searchMovie(query, page)).slice(0, 18) : (await tmdb.getTrendingMovies('week')).slice(0, 18);
+    } catch (e) { console.error('Error fetching movies:', e); return []; }
   };
 
-  const backdrop = document.querySelector('.backdrop');
-  // const modalWindow = backdrop.querySelector('.modal-window');
-  // const closeButton = modalWindow.querySelector('.modal-btn-close');
+  const fetchGenres = async () => {
+    try { return await tmdb.getMovieGenres(); }
+    catch (e) { console.error('Error fetching genres:', e); return []; }
+  };
 
-  // function openModal() {
-  //   modalWindow.innerHTML = `
-  //   <button class="modal-btn-close" type="button">
-  //     <svg class="modal-btn-close-icon" width="10.5" height="10.5" fill="#ffffff">
-  //       <use href=""></use>
-  //     </svg>
-  //   </button>
+  const getGenres = await fetchGenres();
+  const filterByYear = (movies, year) => year ? movies.filter(m => new Date(m.release_date).getFullYear() == year) : movies;
 
-  //   <img class="modal-film-poster" src="https://via.placeholder.com/248x315" alt="Film Poster">
+  const starRating = rating => {
+    const fullStars = Math.floor(rating / 2);
+    const halfStar = rating % 2 >= 1 ? 1 : 0;
+    return '<svg class="star full"><use xlink:href="#icon-star"></use></svg>'.repeat(fullStars) +
+           (halfStar ? '<svg class="star half"><use xlink:href="#icon-star-half"></use></svg>' : '') +
+           '<svg class="star empty"><use xlink:href="#icon-star-outline"></use></svg>'.repeat(5 - Math.ceil(rating / 2));
+  };
 
-  //   <div class="modal-film-infos">
-  //       <h3 class="modal-film-title">Sample Film Title</h3>
-  //       <table class="modal-film-stats">
-  //           <tr class="modal-film-tab-row">
-  //               <th class="modal-film-tab-header">Vote / Votes</th>
-  //               <td class="modal-film-tab-data">
-  //                   <span class="modal-window-accent-vote">8.5</span>
-  //                   /
-  //                   <span class="modal-window-accent-votes">2000</span></td>
-  //           </tr>
-  //           <tr class="modal-film-tab-row">
-  //               <th class="modal-film-tab-header">Popularity</th>
-  //               <td class="modal-film-tab-data">89.2</td>
-  //           </tr>
-  //           <tr class="modal-film-tab-row">
-  //               <th class="modal-film-tab-header">Genre</th>
-  //               <td class="modal-film-tab-data">Action, Drama</td>
-  //           </tr>
-  //       </table>
+  const renderMovies = movies => {
+    catalogCardsContainer.innerHTML = '';
+    sorryMessage.style.display = movies.length ? 'none' : 'block';
 
-  //       <h3 class="modal-film-desc-about">About</h3>
-  //       <p class="modal-film-desc">Sample description  ~~ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo commodi
-  //             iure eius repellendus perspiciatis. Ducimus sit temporibus provident architecto! Adipisci labore
-  //             accusantium maiores, laborum voluptates odit illum odio nam id. Lorem ipsum dolor sit amet consectetur
-  //             adipisicing elit. Rem fugiat ea, eos provident, illo veritatis quos id laborum a, enim ullam. Provident
-  //             atque id quam, aspernatur nemo necessitatibus saepe consequatur. Lorem ipsum dolor sit amet consectetur
-  //             adipisicing elit. Consequuntur asperiores cumque, debitis atque ab maiores beatae voluptatum aperiam
-  //             error nulla? Nostrum aperiam magni aut magnam ipsam maiores quaerat placeat omnis</p>
-  //       <button id="library-actions-btn" type="submit">Add to my library</button>
-  //   </div>
-  // `;
-  //   backdrop.classList.remove('is-closed');
-  //   backdrop.classList.add('is-visible');
-  // }
+    movies.forEach(m => {
+      const genres = m.genre_ids.slice(0, 2).map(id => (getGenres.find(g => g.id === id)?.name || 'Unknown')).map(name => genreAbbreviations[name] || name).join(', ');
+      const releaseDate = m.release_date ? new Date(m.release_date).getFullYear() : 'Unknown';
+      const rating = Math.round(m.vote_average * 10) / 10;
 
-  function closeModal() {
-    backdrop.classList.remove('is-visible');
-    backdrop.classList.add('is-closed');
-  }
-
-  // closeButton.addEventListener('click', closeModal);
-
-  backdrop.addEventListener('click', event => {
-    if (event.target === backdrop) {
-      closeModal();
-    }
-  });
-
-  try {
-    const movies = await tmdb.getTrendingMovies('day');
-
-    function displayGenres() {
-      const screenWidth = window.innerWidth;
-      let genresToShow = 2;
-
-      if (screenWidth <= 600) {
-        genresToShow = 1;
-      }
-
-      catalogCardsContainer.innerHTML = '';
-
-      movies.slice(0, 9).forEach(async movie => {
-        const card = document.createElement('div');
-        card.classList.add('card');
-
-        const id = movie.id;
-
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-        const title = movie.title;
-        const releaseDate = movie.release_date
-          ? new Date(movie.release_date).getFullYear()
-          : 'Unknown';
-        const rating = Math.round(movie.vote_average * 10) / 10;
-
-        const genresList = await tmdb.getMovieGenres();
-        const genreNames = movie.genre_ids
-          .slice(0, genresToShow)
-          .map(id => {
-            const genre = genresList.find(g => g.id === id);
-            const genreName = genre ? genre.name : 'Unknown';
-            return genreAbbreviations[genreName] || genreName;
-          })
-          .join(', ');
-
-        const maxStars = 5;
-        const fullStars = Math.floor(rating / 2);
-        const halfStar = rating % 2 >= 1 ? 1 : 0;
-        const emptyStars = maxStars - fullStars - halfStar;
-
-        const stars = [
-          ...Array(fullStars).fill(
-            '<svg class="star full"><use xlink:href="#icon-star"></use></svg>'
-          ),
-          ...Array(halfStar).fill(
-            '<svg class="star half"><use xlink:href="#icon-star-half"></use></svg>'
-          ),
-          ...Array(emptyStars).fill(
-            '<svg class="star empty"><use xlink:href="#icon-star-outline"></use></svg>'
-          ),
-        ].join('');
-
-        card.style.backgroundImage = `url(${imageUrl})`;
-        card.style.backgroundSize = 'cover';
-        card.style.backgroundPosition = 'center';
-
-        card.dataset.id = id;
-
-        card.innerHTML = `
+      const card = document.createElement('li');
+      card.classList.add('card');
+      card.style.background = `url(https://image.tmdb.org/t/p/w500${m.poster_path}) center/cover`;
+      card.dataset.id = m.id;
+      card.innerHTML = `
         <div class="card-content">
-          <h2>${title}</h2>
-          <p>${genreNames} | ${releaseDate} <span class="stars">${stars}</span></p>
+          <h2>${m.title}</h2>
+          <p>${genres} | ${releaseDate} <span class="stars">${starRating(rating)}</span></p>
         </div>
       `;
+      card.addEventListener('click', () => openMovieInfoModal(m.id));
+      catalogCardsContainer.appendChild(card);
+    });
+  };
 
-      document.querySelectorAll('.card').forEach(card => {
-          card.addEventListener('click', event => {
-            const id = event.target.getAttribute('data-id');
-            if (id) {
-              // Ensure the id is present
-              openMovieInfoModal(id);
-            }
-          });
-        });
+  const handleSearch = async () => renderMovies(filterByYear(await fetchMovies(input.value.trim()), yearSelect.value));
 
-        catalogCardsContainer.appendChild(card);
-      });
-    }
+  searchButton.addEventListener('click', handleSearch);
+  yearSelect.addEventListener('change', handleSearch);
+  xButton.addEventListener('click', () => input.value = '');
+  input.addEventListener('input', () => xButton.style.visibility = input.value.trim() ? 'visible' : 'hidden');
 
-    displayGenres();
-
-    window.addEventListener('resize', displayGenres);
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
+  renderMovies(await fetchMovies());
 });
-
-const test = async () => {
-  try {
-    console.log(await tmdb.getTrendingMovies('day'));
-    console.log(await tmdb.getTrendingMovies('week'));
-    console.log(await tmdb.searchMovie('Dune'));
-    console.log(await tmdb.getMovieDetails(438631, 'title'));
-    console.log(await tmdb.getMovieVideos(438631));
-  } catch (error) {
-    console.error('Test failed:', error);
-  }
-};
-
-const search = async text => {
-  try {
-    const result = await tmdb.searchMovie(text);
-    console.log(result);
-    return result;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-// const trending = tmdb.getTrendingMovies('week').then(result => {
-//   console.log(result);
-//   return result;
-// });
-
-document.addEventListener('DOMContentLoaded', function () {
-  const input = document.querySelector('.input-text');
-  const sorryMessage = document.querySelector('.catalog-sorry-message');
-  const movieListItems = document.querySelectorAll('.catalog-movie-list-item');
-
-  // sorryMessage.style.display = 'none'; // Ukryj wiadomość na początku
-
-  // input.addEventListener('input', function () {
-  //   const query = input.value.toLowerCase();
-  //   let hasResults = false;
-
-  //   movieListItems.forEach(item => {
-  //     const title = item
-  //       .querySelector('.catalog-movie-title')
-  //       .textContent.toLowerCase();
-  //     if (title.includes(query)) {
-  //       item.style.display = ''; // Pokaż element
-  //       hasResults = true;
-  //     } else {
-  //       item.style.display = 'none'; // Ukryj element
-  //     }
-  //   });
-
-  //   if (!hasResults) {
-  //     sorryMessage.style.display = 'block'; // Pokaż wiadomość
-  //   } else {
-  //     sorryMessage.style.display = 'none'; // Ukryj wiadomość
-  //   }
-  // });
-});
-
-
-// ___________________________
-

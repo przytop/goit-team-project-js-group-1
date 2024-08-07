@@ -49,6 +49,7 @@
   gap: 10px;
 }
 
+
 .input-text {
   background-color: var(--black-color);
   width: 150px;
@@ -60,7 +61,7 @@
   color: var(--grey-color);
 }
 
-.input-year {
+.year-select {
   background-color: var(--black-color);
   width: 65px;
   height: 40px;
@@ -72,7 +73,7 @@
   font-weight: 500;
 }
 
-.input-year option:checked {
+.year-select option:checked {
   color: var(--orange-color);
   font-size: 18px;
   font-weight: 500;
@@ -92,6 +93,7 @@
   line-height: 32px;
   text-align: center;
   padding: 48px 20px 40px 20px;
+  display: none;
 }
 
 .catalog-movie-list {
@@ -204,6 +206,7 @@
 .x-button {
   position: relative;
   left: 60px;
+  visibility: hidden;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -246,7 +249,7 @@
     color: var(--grey-color);
   }
 
-  .input-year {
+  .year-select {
     background-color: var(--black-color);
     width: 95px;
     height: 44px;
@@ -259,7 +262,7 @@
     font-weight: 500;
   }
 
-  .input-year option:checked {
+  .year-select option:checked {
     color: var(--orange-color);
     font-size: 18px;
     font-weight: 500;
@@ -280,6 +283,7 @@
     text-align: center;
     padding-top: 80px;
     padding-bottom: 60px;
+
   }
 
   .catalog-movie-list {
@@ -427,7 +431,7 @@
     color: var(--grey-color);
   }
 
-  .input-year {
+  .year-select {
     background-color: var(--black-color);
     width: 95px;
     height: 48px;
@@ -439,7 +443,7 @@
     font-weight: 500;
   }
 
-  .input-year option:checked {
+  .year-select option:checked {
     color: var(--orange-color);
     font-size: 24px;
     font-weight: 500;
