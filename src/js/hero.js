@@ -10,7 +10,7 @@ const displayMovieInfo = movie => {
   heroTextCont.innerHTML = `
     <h2 class="title">${movie.title}</h2>
     <div class="star-rating">
-      ${getStarRatingHTML(movie.vote_average)}
+      <!-- ${getStarRatingHTML(movie.vote_average)} -->
     </div>
     <p class="desc">${movie.overview}</p>
     <div class="hero-btn">
