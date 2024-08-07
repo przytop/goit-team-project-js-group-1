@@ -50,6 +50,7 @@ export async function createMovieInfoMarkup(id) {
               <th class="modal-film-tab-header">Vote / Votes</th>
               <td class="modal-film-tab-data">
                 <span class="modal-window-accent-vote">${vote_average.toFixed(1)}</span>
+                /
                 <span class="modal-window-accent-votes">${vote_count}</span>
               </td>
             </tr>
