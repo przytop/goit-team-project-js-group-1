@@ -35,7 +35,7 @@ html[data-theme="light"] #genre {
   list-style: none;
   width: 1280px;
   display: flex;
-  gap: 15px;
+  gap: 16px;
   flex-wrap: wrap;
   padding: 48px 0 40px;
 }
