@@ -106,27 +106,23 @@
 /* ============================ SWITCHER ============================ */
 .theme-switcher {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 44px;
   height: 18px;
+  padding: 2px;
+  border-radius: 50px;
+  cursor: pointer;
   background: var(--gradient-button-2);
-  border-radius: 100px;
 }
 
-.theme-switcher::before {
-  content: '';
+.ball-icon {
   position: absolute;
-  background: var(--white-color);
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  top: 50%;
-  left: 2px;
-  transform: translateY(-50%);
+  left: 26px;
+  width: 15px;
+  height: 15px;
   transition: all 0.3s ease-in-out;
-}
-
-.theme-switcher.active::before {
-  left: calc(100% - 14px - 2px);
 }
 
 .toggle-icon {
@@ -135,8 +131,12 @@
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  padding: 3px;
+  padding: 2px;
   box-sizing: border-box;
+}
+
+html[data-theme='dark'] .ball-icon {
+  transform: translateX(-23px) rotate(-180deg);
 }
 
 .sun-icon,
@@ -150,22 +150,23 @@
   .theme-switcher {
     width: 60px;
     height: 24px;
+    padding: 3px;
   }
 
-  .theme-switcher::before {
+  .ball-icon {
     width: 18px;
     height: 18px;
-    left: 3px;
-  }
-
-  .theme-switcher.active::before {
-    left: calc(100% - 18px - 3px);
+    left: 39px;
   }
 
   .sun-icon,
   .moon-icon {
     width: 14px;
     height: 14px;
+  }
+
+  html[data-theme='dark'] .ball-icon {
+    transform: translateX(-36px) rotate(-180deg);
   }
 }
 
