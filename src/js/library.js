@@ -22,9 +22,31 @@ async function fetchGenres() {
         genreMap.set(genre.id, genre.name);
       }
     });
+
+    getGenreSelect();
   } catch (error) {
     console.error('Error fetching genres:', error);
   }
+}
+
+function getGenreSelect() {
+  // Add a placeholder option if it doesn't already exist
+  if (!genreSelect.querySelector('option[value=""]')) {
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = 'Genre';
+    defaultOption.disabled = true; // Make it non-selectable
+    defaultOption.selected = true; // Show it as selected
+    genreSelect.appendChild(defaultOption);
+  }
+
+  // Add options for each genre
+  genreMap.forEach((name, id) => {
+    const option = document.createElement('option');
+    option.value = name.toLowerCase();
+    option.textContent = name;
+    genreSelect.appendChild(option);
+  });
 }
 
 function createMovieListItem(movie) {

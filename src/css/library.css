@@ -18,6 +18,11 @@
   outline: none;
 }
 
+#genre {
+  overflow-y: auto; /* Add a scrollbar if content overflows */
+  z-index: 999; /* Ensure it's on top of other elements */
+}
+
 .my-library-movie-list {
   list-style: none;
   display: flex;
