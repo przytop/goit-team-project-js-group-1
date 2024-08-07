@@ -39,7 +39,7 @@ export async function createMovieInfoMarkup(id) {
       <div class="modal-window">
         <button class="modal-btn-close" type="button">
           <svg class="modal-btn-close-icon" width="10.5" height="10.5" fill="#ffffff">
-            <use href="../img/icons.svg#icon-close"></use>
+            <use href="./img/icons.svg#icon-close"></use>
           </svg>
         </button>
         <img class="modal-film-poster" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title} poster"/>
