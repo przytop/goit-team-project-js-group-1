@@ -113,15 +113,14 @@
   height: 18px;
   padding: 2px;
   border-radius: 50px;
-  cursor: pointer;
   background: var(--gradient-button-2);
 }
 
 .ball-icon {
   position: absolute;
-  left: 26px;
-  width: 15px;
-  height: 15px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -135,8 +134,8 @@
   box-sizing: border-box;
 }
 
-html[data-theme='dark'] .ball-icon {
-  transform: translateX(-23px) rotate(-180deg);
+html[data-theme='light'] .ball-icon {
+  transform: translateX(25px) rotate(180deg);
 }
 
 .sun-icon,
@@ -156,7 +155,7 @@ html[data-theme='dark'] .ball-icon {
   .ball-icon {
     width: 18px;
     height: 18px;
-    left: 39px;
+    left: 3px;
   }
 
   .sun-icon,
@@ -165,8 +164,8 @@ html[data-theme='dark'] .ball-icon {
     height: 14px;
   }
 
-  html[data-theme='dark'] .ball-icon {
-    transform: translateX(-36px) rotate(-180deg);
+  html[data-theme='light'] .ball-icon {
+    transform: translateX(36px) rotate(180deg);
   }
 }
 
