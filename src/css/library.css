@@ -93,7 +93,7 @@ html[data-theme="light"] #genre {
 }
 
 #my-library-button-search {
-  display: block;
+  display: none;
 }
 
 .my-library-sorry-message {

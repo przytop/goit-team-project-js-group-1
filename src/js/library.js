@@ -3,12 +3,10 @@ import openMovieInfoModal from './modal-window';
 
 const movieList = document.querySelector('.my-library-movie-list');
 const sorry = document.querySelector('.my-library-sorry');
-const loadMoreButton = document.querySelector(
-  '.my-library-main-section .my-library-button'
-);
-const searchButton = document.getElementById('my-library-button-search');
+const loadMoreButton = document.querySelector('.my-library-main-section .my-library-button');
 const mainSection = document.querySelector('.my-library-main-section');
 const genreSelect = document.querySelector('#genre');
+const searchButton = document.querySelector('#my-library-button-search');
 
 // Variables to track state
 let currentDisplayCount = 0;
@@ -118,17 +116,21 @@ function renderMovieList(genre = '', reset = true) {
 
     if (currentDisplayCount >= filteredMovies.length) {
       loadMoreButton.style.display = 'none';
-      console.log('Hiding Load More Button');
     } else {
       loadMoreButton.style.display = 'block';
-      console.log('Showing Load More Button');
     }
+
+    searchButton.style.display = 'none';
+    searchButton.disabled = true;
+
   } else {
     sorry.style.display = 'block';
     mainSection.style.display = 'none';
     document.querySelector('.genre-form').style.display = 'none';
     loadMoreButton.style.display = 'none';
-    console.log('No movies found, hiding Load More Button');
+
+    searchButton.style.display = 'block';
+    searchButton.disabled = false;
   }
 
   // Event for movie items
