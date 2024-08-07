@@ -111,7 +111,7 @@ html[data-theme="light"] .modal-btn-close:hover {
   fill: var(--white-color);
 }
 
-html[data-theme="light"] .modal-btn-close-icon {
+html[data-theme='light'] .modal-btn-close-icon {
   fill: var(--black-color);
 }
 
