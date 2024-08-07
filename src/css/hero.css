@@ -1,486 +1,491 @@
-html[data-theme="light"] .modal-oopsie {
-    background-color: var(--white-color);
-    color: var(--black-color);
-    box-shadow: 1px 1px 14px 4px #00000038;
+html[data-theme='light'] .modal-oopsie {
+  background-color: var(--white-color);
+  color: var(--black-color);
+  box-shadow: 1px 1px 14px 4px #00000038;
 }
 
-html[data-theme="light"] .modal-oopsie button svg {
-    stroke: var(--black-color);
-    transition: all .7s ease-in-out;
+html[data-theme='light'] .modal-oopsie button svg {
+  stroke: var(--black-color);
+  transition: all 0.7s ease-in-out;
 }
 
-html[data-theme="dark"] .modal-oopsie {
-    background-color: var(--black-color);
-    color: var(--white-color);
-    box-shadow: 1px 1px 14px 4px #FF6B086B;
+html[data-theme='dark'] .modal-oopsie {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  box-shadow: 1px 1px 14px 4px #ff6b086b;
 }
 
-html[data-theme="dark"] .modal-oopsie button svg {
-    stroke: var(--white-color);
-    transition: all .7s ease-in-out;
+html[data-theme='dark'] .modal-oopsie button svg {
+  stroke: var(--white-color);
+  transition: all 0.7s ease-in-out;
 }
 
 .modal-oopsie {
-    position: relative;
-    top: -200px;
-    width: 280px;
-    height: 289px;
-    background-color: #111111;
-    border-radius: 16px;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all .7s ease-in-out;
+  position: relative;
+  top: -200px;
+  width: 280px;
+  height: 289px;
+  background-color: #111111;
+  border-radius: 16px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.7s ease-in-out;
 }
 
 .fade-in {
-    display: flex;
-    animation: fadeIn 0.5s forwards;
+  display: flex;
+  animation: fadeIn 0.5s forwards;
 }
 
 .fade-out {
-    animation: fadeOut 0.5s forwards;
+  animation: fadeOut 0.5s forwards;
 }
 
 .modal-oopsie p {
-    width: 214px;
-    height: 65px;
+  width: 214px;
+  height: 65px;
 }
 
 .modal-oopsie button svg {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    top: 16px;
-    right: 16px;
-    stroke: var(--white-color);
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 16px;
+  right: 16px;
+  stroke: var(--white-color);
 }
 
 .image-cont {
-    content:url("/img/oops-mobile@2x.png");
-    content:url("/img/oops-mobile.png");
-    width: 159px;
-    height: 153px;
+  content: url('/img/oops-mobile@2x.png');
+  content: url('/img/oops-mobile.png');
+  width: 159px;
+  height: 153px;
 }
 
 .hero {
-    width: 320px;
-    height: 428px;
-    background-image:
-        linear-gradient(to left, rgba(17, 17, 17, 0) 10%, rgba(17, 17, 17, 1) 66%),
-        url("/img/hero-2-mobile@2x.jpg"),
-        url("/img/hero-2-mobile.jpg");
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 40px;
+  width: 320px;
+  height: 428px;
+  background-image: linear-gradient(
+      to left,
+      rgba(17, 17, 17, 0) 10%,
+      rgba(17, 17, 17, 1) 66%
+    ),
+    url('/img/hero-2-mobile@2x.jpg'), url('/img/hero-2-mobile.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 40px;
 }
 
 .hero-default {
-    width: 320px;
-    height: 429px;
-    background-image:
-        url("/img/hero-1-mobile@2x.jpg"),
-        url("/img/hero-1-mobile.jpg");
-    margin-bottom: 40px;
+  width: 320px;
+  height: 429px;
+  background-image: url('/img/hero-1-mobile@2x.jpg'),
+    url('/img/hero-1-mobile.jpg');
+  margin-bottom: 40px;
 }
 
 .hero-text-cont {
-    width: 242px;
-    height: 286px;
-    padding-top: 40px;
+  width: 242px;
+  height: 286px;
+  padding-top: 40px;
 }
 
 .default-text-cont {
-    width: 242px;
-    height: 286px;
-    padding-top: 88px;
+  width: 242px;
+  height: 286px;
+  padding-top: 88px;
 }
 
 .cinema-cont {
-    width: 199px;
-    height: 260px;
-    padding-top: 40px
+  width: 199px;
+  height: 260px;
+  padding-top: 40px;
+  text-align: left;
 }
 
 .title,
 .cinema-title {
-    width: 232px;
-    padding-bottom: 12px;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 37.5px;
-    text-align: left;
-    color: var(--white-color);
+  width: 232px;
+  padding-bottom: 12px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 37.5px;
+  text-align: left;
+  color: var(--white-color);
 }
 
 .title-default {
-    width: 199px;
-    padding-bottom: 8px;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 37.5px;
-    text-align: left;
-    color: var(--white-color);
+  width: 199px;
+  padding-bottom: 8px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 37.5px;
+  text-align: left;
+  color: var(--white-color);
 }
 
 .desc-default {
-    width: 166px;
-    height: 80px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 16.41px;
-    text-align: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: var(--white-color);
+  width: 166px;
+  height: 80px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--white-color);
 }
 
 .star-rating {
-    display: flex;
-    gap: 4px;
-    padding-bottom: 20px;
+  display: flex;
+  gap: 4px;
+  padding-bottom: 20px;
 }
 
 .desc {
-    width: 177px;
-    height: 66px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 16.41px;
-    text-align: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: var(--white-color);
+  width: 177px;
+  height: 66px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--white-color);
 }
 
 .cinema-desc {
-    width: 249px;
-    height: 112px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 16.41px;
-    text-align: left;
-    text-overflow: ellipsis;
-    color: var(--white-color);
+  width: 249px;
+  height: 112px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+  text-align: left;
+  text-overflow: ellipsis;
+  color: var(--white-color);
 }
 
 .watch-btn,
 .get-started-btn {
-    width: 117px;
-    height: 38px;
-    border-radius: 74px;
-    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 14.06px;
-    text-align: center;
-    color: #111111;
-    position: relative;
-    transition: all .2s;
+  width: 117px;
+  height: 38px;
+  border-radius: 74px;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14.06px;
+  text-align: center;
+  color: #111111;
+  position: relative;
+  transition: all 0.2s;
 }
 
 .watch-btn:active,
 .get-started-btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .details-btn {
-    width: 117px;
-    height: 38px;
-    border-radius: 74px;
-    border: 1px solid #fff;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 14.06px;
-    text-align: center;
-    transition: all .2s;
-    position: relative;
-    color: var(--white-color);
+  width: 117px;
+  height: 38px;
+  border-radius: 74px;
+  border: 1px solid #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14.06px;
+  text-align: center;
+  transition: all 0.2s;
+  position: relative;
+  color: var(--white-color);
 }
 
 .details-btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .hero-btn {
-    width: 242px;
-    display: flex;
-    justify-content: space-between;
+  width: 242px;
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 768px) {
+  .modal-oopsie {
+    width: 609px;
+    height: 400px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+  }
 
-    .modal-oopsie {
-        width: 609px;
-        height: 400px;
-        display: block;
-        margin: auto;
-        margin-top: 20px;
-    }
-    
-    .modal-oopsie p {
-        width: 321px;
-        height: 92px;
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 28.13px;
-        text-align: left;
-        margin-left: 44px;
-        padding-top: 132px;
-    }
-    
-    .modal-oopsie button {
-        position: absolute;
-        top: 24px;
-        right: 24px;
-    }
+  .modal-oopsie p {
+    width: 321px;
+    height: 92px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.13px;
+    text-align: left;
+    margin-left: 44px;
+    padding-top: 132px;
+  }
 
-    .modal-oopsie button img {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .image-cont {
-        content:url("/img/oops-tablet@2x.png");
-        content:url("/img/oops-tablet.png");
-        width: 296px;
-        height: 260px;
-        position: absolute;
-        bottom: 16px;
-        right: 10px;
-    }
+  .modal-oopsie button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+  }
 
-    .hero {
-        width: 768px;
-        height: 432px;
-        background-image:
-            linear-gradient(270deg, rgba(89, 130, 252, 0) 30%, rgba(0, 0, 0, 1) 62%),
-            url("/img/hero-2-tablet@2x.jpg"),
-            url("/img/hero-2-tablet.jpg");
-        background-position: -95%;
-        margin-bottom: 80px;
-    }
+  .modal-oopsie button img {
+    width: 24px;
+    height: 24px;
+  }
 
-    .hero-default {
-        width: 768px;
-        height: 432px;
-        background-image: url("/img/hero-1-tablet@2x.jpg"), url("/src/img/hero-1-tablet.jpg");
-        background-position: 80%;
-        margin-bottom: 80px;
-    }
-    
-    .title {
-        width: 482px;
-        padding-bottom: 16px;
-        font-size: 44px;
-        line-height: 51.56px;
-    }
+  .image-cont {
+    content: url('/img/oops-tablet@2x.png');
+    content: url('/img/oops-tablet.png');
+    width: 296px;
+    height: 260px;
+    position: absolute;
+    bottom: 16px;
+    right: 10px;
+  }
 
-    .title-default {
-        width: 332px;
-        height: 104px;
-        font-size: 44px;
-        line-height: 51.56px;
-        margin-bottom: 16px;
-    }
+  .hero {
+    width: 768px;
+    height: 432px;
+    background-image: linear-gradient(
+        270deg,
+        rgba(89, 130, 252, 0) 30%,
+        rgba(0, 0, 0, 1) 62%
+      ),
+      url('/img/hero-2-tablet@2x.jpg'), url('/img/hero-2-tablet.jpg');
+    background-position: -95%;
+    margin-bottom: 80px;
+  }
 
-    .desc-default {
-        width: 357px;
-        height: 64px;
-        font-size: 14px;
-        line-height: 16.41px;
-        overflow: visible;
-        margin-bottom: 32px;
-    }
+  .hero-default {
+    width: 768px;
+    height: 432px;
+    background-image: url('/img/hero-1-tablet@2x.jpg'),
+      url('/src/img/hero-1-tablet.jpg');
+    background-position: 80%;
+    margin-bottom: 80px;
+  }
 
-    .default-text-cont {
-        width: 357px;
-        height: 176px;
-    }
+  .title {
+    width: 482px;
+    padding-bottom: 16px;
+    font-size: 44px;
+    line-height: 51.56px;
+  }
 
-    .cinema-cont {
-        width: 357px;
-        height: 192px;
-    }
+  .title-default {
+    width: 332px;
+    height: 104px;
+    font-size: 44px;
+    line-height: 51.56px;
+    margin-bottom: 16px;
+  }
 
-    .cinema-title {
-        width: 332px;
-        height: 104px;
-        font-size: 44px;
-        line-height: 51.56px;
-        text-align: left;
-        margin-bottom: 8px;
-    }
+  .desc-default {
+    width: 357px;
+    height: 64px;
+    font-size: 14px;
+    line-height: 16.41px;
+    overflow: visible;
+    margin-bottom: 32px;
+  }
 
-    .cinema-desc {
-        width: 357px;
-    }
-    
-    .star-rating img {
-        width: 24px;
-    }
-    
-    .desc {
-        width: 254px;
-        height: 49px;
-        margin-bottom: 28px;
-        font-size: 14px;
-        line-height: 16.41px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    .hero-btn {
-        width: 291px;
-        display: flex;
-        justify-content: space-between;
-    }
+  .default-text-cont {
+    width: 357px;
+    height: 176px;
+  }
 
-    .watch-btn,
-    .details-btn {
-        width: 139px;
-        height: 48px;
-    }
-       
-    .watch-btn:active,
-    .details-btn:active {
-        transform: translateY(-1px);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    }
-} 
+  .cinema-cont {
+    width: 357px;
+    height: 192px;
+  }
+
+  .cinema-title {
+    width: 332px;
+    height: 104px;
+    font-size: 44px;
+    line-height: 51.56px;
+    text-align: left;
+    margin-bottom: 8px;
+  }
+
+  .cinema-desc {
+    width: 357px;
+  }
+
+  .desc {
+    width: 254px;
+    height: 49px;
+    margin-bottom: 28px;
+    font-size: 14px;
+    line-height: 16.41px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hero-btn {
+    width: 291px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .watch-btn,
+  .details-btn {
+    width: 139px;
+    height: 48px;
+  }
+
+  .watch-btn:active,
+  .details-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+}
 
 @media (min-width: 1280px) {
+  .modal-oopsie {
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    margin-top: 120px;
+    z-index: 3;
+  }
 
-    .modal-oopsie {
-        width: 700px;
-        height: 400px;
-        margin: auto;
-        margin-top: 120px;
-        z-index: 3;
-    }
-    
-    .modal-oopsie p {
-        height: 100px;
-        margin-left: 50px;
-        padding-top: 150px;
-    }
-    
-    .image-cont {
-        content:url("/img/oops-desktop@2x.png");
-        content:url("/img/oops-desktop.png");
-        width: 363px;
-        height: 318px;
-        bottom: 5px;
-        right: 0px;
-    }
+  .modal-oopsie p {
+    height: 100px;
+    margin-left: 50px;
+    padding-top: 150px;
+  }
 
-    .hero {
-        width: 100vw;
-        height: 720px;
-        background-image:
-            linear-gradient(270deg, rgba(89, 130, 252, 0) 30%, rgba(0, 0, 0, 1) 62%),
-            url("/img/hero-2-desktop@2x.jpg"),
-            url("/img/hero-2-desktop.jpg");
-        background-size: cover;
-        background-position: -95%;
+  .image-cont {
+    content: url('/img/oops-desktop@2x.png');
+    content: url('/img/oops-desktop.png');
+    width: 363px;
+    height: 318px;
+    bottom: 5px;
+    right: 0px;
+  }
 
-    }
+  .hero {
+    width: 100vw;
+    height: 720px;
+    background-image: linear-gradient(
+        270deg,
+        rgba(89, 130, 252, 0) 30%,
+        rgba(0, 0, 0, 1) 62%
+      ),
+      url('/img/hero-2-desktop@2x.jpg'), url('/img/hero-2-desktop.jpg');
+    background-size: cover;
+    background-position: -95%;
+  }
 
-    .hero-default {
-        width: 100vw;
-        height: 720px;
-        background-image: url("/img/hero-1-desktop@2x.jpg"), url("/img/hero-1-desktop.jpg");
-        background-size: cover;
-        background-position: -95%;
-        margin-bottom: 80px;
-    }
-    
-    .hero-text-cont {
-        padding-left: 135px;
-    }
+  .hero-default {
+    width: 100vw;
+    height: 720px;
+    background-image: url('/img/hero-1-desktop@2x.jpg'),
+      url('/img/hero-1-desktop.jpg');
+    background-size: cover;
+    background-position: -95%;
+    margin-bottom: 80px;
+  }
 
-    .title-default {
-        width: 464px;
-        height: 150px;
-        font-size: 64px;
-        line-height: 75px;
-    }
+  .hero-text-cont {
+    padding-left: 135px;
+  }
 
-    .desc-default {
-        width: 464px;
-        height: 76px;
-        font-size: 16px;
-        line-height: 18.75px;
-    }
+  .title-default {
+    width: 464px;
+    height: 150px;
+    font-size: 64px;
+    line-height: 75px;
+  }
 
-    .default-text-cont {
-        width: 357px;
-        height: 176px;
-        padding-left: 135px;
-    }
+  .desc-default {
+    width: 464px;
+    height: 76px;
+    font-size: 16px;
+    line-height: 18.75px;
+  }
 
-    .cinema-cont {
-        width: 464px;
-        height: 242px;
-        padding-top: 158px;
-    }
-    
-    .cinema-title {
-        width: 464px;
-        height: 150px;
-        font-size: 64px;
-        line-height: 75px;
-    }
-    
-    .cinema-desc {
-        width: 464px;
-        height: 76px;
-        font-size: 16px;
-        line-height: 18.75px;
-        
-    }
-    
-    .title {
-        width: 670px;
-        padding-bottom: 16px;
-        font-size: 64px;
-        line-height: 75px;
-    }
+  .default-text-cont {
+    width: 357px;
+    height: 176px;
+    padding-left: 135px;
+  }
 
-    .star-rating img {
-        width: 24px;
-    }
-    
-    .desc {
-        width: 367px;
-        height: 58px;
-        margin-bottom: 36px;
-        font-size: 16px;
-        line-height: 18.75px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    .hero-btn {
-        width: 291px;
-        display: flex;
-        justify-content: space-between;
-    }
+  .cinema-cont {
+    width: 464px;
+    height: 242px;
+    padding-top: 158px;
+    text-align: left;
+  }
+
+  .cinema-title {
+    width: 464px;
+    height: 150px;
+    font-size: 64px;
+    line-height: 75px;
+  }
+
+  .cinema-desc {
+    width: 464px;
+    height: 76px;
+    font-size: 16px;
+    line-height: 18.75px;
+  }
+
+  .title {
+    width: 670px;
+    padding-bottom: 16px;
+    font-size: 64px;
+    line-height: 75px;
+  }
+
+  .desc {
+    width: 367px;
+    height: 58px;
+    margin-bottom: 36px;
+    font-size: 16px;
+    line-height: 18.75px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hero-btn {
+    width: 291px;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-  
+
 @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
