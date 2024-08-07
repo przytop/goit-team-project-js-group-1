@@ -33,7 +33,7 @@ html[data-theme="light"] #genre {
 
 .my-library-movie-list {
   list-style: none;
-  max-width: 1280px;
+  width: 1280px;
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
