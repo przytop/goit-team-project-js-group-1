@@ -2,11 +2,11 @@
 
 import TmdbApi from './tmdb-api';
 import LocalMovieManager from './local-movie-manager';
-
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const backdrop = document.querySelector('.backdrop');
 const openBtn = document.querySelector('.modal-btn-open');
-
 
 export default function openMovieInfoModal(id) {
   backdrop.classList.remove('is-closed');
@@ -49,7 +49,9 @@ export async function createMovieInfoMarkup(id) {
             <tr class="modal-film-tab-row">
               <th class="modal-film-tab-header">Vote / Votes</th>
               <td class="modal-film-tab-data">
-                <span class="modal-window-accent-vote">${vote_average.toFixed(1)}</span>
+                <span class="modal-window-accent-vote">${vote_average.toFixed(
+                  1
+                )}</span>
                 /
                 <span class="modal-window-accent-votes">${vote_count}</span>
               </td>
@@ -65,58 +67,73 @@ export async function createMovieInfoMarkup(id) {
           </table>
           <h3 class="modal-film-desc-about">About</h3>
           <p class="modal-film-desc">${overview}</p>
-          <button id="library-actions-btn" type="submit">Add to my library</button>
+          <button id="library-actions-btn" type="submit">Dodaj do mojej biblioteki</button>
         </div>
       </div>
     `;
 
-    // Closing modal when "closeBtn" button is clicked
     const closeBtn = document.querySelector('.modal-btn-close');
     closeBtn.addEventListener('click', coloseMovieInfoModal);
 
-
-    // Closing modal by clicking ESCAPE button
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
         coloseMovieInfoModal();
       }
     });
 
-    // Add movie to local storage
     const addLibraryBtn = document.getElementById('library-actions-btn');
+    updateLibraryButton(id);
     addLibraryBtn.addEventListener('click', () => {
-      lmm.addMovie({ id, title, poster_path, vote_average, vote_count, popularity, genreNames, overview });
+      toggleLibrary({
+        id,
+        title,
+        poster_path,
+        vote_average,
+        vote_count,
+        popularity,
+        genres,
+        overview,
+      });
     });
-// ____________________________________________________________________________________
-    // podłapanie słuchacza do wyzwolenia funkcji toggleLibrary
-            // const addlibraryBtn = document.getElementById('library-btn');
-            // addlibraryBtn.addEventListener('click', () => toggleLibrary(addMovie));
-            // updateLibraryButton(movie.id);
-
   } catch (error) {
     console.error('Error fetching movie details:', error);
-  }  
+  }
 }
-// ______________________________________________________________________________________
-// adding different status to addLibraryBtn when klicked
+
 function toggleLibrary(movie) {
   const movieId = movie.id;
-  const isInLibrary = library.getMovies().some(m => m.id === movieId);
+  const lmm = new LocalMovieManager('myLibrary');
+  const isInLibrary = lmm.getMovies().some(m => m.id === movieId);
 
   if (isInLibrary) {
-    library.removeMovie(movieId);
-    alert('Removed from my library');
+    lmm.removeMovie(movieId);
+    iziToast.info({
+      title: 'Info',
+      message: 'Removed from my library',
+      backgroundColor: 'red',
+      messageSize: '13',
+      closeOnEscape: true,
+      closeOnClick: true,
+    });
   } else {
-    library.addMovie(movie);
-    alert('Added to my library');
+    lmm.addMovie(movie);
+    iziToast.success({
+      title: 'Success ',
+      message: 'Added to my library',
+      backgroundColor: 'orange',
+      messageSize: '13',
+      closeOnEscape: true,
+      closeOnClick: true,
+    });
   }
 
   updateLibraryButton(movieId);
 }
 
 function updateLibraryButton(movieId) {
-  const isInLibrary = library.getMovies().some(m => m.id === movieId);
-  const libraryBtn = document.getElementById('library-btn');
+  const lmm = new LocalMovieManager('myLibrary');
+  const isInLibrary = lmm.getMovies().some(m => m.id === movieId);
+  const libraryBtn = document.getElementById('library-actions-btn');
 
   if (isInLibrary) {
     libraryBtn.textContent = 'Remove from my library';
@@ -125,14 +142,4 @@ function updateLibraryButton(movieId) {
   }
 }
 
-
-
 openBtn.addEventListener('click', () => openMovieInfoModal(573435));
-
-// ____________________________________________
-// ID Dune: 438631
-// ID Bad Boys: 438631
-// zaczytanie ID do funkcji
-// localStorage- pobranie ID z eventListener!!!
-// klucz = 'myLibrary'
-

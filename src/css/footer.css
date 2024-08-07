@@ -117,7 +117,7 @@
 
 .team-close-icon {
   fill: var(--white-color);
-  /* transition: 250ms linear; */
+  transition: 250ms linear;
 }
 
 .team-close-icon:hover {
@@ -271,4 +271,8 @@ html[data-theme='light'] .footer-btn:hover {
 
 html[data-theme='light'] .team-close-icon {
   fill: var(--black-color);
+}
+
+html[data-theme='light'] .team-close-icon:hover {
+  fill: var(--orange-color);
 }
