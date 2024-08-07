@@ -148,11 +148,6 @@ loadMoreButton.addEventListener('click', function () {
   renderMovieList(genreSelect.value, false);
 });
 
-// Search Button click event
-searchButton.addEventListener('click', function () {
-  window.location.href = './catalog.html';
-});
-
 // Genre Select change event
 genreSelect.addEventListener('change', function () {
   const selectedGenre = genreSelect.value;
@@ -166,4 +161,3 @@ async function render() {
 }
 
 render();
-
