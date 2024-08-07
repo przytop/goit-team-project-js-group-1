@@ -1,10 +1,11 @@
 import TmdbApi from './tmdb-api';
 import ModalVideo from 'modal-video';
 import 'modal-video/css/modal-video.min.css';
+import openMovieInfoModal from './modal-window'; // Import funkcji otwierającej modal
 
 const tmdb = new TmdbApi();
 
-const displayMovieInfo = movie => {
+const displayMovieInfo = (movie) => {
   const hero = document.getElementById('hero-section');
   const heroTextCont = document.querySelector('.hero-text-cont');
   heroTextCont.innerHTML = `
@@ -14,24 +15,24 @@ const displayMovieInfo = movie => {
     </div>
     <p class="desc">${movie.overview}</p>
     <div class="hero-btn">
-      <button class="watch-btn" data-video-id="${
-        movie.id
-      })">Watch trailer</button> 
+      <button class="watch-btn" data-video-id="${movie.id})">Watch trailer</button> 
       <button class="details-btn">More details</button>
     </div>
   `;
 
   const imageUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
 
-  (hero.style.backgroundImage = `linear-gradient(270deg, rgba(89, 130, 252, 0) 5%, rgba(0, 0, 0, 1) 70%), url(${imageUrl})`),
-    innerWidth;
+  hero.style.backgroundImage = `linear-gradient(270deg, rgba(89, 130, 252, 0) 5%, rgba(0, 0, 0, 1) 70%), url(${imageUrl})`;
   hero.style.backgroundPosition = 'center';
 
   const watchBtn = document.querySelector('.watch-btn');
-  watchBtn.addEventListener('click', () => watchTrailer());
+  watchBtn.addEventListener('click', () => watchTrailer(movie.id));
+
+  const detailsBtn = document.querySelector('.details-btn');
+  detailsBtn.addEventListener('click', () => openMovieInfoModal(movie.id)); // Podpięcie modala
 };
 
-const getStarRatingHTML = voteAverage => {
+const getStarRatingHTML = (voteAverage) => {
   const roundedRating = Math.round(voteAverage * 2) / 2;
   let starHTML = '';
 
@@ -54,7 +55,7 @@ const getStarRatingHTML = voteAverage => {
   return starHTML;
 };
 
-const watchTrailer = async movieId => {
+const watchTrailer = async (movieId) => {
   try {
     const videos = await tmdb.getMovieVideos(movieId);
     const trailer = videos.find(video => video.type === 'Trailer');
@@ -106,10 +107,6 @@ const modalOopsie = () => {
       modalDiv.remove();
     }, 300);
   });
-};
-
-const showDetails = movieId => {
-  window.location.href = `/details.html?movieId=${movieId}`;
 };
 
 const loadHeroContent = async () => {
