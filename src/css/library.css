@@ -34,9 +34,8 @@ html[data-theme="light"] #genre {
 .my-library-movie-list {
   list-style: none;
   display: flex;
-  gap: 16px;
+  gap: 15px;
   flex-wrap: wrap;
-  justify-content: center;
   padding: 48px 0 40px;
 }
 

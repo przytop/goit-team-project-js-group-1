@@ -1,51 +1,53 @@
-<div class="weekly container">
-  <div class="weekly-text">
-    <h2>Weekly Trends</h2>
-    <a href="./catalog.html">See all</a>
+<section class="weekly-section">
+  <div class="weekly container">
+    <div class="weekly-text">
+      <h2>Weekly Trends</h2>
+      <a href="./catalog.html">See all</a>
+    </div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    >
+      <defs>
+        <linearGradient id="star-gradient" gradientTransform="rotate(45)">
+          <stop offset="0%" stop-color="#f87719" />
+          <stop offset="100%" stop-color="#f89f19" />
+        </linearGradient>
+        <symbol id="icon-star" viewBox="0 0 32 32">
+          <path
+            d="M24.626 29.999a.999.999 0 0 1-.587-.188l-8.038-5.828-8.038 5.828a.997.997 0 0 1-1.18-.005 1.003 1.003 0 0 1-.354-1.126l3.135-9.286-8.125-5.572a.999.999 0 0 1 .563-1.825h10.024l3.025-9.309a.996.996 0 0 1 .951-.691 1.002 1.002 0 0 1 .951.691l3.025 9.313h10.024a1.001 1.001 0 0 1 .566 1.825l-8.128 5.569 3.133 9.283a1 1 0 0 1-.945 1.32z"
+            fill="url(#star-gradient)"
+            stroke="url(#star-gradient)"
+            stroke-width="1"
+          />
+        </symbol>
+        <symbol id="icon-star-outline" viewBox="0 0 32 32">
+          <path
+            stroke-linejoin="round"
+            stroke-width="1.778"
+            d="M30 13H19.25L16 3l-3.25 10H2l8.75 6-3.375 10L16 22.75 24.625 29 21.25 19 30 13z"
+            fill="none"
+            stroke="url(#star-gradient)"
+            stroke-width="2"
+          />
+        </symbol>
+        <symbol id="icon-star-half" viewBox="0 0 32 32">
+          <path
+            stroke-linejoin="round"
+            stroke-width="1.778"
+            d="M30 13H19.25L16 3l-3.25 10H2l8.75 6-3.375 10L16 22.75 24.625 29 21.25 19 30 13z"
+            fill="none"
+            stroke="url(#star-gradient)"
+            stroke-width="2"
+          />
+          <path
+            d="M16 3v19.75L7.375 29l3.375-10L2 13h10.75L16 3z"
+            fill="url(#star-gradient)"
+          />
+        </symbol>
+      </defs>
+    </svg>
+    <div id="weekly-cards"></div>
   </div>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    style="position: absolute; width: 0; height: 0; overflow: hidden"
-  >
-    <defs>
-      <linearGradient id="star-gradient" gradientTransform="rotate(45)">
-        <stop offset="0%" stop-color="#f87719" />
-        <stop offset="100%" stop-color="#f89f19" />
-      </linearGradient>
-      <symbol id="icon-star" viewBox="0 0 32 32">
-        <path
-          d="M24.626 29.999a.999.999 0 0 1-.587-.188l-8.038-5.828-8.038 5.828a.997.997 0 0 1-1.18-.005 1.003 1.003 0 0 1-.354-1.126l3.135-9.286-8.125-5.572a.999.999 0 0 1 .563-1.825h10.024l3.025-9.309a.996.996 0 0 1 .951-.691 1.002 1.002 0 0 1 .951.691l3.025 9.313h10.024a1.001 1.001 0 0 1 .566 1.825l-8.128 5.569 3.133 9.283a1 1 0 0 1-.945 1.32z"
-          fill="url(#star-gradient)"
-          stroke="url(#star-gradient)"
-          stroke-width="1"
-        />
-      </symbol>
-      <symbol id="icon-star-outline" viewBox="0 0 32 32">
-        <path
-          stroke-linejoin="round"
-          stroke-width="1.778"
-          d="M30 13H19.25L16 3l-3.25 10H2l8.75 6-3.375 10L16 22.75 24.625 29 21.25 19 30 13z"
-          fill="none"
-          stroke="url(#star-gradient)"
-          stroke-width="2"
-        />
-      </symbol>
-      <symbol id="icon-star-half" viewBox="0 0 32 32">
-        <path
-          stroke-linejoin="round"
-          stroke-width="1.778"
-          d="M30 13H19.25L16 3l-3.25 10H2l8.75 6-3.375 10L16 22.75 24.625 29 21.25 19 30 13z"
-          fill="none"
-          stroke="url(#star-gradient)"
-          stroke-width="2"
-        />
-        <path
-          d="M16 3v19.75L7.375 29l3.375-10L2 13h10.75L16 3z"
-          fill="url(#star-gradient)"
-        />
-      </symbol>
-    </defs>
-  </svg>
-  <div id="weekly-cards"></div>
-</div>
+</section>
