@@ -3,7 +3,10 @@ import openMovieInfoModal from './modal-window';
 
 const movieList = document.querySelector('.my-library-movie-list');
 const sorry = document.querySelector('.my-library-sorry');
-const loadMoreButton = document.querySelector('.my-library-main-section .my-library-button');
+const loadMoreButton = document.querySelector(
+  '.my-library-main-section .my-library-button'
+);
+const searchButton = document.getElementById('my-library-button-search');
 const mainSection = document.querySelector('.my-library-main-section');
 const genreSelect = document.querySelector('#genre');
 
@@ -78,8 +81,8 @@ function createMovieListItem(movie) {
 
 function renderMovieList(genre = '', reset = true) {
   const movies = JSON.parse(localStorage.getItem('myLibrary')) || [];
+  console.log('Total Movies:', movies.length);
 
-  // Reset display count if necessary
   if (reset) {
     currentDisplayCount = 0;
   }
@@ -94,6 +97,8 @@ function renderMovieList(genre = '', reset = true) {
   if (reset) {
     movieList.innerHTML = '';
   }
+
+  console.log('Filtered Movies:', filteredMovies.length);
 
   if (filteredMovies.length > 0) {
     mainSection.style.display = 'block';
@@ -113,14 +118,17 @@ function renderMovieList(genre = '', reset = true) {
 
     if (currentDisplayCount >= filteredMovies.length) {
       loadMoreButton.style.display = 'none';
+      console.log('Hiding Load More Button');
     } else {
       loadMoreButton.style.display = 'block';
+      console.log('Showing Load More Button');
     }
   } else {
     sorry.style.display = 'block';
     mainSection.style.display = 'none';
     document.querySelector('.genre-form').style.display = 'none';
     loadMoreButton.style.display = 'none';
+    console.log('No movies found, hiding Load More Button');
   }
 
   // Event for movie items
@@ -135,18 +143,27 @@ function renderMovieList(genre = '', reset = true) {
   });
 }
 
+// Load More Button click event
 loadMoreButton.addEventListener('click', function () {
   renderMovieList(genreSelect.value, false);
 });
 
+// Search Button click event
+searchButton.addEventListener('click', function () {
+  window.location.href = './catalog.html';
+});
+
+// Genre Select change event
 genreSelect.addEventListener('change', function () {
   const selectedGenre = genreSelect.value;
   renderMovieList(selectedGenre);
 });
 
+// Initial rendering
 async function render() {
+  await fetchGenres();
   renderMovieList();
-  fetchGenres();
 }
 
 render();
+
