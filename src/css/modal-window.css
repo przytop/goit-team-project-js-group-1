@@ -111,10 +111,9 @@ html[data-theme="light"] .modal-btn-close:hover {
 /* fill: red; */
 }
 
-html[data-theme="light"] .modal-btn-close-icon {
-/* fill: red; */
+html[data-theme='light'] .modal-btn-close-icon {
+  fill: var(--black-color);
 }
-
 
 .modal-film-poster {
   width: 248px;

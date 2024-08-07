@@ -22,6 +22,18 @@
 .heart {
   margin: 0 10px 0 10px;
   fill: var(--orange-color);
+  animation: heartbeat 1.5s ease infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
 }
 
 .footer-btn {
@@ -105,7 +117,7 @@
 
 .team-close-icon {
   fill: var(--white-color);
-  /* transition: 250ms linear; */
+  transition: 250ms linear;
 }
 
 .team-close-icon:hover {
@@ -148,6 +160,11 @@
   margin-bottom: 5px;
   width: 200px;
   height: 240px;
+  object-position: top;
+}
+
+.team-img.top {
+  object-position: center;
 }
 
 .team-description {
@@ -254,4 +271,8 @@ html[data-theme='light'] .footer-btn:hover {
 
 html[data-theme='light'] .team-close-icon {
   fill: var(--black-color);
+}
+
+html[data-theme='light'] .team-close-icon:hover {
+  fill: var(--orange-color);
 }
