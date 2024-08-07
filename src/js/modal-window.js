@@ -38,7 +38,7 @@ export async function createMovieInfoMarkup(id) {
     backdrop.innerHTML = `
       <div class="modal-window">
         <button class="modal-btn-close" type="button">
-          <svg class="modal-btn-close-icon" width="10.5" height="10.5" fill="#ffffff">
+          <svg class="modal-btn-close-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
             <use href="./img/icons.svg#icon-close"></use>
           </svg>
         </button>
