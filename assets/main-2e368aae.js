@@ -33,7 +33,7 @@ import{a as C,t as N,M as D}from"./vendor-aedd9b60.js";(function(){const t=docum
     `,document.querySelector(".modal-btn-close").addEventListener("click",w),document.addEventListener("keydown",function(d){d.key==="Escape"&&w()}),document.getElementById("library-actions-btn").addEventListener("click",()=>{o.addMovie({id:e,title:s,poster_path:a,vote_average:i,vote_count:v,popularity:y,genreNames:g,overview:p})})}catch(s){console.error("Error fetching movie details:",s)}}q.addEventListener("click",()=>A(573435));const j=document.getElementById("our-team-btn"),c=document.querySelector(".team"),k=document.querySelector(".team-close-btn"),I=document.querySelector("body");j.addEventListener("click",J);function J(e){e.preventDefault(),c.classList.remove("is-closed"),document.body.classList.add("modal-open"),U()}function B(e){e.preventDefault(),e.code==="Escape"&&f()}function S(e){e.target.closest(".team-window")||f()}function T(e){e.preventDefault(),f()}function U(){document.addEventListener("keydown",B),c.addEventListener("click",S),k.addEventListener("click",T),I.style.overflow="hidden"}function f(){document.removeEventListener("keydown",B),c.removeEventListener("click",S),k.removeEventListener("click",T),c.classList.add("is-closed"),document.body.classList.remove("modal-open"),I.style.overflow="auto"}const x=new h,z=e=>{const t=document.getElementById("hero-section"),o=document.querySelector(".hero-text-cont");o.innerHTML=`
     <h2 class="title">${e.title}</h2>
     <div class="star-rating">
-      ${H(e.vote_average)}
+      <!-- ${H(e.vote_average)} -->
     </div>
     <p class="desc">${e.overview}</p>
     <div class="hero-btn">
@@ -55,4 +55,4 @@ import{a as C,t as N,M as D}from"./vendor-aedd9b60.js";(function(){const t=docum
     Decorate your space, choose your films, and stock up on snacks for the full experience.</p>
     <button class="get-started-btn" onclick="location.href='/catalog.html'">Get started</button>
   `};document.addEventListener("DOMContentLoaded",G);const F=document.querySelectorAll(".header-nav-list"),V=document.querySelectorAll(".mobile-nav-list"),$=window.location.href;F.forEach(e=>{e.href===$?e.classList.add("active"):e.classList.remove("active")});V.forEach(e=>{e.href===$?e.classList.add("active"):e.classList.remove("active")});const O=document.getElementById("menu-btn"),l=document.getElementById("mobile-menu-modal"),r=document.getElementById("mobile-menu-backdrop");O.addEventListener("click",function(){l.classList.add("open"),r.style.display="block"});r.addEventListener("click",function(e){e.target===r&&(l.classList.remove("open"),r.style.display="none")});document.addEventListener("click",function(e){!l.contains(e.target)&&e.target!==O&&(l.classList.remove("open"),r.style.display="none")});export{E as L,h as T,A as o};
-//# sourceMappingURL=main-a558ca1f.js.map
+//# sourceMappingURL=main-2e368aae.js.map
