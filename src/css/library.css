@@ -33,6 +33,7 @@ html[data-theme="light"] #genre {
 
 .my-library-movie-list {
   list-style: none;
+  max-width: 1280px;
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
@@ -84,7 +85,7 @@ html[data-theme="light"] #genre {
   color: var(--black-color);
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   display: block;
-  margin: auto;
+  /* margin: auto; */
   padding: 12px 24px;
   border-radius: 74px;
   margin-bottom: 42px;

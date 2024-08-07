@@ -87,10 +87,48 @@ export async function createMovieInfoMarkup(id) {
       lmm.addMovie({ id, title, poster_path, vote_average, vote_count, popularity, genreNames, overview });
     });
 
+    const addlibraryBtn = document.getElementById('library-btn');
+    addlibraryBtn.addEventListener('click', () => toggleLibrary(addMovie));
+    updateLibraryButton(movie.id);
+
   } catch (error) {
     console.error('Error fetching movie details:', error);
   }  
 }
+// ______________________________________________________________________________________
+// adding different status to addLibraryBtn when klicked
+
+
+  // const addlibraryBtn = document.getElementById('library-btn');
+  // addlibraryBtn.addEventListener('click', () => toggleLibrary(addMovie));
+  // updateLibraryButton(movie.id);
+
+function toggleLibrary(movie) {
+  const movieId = movie.id;
+  const isInLibrary = library.getMovies().some(m => m.id === movieId);
+
+  if (isInLibrary) {
+    library.removeMovie(movieId);
+    alert('Removed from my library');
+  } else {
+    library.addMovie(movie);
+    alert('Added to my library');
+  }
+
+  updateLibraryButton(movieId);
+}
+
+function updateLibraryButton(movieId) {
+  const isInLibrary = library.getMovies().some(m => m.id === movieId);
+  const libraryBtn = document.getElementById('library-btn');
+
+  if (isInLibrary) {
+    libraryBtn.textContent = 'Remove from my library';
+  } else {
+    libraryBtn.textContent = 'Add to my library';
+  }
+}
+
 
 
 openBtn.addEventListener('click', () => openMovieInfoModal(573435));
