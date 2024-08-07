@@ -100,3 +100,7 @@ button,
     max-width: 1280px;
   }
 }
+
+.modal-btn-open {
+  display: none;
+}

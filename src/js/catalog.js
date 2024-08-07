@@ -18,11 +18,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   sorryMessage.style.display = 'none';
 
-  const fetchMovies = async (page = 1) => {
+  const fetchMovies = async (page = 1, resultsPerPage = 18) => {
     try {
-      const movies = query ? await tmdb.searchMovieTotal(query, page) : await tmdb.getTrendingMoviesTotal('week', page);
-      totalPages = Math.ceil(movies.total_results / 18); // Calculate total pages
-      return movies.results.slice(0, 18);
+      const movies = query
+        ? await tmdb.searchMovieTotal(query, page)
+        : await tmdb.getTrendingMoviesTotal('week', page);
+      totalPages = Math.ceil(movies.total_results / 20); // Calculate total pages
+      return movies.results.slice(0, resultsPerPage);
     } catch (e) {
       console.error('Error fetching movies:', e);
       return [];
