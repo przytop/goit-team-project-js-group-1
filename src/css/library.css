@@ -21,6 +21,14 @@
 #genre {
   overflow-y: auto; /* Add a scrollbar if content overflows */
   z-index: 999; /* Ensure it's on top of other elements */
+  border-radius: 5px;
+}
+
+html[data-theme="light"] #genre {
+  color:var(--grey-white-theme-color);
+  background-color: var(--white-color);
+  border-color: var(--grey-white-theme-color);
+  width: 173px;
 }
 
 .my-library-movie-list {
