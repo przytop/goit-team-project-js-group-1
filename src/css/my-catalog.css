@@ -1,3 +1,22 @@
+html[data-theme='light'] .input-text,
+.year-select {
+  background-color: var(--white-color);
+  color: var(--grey-color);
+  border: solid 1px var(--grey-color);
+}
+
+html[data-theme='light'] .year-select {
+  background-color: var(--white-color);
+  color: var(--grey-color);
+  border: solid 1px var(--grey-color);
+}
+
+html[data-theme='light'] .page-number-button {
+  background-color: var(--white-color);
+  color: var(--grey-color);
+  border: solid 1px var(--grey-color);
+}
+
 .stars {
   display: inline-flex;
   align-items: center;
@@ -181,8 +200,8 @@
   height: 20px;
   position: relative;
   left: 10px;
+  stroke: white;
 }
-
 .vector-icon-left {
   position: relative;
   left: 8px;
