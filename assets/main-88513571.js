@@ -2,7 +2,7 @@ import{a as D,t as N,i as b,M as q}from"./vendor-11c217db.js";(function(){const 
       <div class="modal-window">
         <button class="modal-btn-close" type="button">
           <svg class="modal-btn-close-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-            <use href="./img/icons.svg#icon-close"></use>
+            <use href="./img/icons.svg#close"></use>
           </svg>
         </button>
         <img class="modal-film-poster" src="https://image.tmdb.org/t/p/w500${n}" alt="${s} poster"/>
@@ -56,4 +56,4 @@ import{a as D,t as N,i as b,M as q}from"./vendor-11c217db.js";(function(){const 
     Decorate your space, choose your films, and stock up on snacks for the full experience.</p>
     <button class="get-started-btn" onclick="location.href='/catalog.html'">Get started</button>
   `};document.addEventListener("DOMContentLoaded",Q);const V=document.querySelectorAll(".header-nav-list"),K=document.querySelectorAll(".mobile-nav-list"),$=window.location.href;V.forEach(e=>{e.href===$?e.classList.add("active"):e.classList.remove("active")});K.forEach(e=>{e.href===$?e.classList.add("active"):e.classList.remove("active")});const _=document.getElementById("menu-btn"),l=document.getElementById("mobile-menu-modal"),i=document.getElementById("mobile-menu-backdrop");_.addEventListener("click",function(){l.classList.add("open"),i.style.display="block"});i.addEventListener("click",function(e){e.target===i&&(l.classList.remove("open"),i.style.display="none")});document.addEventListener("click",function(e){!l.contains(e.target)&&e.target!==_&&(l.classList.remove("open"),i.style.display="none")});export{d as L,f as T,E as o};
-//# sourceMappingURL=main-fd90e768.js.map
+//# sourceMappingURL=main-88513571.js.map
