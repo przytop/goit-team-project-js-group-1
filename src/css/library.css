@@ -1,5 +1,5 @@
 .genre-form {
-  padding-left: 32px;
+  /* padding-left: 32px; */
   padding-top: 80px;
   display: none;
 }
@@ -24,8 +24,8 @@
   border-radius: 5px;
 }
 
-html[data-theme="light"] #genre {
-  color:var(--grey-white-theme-color);
+html[data-theme='light'] #genre {
+  color: var(--grey-white-theme-color);
   background-color: var(--white-color);
   border-color: var(--grey-white-theme-color);
   width: 173px;
@@ -33,7 +33,7 @@ html[data-theme="light"] #genre {
 
 .my-library-movie-list {
   list-style: none;
-  width: 1280px;
+  /* width: 1280px; */
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
@@ -45,6 +45,7 @@ html[data-theme="light"] #genre {
   width: 395px;
   height: 574px;
   padding-bottom: 32px;
+  border-radius: 5px;
 }
 
 .my-library-movie-picture {
@@ -74,6 +75,7 @@ html[data-theme="light"] #genre {
   display: flex;
   flex-direction: column;
   font-size: 20px;
+  color: var(--white-color);
 }
 
 .my-library-movie-title {
@@ -90,6 +92,11 @@ html[data-theme="light"] #genre {
   border-radius: 74px;
   margin-bottom: 42px;
   display: none;
+}
+
+.load {
+  margin: auto;
+  /* margin-bottom: 42px; */
 }
 
 #my-library-button-search {
@@ -109,10 +116,19 @@ html[data-theme="light"] #genre {
   .genre-select {
     width: 144px;
   }
+  .my-library-button {
+    margin-bottom: 40px;
+  }
+  .my-library-movie-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   .my-library-movie-list-item {
-    width: 224px;
-    height: 325px;
+    width: 280px;
+    height: 406px;
   }
 
   .my-library-movie {
@@ -135,9 +151,16 @@ html[data-theme="light"] #genre {
     width: 173px;
   }
 
+  .my-library-movie-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .my-library-movie-list-item {
     width: 280px;
-    height: 408px;
+    height: 406px;
   }
 
   .my-library-movie {
@@ -161,10 +184,23 @@ html[data-theme="light"] #genre {
   .my-library-button {
     margin-bottom: 60px;
   }
+  .my-library-movie-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .my-library-movie-list-item {
+    width: 224px;
+    height: 325px;
+  }
 }
 
 @media (min-width: 1280px) {
   .my-library-button {
     margin-bottom: 88px;
+  }
+  .my-library-movie-list-item {
+    width: 395px;
+    height: 574px;
   }
 }
