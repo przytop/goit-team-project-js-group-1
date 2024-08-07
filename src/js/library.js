@@ -1,6 +1,6 @@
 import TmdbApi from './tmdb-api';
 import openMovieInfoModal from './modal-window';
-import TmdbApi from './tmdb-api';
+// import TmdbApi from './tmdb-api';
 import axios from 'axios';
 
 const movieList = document.querySelector('.my-library-movie-list');

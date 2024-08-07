@@ -24,8 +24,8 @@
   border-radius: 5px;
 }
 
-html[data-theme="light"] #genre {
-  color:var(--grey-white-theme-color);
+html[data-theme='light'] #genre {
+  color: var(--grey-white-theme-color);
   background-color: var(--white-color);
   border-color: var(--grey-white-theme-color);
   width: 173px;
@@ -33,7 +33,7 @@ html[data-theme="light"] #genre {
 
 .my-library-movie-list {
   list-style: none;
-  width: 1280px;
+  /* width: 1280px; */
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
@@ -45,6 +45,7 @@ html[data-theme="light"] #genre {
   width: 395px;
   height: 574px;
   padding-bottom: 32px;
+  border-radius: 5px;
 }
 
 .my-library-movie-picture {
@@ -111,9 +112,16 @@ html[data-theme="light"] #genre {
     width: 144px;
   }
 
+  .my-library-movie-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .my-library-movie-list-item {
-    width: 224px;
-    height: 325px;
+    width: 280px;
+    height: 406px;
   }
 
   .my-library-movie {
@@ -136,9 +144,16 @@ html[data-theme="light"] #genre {
     width: 173px;
   }
 
+  .my-library-movie-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .my-library-movie-list-item {
     width: 280px;
-    height: 408px;
+    height: 406px;
   }
 
   .my-library-movie {
@@ -162,10 +177,23 @@ html[data-theme="light"] #genre {
   .my-library-button {
     margin-bottom: 60px;
   }
+  .my-library-movie-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .my-library-movie-list-item {
+    width: 224px;
+    height: 325px;
+  }
 }
 
 @media (min-width: 1280px) {
   .my-library-button {
     margin-bottom: 88px;
+  }
+  .my-library-movie-list-item {
+    width: 395px;
+    height: 574px;
   }
 }
