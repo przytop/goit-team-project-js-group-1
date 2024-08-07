@@ -65,11 +65,10 @@ function displayMovie(movie) {
   `;
 
   movieContainer.innerHTML = html;
-  // ____________________________________________________________
-// checking TOGGLE function with buton
-  // const libraryBtn = document.getElementById('library-btn');
-  // libraryBtn.addEventListener('click', () => toggleLibrary(movie));
-  // updateLibraryButton(movie.id);
+
+  const libraryBtn = document.getElementById('library-btn');
+  libraryBtn.addEventListener('click', () => toggleLibrary(movie));
+  updateLibraryButton(movie.id);
 }
 
 function toggleLibrary(movie) {
