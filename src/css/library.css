@@ -1,5 +1,5 @@
 .genre-form {
-  padding-left: 32px;
+  /* padding-left: 32px; */
   padding-top: 80px;
 }
 
@@ -19,7 +19,7 @@
 
 .my-library-movie-list {
   list-style: none;
-  max-width: 1280px;
+  width: 1280px;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;

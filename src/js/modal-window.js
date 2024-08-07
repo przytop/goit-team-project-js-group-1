@@ -86,10 +86,11 @@ export async function createMovieInfoMarkup(id) {
     addLibraryBtn.addEventListener('click', () => {
       lmm.addMovie({ id, title, poster_path, vote_average, vote_count, popularity, genreNames, overview });
     });
-
-    const addlibraryBtn = document.getElementById('library-btn');
-    addlibraryBtn.addEventListener('click', () => toggleLibrary(addMovie));
-    updateLibraryButton(movie.id);
+// ____________________________________________________________________________________
+    // podłapanie słuchacza do wyzwolenia funkcji toggleLibrary
+            // const addlibraryBtn = document.getElementById('library-btn');
+            // addlibraryBtn.addEventListener('click', () => toggleLibrary(addMovie));
+            // updateLibraryButton(movie.id);
 
   } catch (error) {
     console.error('Error fetching movie details:', error);
@@ -97,12 +98,6 @@ export async function createMovieInfoMarkup(id) {
 }
 // ______________________________________________________________________________________
 // adding different status to addLibraryBtn when klicked
-
-
-  // const addlibraryBtn = document.getElementById('library-btn');
-  // addlibraryBtn.addEventListener('click', () => toggleLibrary(addMovie));
-  // updateLibraryButton(movie.id);
-
 function toggleLibrary(movie) {
   const movieId = movie.id;
   const isInLibrary = library.getMovies().some(m => m.id === movieId);
