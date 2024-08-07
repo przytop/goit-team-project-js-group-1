@@ -1,9 +1,13 @@
 import TmdbApi from './tmdb-api';
 import openMovieInfoModal from './modal-window';
+import TmdbApi from './tmdb-api';
+import axios from 'axios';
 
 const movieList = document.querySelector('.my-library-movie-list');
 const sorry = document.querySelector('.my-library-sorry');
-const loadMoreButton = document.querySelector('.my-library-main-section .my-library-button');
+const loadMoreButton = document.querySelector(
+  '.my-library-main-section .my-library-button'
+);
 const mainSection = document.querySelector('.my-library-main-section');
 const genreSelect = document.querySelector('#genre');
 const searchButton = document.querySelector('#my-library-button-search');
@@ -87,7 +91,9 @@ function renderMovieList(genre = '', reset = true) {
   const filteredMovies = genre
     ? movies.filter(movie => {
         const movieGenre = movie.genre_ids || [];
-        return movieGenre.some(id => genreMap.get(id).toLowerCase() === genre.toLowerCase());
+        return movieGenre.some(
+          id => genreMap.get(id).toLowerCase() === genre.toLowerCase()
+        );
       })
     : movies;
 
@@ -119,7 +125,6 @@ function renderMovieList(genre = '', reset = true) {
 
     searchButton.style.display = 'none';
     searchButton.disabled = true;
-
   } else {
     sorry.style.display = 'block';
     mainSection.style.display = 'none';
