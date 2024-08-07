@@ -6,7 +6,7 @@
 </symbol>
 <symbol id="icon-close" viewBox="0 0 32 32">
 <title>close</title>
-<path fill="none" stroke="#f8f8f8" style="stroke: var(--color2, #f8f8f8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M30 30l-28-28M30 2l-28 28"></path>
+<path fill="#fff" stroke="#f8f8f8" style="stroke: var(--color2, #f8f8f8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M30 30l-28-28M30 2l-28 28"></path>
 </symbol>
 <symbol id="icon-github-mark" viewBox="0 0 33 32">
 <title>github-mark</title>

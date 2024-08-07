@@ -107,14 +107,13 @@ html[data-theme="light"] .modal-btn-close:hover {
 }
 
 .modal-btn-close-icon {
-  transition: fill 250ms ease-in-out;
-  fill: var(--white-color);
+  /* transition: fill 250ms ease-in-out; */
+/* fill: red; */
 }
 
 html[data-theme='light'] .modal-btn-close-icon {
   fill: var(--black-color);
 }
-
 
 .modal-film-poster {
   width: 248px;
@@ -260,7 +259,7 @@ html[data-theme="light"] .modal-film-tab-data {
   height: 16px;
   border-radius: 5px;
   background-color: var(--white-color);
-  color: inherit;
+  color: var(--black-color);
   padding: 0 8px;
   margin-right: 7px;
 }
@@ -274,7 +273,7 @@ html[data-theme="light"] .modal-window-accent-vote {
   height: 16px;
   border-radius: 5px;
   background-color: var(--white-color);
-  color: inherit;
+  color: var(--black-color);
   padding: 0 4px;
   margin-left: 4px;
 }

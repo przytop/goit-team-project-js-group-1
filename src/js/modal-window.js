@@ -38,9 +38,25 @@ export async function createMovieInfoMarkup(id) {
     backdrop.innerHTML = `
       <div class="modal-window">
         <button class="modal-btn-close" type="button">
-          <svg class="modal-btn-close-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-            <use href="./img/icons.svg#close"></use>
+          <svg width="30" height="30">   
+            <line
+              x1="0.0"
+              y1="9.5"
+              x2="10.5"
+              y2="20.5"
+              stroke="#f87719"
+              stroke-width="2"
+            />
+            <line
+              x1="0.0"
+              y1="20.5"
+              x2="10.5"
+              y2="9.5"
+              stroke="#f87719"
+              stroke-width="2"
+            />
           </svg>
+      
         </button>
         <img class="modal-film-poster" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title} poster"/>
         <div class="modal-film-infos">
@@ -49,10 +65,7 @@ export async function createMovieInfoMarkup(id) {
             <tr class="modal-film-tab-row">
               <th class="modal-film-tab-header">Vote / Votes</th>
               <td class="modal-film-tab-data">
-                <span class="modal-window-accent-vote">${vote_average.toFixed(
-                  1
-                )}</span>
-                /
+                <span class="modal-window-accent-vote">${vote_average.toFixed(1)}</span>
                 <span class="modal-window-accent-votes">${vote_count}</span>
               </td>
             </tr>
