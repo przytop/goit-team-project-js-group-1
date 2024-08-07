@@ -1,4 +1,6 @@
 import openMovieInfoModal from './modal-window';
+import TmdbApi from './tmdb-api';
+import axios from 'axios';
 
 const movieList = document.querySelector('.my-library-movie-list');
 const sorry = document.querySelector('.my-library-sorry');
@@ -12,11 +14,15 @@ const genreSelect = document.querySelector('#genre');
 let currentDisplayCount = 0;
 const batchSize = 9;
 
+const tmdb = new TmdbApi();
+let genresMap = {};
+
 // Function to create a movie list item
 function createMovieListItem(movie) {
   const listItem = document.createElement('li');
   listItem.classList.add('my-library-movie-list-item');
-  const genreString = movie.genre_ids.join(', ');
+
+  const genreNames = movie.genre_ids.map(id => genresMap[id]).join(', ');
 
   listItem.innerHTML = `
       <a href="#">
@@ -24,7 +30,7 @@ function createMovieListItem(movie) {
         <div class="my-library-gradient"></div>
         <div class="my-library-movie">
           <span class="my-library-movie-title">${movie.title}</span>
-          <span class="my-library-movie-genres">${genreString} | ${movie.release_date}</span>
+          <span class="my-library-movie-genres">${genreNames} | ${movie.release_date}</span>
         </div>
       </a>
     `;
@@ -85,4 +91,15 @@ genreSelect.addEventListener('change', function () {
   renderMovieList(selectedGenre);
 });
 
-renderMovieList();
+// Fetch genres and render movie list
+tmdb
+  .getMovieGenres()
+  .then(genres => {
+    genres.forEach(genre => {
+      genresMap[genre.id] = genre.name;
+    });
+    renderMovieList();
+  })
+  .catch(error => {
+    console.error('Failed to fetch genres:', error);
+  });
