@@ -1,13 +1,11 @@
-import TmdbApi from "./tmdb-api";
+import TmdbApi from './tmdb-api';
 import ModalVideo from 'modal-video';
 import 'modal-video/css/modal-video.min.css';
 
-
 const tmdb = new TmdbApi();
 
-
-const displayMovieInfo = (movie) => {
-  const hero = document.getElementById("hero-section");
+const displayMovieInfo = movie => {
+  const hero = document.getElementById('hero-section');
   const heroTextCont = document.querySelector('.hero-text-cont');
   heroTextCont.innerHTML = `
     <h2 class="title">${movie.title}</h2>
@@ -16,35 +14,37 @@ const displayMovieInfo = (movie) => {
     </div>
     <p class="desc">${movie.overview}</p>
     <div class="hero-btn">
-      <button class="watch-btn" data-video-id="${movie.id})">Watch trailer</button> 
+      <button class="watch-btn" data-video-id="${
+        movie.id
+      })">Watch trailer</button> 
       <button class="details-btn">More details</button>
     </div>
   `;
 
   const imageUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
-  
-  hero.style.backgroundImage = `linear-gradient(270deg, rgba(89, 130, 252, 0) 5%, rgba(0, 0, 0, 1) 70%), url(${imageUrl})`, innerWidth;
-  hero.style.backgroundPosition = "center"
+
+  (hero.style.backgroundImage = `linear-gradient(270deg, rgba(89, 130, 252, 0) 5%, rgba(0, 0, 0, 1) 70%), url(${imageUrl})`),
+    innerWidth;
+  hero.style.backgroundPosition = 'center';
 
   const watchBtn = document.querySelector('.watch-btn');
-  watchBtn.addEventListener('click', () => watchTrailer())
-
+  watchBtn.addEventListener('click', () => watchTrailer());
 };
 
-const getStarRatingHTML = (voteAverage) => {
+const getStarRatingHTML = voteAverage => {
   const stars = Math.round(voteAverage / 2);
   let starHTML = '';
   for (let i = 0; i < 5; i++) {
     if (i < stars) {
-      starHTML += '<img src="./img/star.svg" alt="star">';
+      starHTML += '<img src="/img/star.svg" alt="star">';
     } else {
-      starHTML += '<img src="./img/star-outline.svg" alt="star-outline">';
+      starHTML += '<img src="/img/star-outline.svg" alt="star-outline">';
     }
   }
   return starHTML;
 };
 
-const watchTrailer = async (movieId) => {
+const watchTrailer = async movieId => {
   try {
     const videos = await tmdb.getMovieVideos(movieId);
     const trailer = videos.find(video => video.type === 'Trailer');
@@ -52,30 +52,30 @@ const watchTrailer = async (movieId) => {
       new ModalVideo('.watch-btn', {
         channel: 'youtube',
         autoplay: 1,
-        url: `https://www.youtube.com/watch?v=${trailer.key}`
+        url: `https://www.youtube.com/watch?v=${trailer.key}`,
       }).open();
     } else {
       window.alert('Trailer not available');
     }
   } catch (error) {
     console.error('Failed to load movie videos:', error);
-    modalOopsie()
+    modalOopsie();
   }
 };
 
 let modalOpened = false;
 
 const modalOopsie = () => {
-  if(modalOpened) return;
+  if (modalOpened) return;
   modalOpened = true;
 
-  const hero = document.getElementById('hero-section')
-  const modalDiv = document.createElement("div");
+  const hero = document.getElementById('hero-section');
+  const modalDiv = document.createElement('div');
   modalDiv.className = 'modal-oopsie fade-in';
   modalDiv.id = 'modal-cont';
   hero.appendChild(modalDiv);
 
-  const modalCont = document.getElementById("modal-cont");
+  const modalCont = document.getElementById('modal-cont');
   modalCont.innerHTML = `
         <p>OOPS... <br> We are very sorry! <br> But we couldn't find the trailer.</p>
         <img class="image-cont">
@@ -84,22 +84,21 @@ const modalOopsie = () => {
             <path d="M13.5 4.5L4.5 13.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M4.5 4.5L13.5 13.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-        </button>`
+        </button>`;
 
-  document.getElementById('modal-close').addEventListener('click', function() {
+  document.getElementById('modal-close').addEventListener('click', function () {
     modalOpened = false;
 
     modalDiv.classList.remove('fade-in');
     modalDiv.classList.add('fade-out');
-    
+
     setTimeout(() => {
       modalDiv.remove();
-    }, 300)
+    }, 300);
   });
 };
-   
 
-const showDetails = (movieId) => {
+const showDetails = movieId => {
   window.location.href = `/details.html?movieId=${movieId}`;
 };
 
@@ -119,11 +118,11 @@ const loadHeroContent = async () => {
 };
 
 const displayDefaultHero = () => {
-  const hero = document.getElementById("hero-section");
-  const textCont = document.getElementById("text-cont");
-  hero.classList.add("hero-default");
-  textCont.classList.remove("hero-text-cont");
-  textCont.classList.add("default-text-cont");
+  const hero = document.getElementById('hero-section');
+  const textCont = document.getElementById('text-cont');
+  hero.classList.add('hero-default');
+  textCont.classList.remove('hero-text-cont');
+  textCont.classList.add('default-text-cont');
   const defaultTextCont = document.querySelector('.default-text-cont');
   defaultTextCont.innerHTML = `
     <h2 class="title-default">Let's Make Your Own Cinema</h2>
