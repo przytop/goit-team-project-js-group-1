@@ -1,6 +1,6 @@
-.weekly-section .card {
+/* .weekly-section .card {
   display: none;
-}
+} */
 
 .card:first-child {
   display: block;
