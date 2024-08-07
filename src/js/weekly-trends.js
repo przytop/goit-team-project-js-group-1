@@ -90,7 +90,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         const id = movie.id;
 
-
         const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
         const title = movie.title;
         const releaseDate = movie.release_date
@@ -130,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         card.style.backgroundPosition = 'center';
 
         card.dataset.id = id;
-        
+
         card.innerHTML = `
           <div class="card-content">
             <h2>${title}</h2>
@@ -138,11 +137,10 @@ document.addEventListener('DOMContentLoaded', async function () {
           </div>
         `;
 
-      document.querySelectorAll('.card').forEach(card => {
+        document.querySelectorAll('.card').forEach(card => {
           card.addEventListener('click', event => {
             const id = event.target.getAttribute('data-id');
             if (id) {
-              // Ensure the id is present
               openMovieInfoModal(id);
             }
           });
