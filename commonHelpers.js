@@ -3,5 +3,5 @@ import{T as k,o as E}from"./assets/main-65302cec.js";import"./assets/vendor-aedd
           <h2>${e.title}</h2>
           <p>${n} | ${w} <span class="stars">${M(S)}</span></p>
         </div>
-      `,s.addEventListener("click",()=>E(e.id)),o.appendChild(s)})},v=async()=>g(m(await u(a.value.trim()),l.value));p.addEventListener("click",v),l.addEventListener("change",v),d.addEventListener("click",()=>a.value=""),a.addEventListener("input",()=>d.style.visibility=a.value.trim()?"visible":"hidden"),g(await u())});
+      `,s.addEventListener("click",()=>E(e.id)),o.appendChild(s)})},v=async()=>g(m(await u(a.value.trim()),l.value));p.addEventListener("click",()=>v()),l.addEventListener("change",()=>v()),d.addEventListener("click",()=>a.value=""),a.addEventListener("input",()=>d.style.visibility=a.value.trim()?"visible":"hidden"),g(await u())});
 //# sourceMappingURL=commonHelpers.js.map
