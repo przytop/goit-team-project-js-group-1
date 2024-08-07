@@ -31,12 +31,23 @@ export default class TmdbApi {
     return (await this._fetch(`/trending/movie/${time_window}`)).results;
   }
 
+  async getTrendingMoviesTotal(time_window, page) {
+    if (!['day', 'week'].includes(time_window)) {
+      throw new Error("Invalid time_window. Must be 'day' or 'week'");
+    }
+    return await this._fetch(`/trending/movie/${time_window}`, { page });
+  }
+
   async getUpcomingMovies() {
     return (await this._fetch(`/movie/upcoming`)).results;
   }
 
   async searchMovie(query, page = 1) {
     return (await this._fetch('/search/movie', { query, page })).results;
+  }
+
+  async searchMovieTotal(query, page = 1) {
+    return await this._fetch('/search/movie', { query, page });
   }
 
   async getMovieDetails(movie_id) {

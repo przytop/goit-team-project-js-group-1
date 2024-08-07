@@ -9,14 +9,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   const searchButton = document.querySelector('.catalog-button');
   const yearSelect = document.querySelector('.year-select');
   const xButton = document.querySelector('.x-button');
+  const pagination = document.querySelector('.pagination-container'); // Container for pagination buttons
+
   const genreAbbreviations = { 'Science Fiction': 'Sci-Fi' };
+  let currentPage = 1;
+  let totalPages = 1;
+  let query = '';
 
   sorryMessage.style.display = 'none';
 
-  const fetchMovies = async (query = '', page = 1) => {
+  const fetchMovies = async (page = 1) => {
     try {
-      return query ? (await tmdb.searchMovie(query, page)).slice(0, 18) : (await tmdb.getTrendingMovies('week')).slice(0, 18);
-    } catch (e) { console.error('Error fetching movies:', e); return []; }
+      const movies = query ? await tmdb.searchMovieTotal(query, page) : await tmdb.getTrendingMoviesTotal('week', page);
+      totalPages = Math.ceil(movies.total_results / 18); // Calculate total pages
+      return movies.results.slice(0, 18);
+    } catch (e) {
+      console.error('Error fetching movies:', e);
+      return [];
+    }
   };
 
   const fetchGenres = async () => {
@@ -35,7 +45,8 @@ document.addEventListener('DOMContentLoaded', async () => {
            '<svg class="star empty"><use xlink:href="#icon-star-outline"></use></svg>'.repeat(5 - Math.ceil(rating / 2));
   };
 
-  const renderMovies = movies => {
+  const renderMovies = async (page = 1) => {
+    const movies = filterByYear(await fetchMovies(page), yearSelect.value);
     catalogCardsContainer.innerHTML = '';
     sorryMessage.style.display = movies.length ? 'none' : 'block';
 
@@ -57,14 +68,86 @@ document.addEventListener('DOMContentLoaded', async () => {
       card.addEventListener('click', () => openMovieInfoModal(m.id));
       catalogCardsContainer.appendChild(card);
     });
+
+    renderPagination(page);
   };
 
-  const handleSearch = async () => renderMovies(filterByYear(await fetchMovies(input.value.trim()), yearSelect.value));
+  const renderPagination = (currentPage) => {
+    pagination.innerHTML = '';
 
-  searchButton.addEventListener('click', () => handleSearch());
-  yearSelect.addEventListener('change', () => handleSearch());
-  xButton.addEventListener('click', () => input.value = '');
+    if (totalPages <= 1) return;
+
+    const createPageButton = page => {
+      const button = document.createElement('button');
+      button.textContent = page;
+      button.classList.add('page-number-button');
+      if (page === currentPage) {
+        button.classList.add('active');
+      }
+      button.addEventListener('click', () => {
+        currentPage = page;
+        renderMovies(currentPage);
+      });
+      return button;
+    };
+
+    if (totalPages > 1) {
+      const prevButton = document.createElement('button');
+      prevButton.textContent = '←';
+      prevButton.classList.add('arrow-button');
+      prevButton.disabled = currentPage === 1;
+      prevButton.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderMovies(currentPage);
+        }
+      });
+      pagination.appendChild(prevButton);
+    }
+
+    const startPage = Math.max(1, currentPage - 2);
+    const endPage = Math.min(totalPages, currentPage + 2);
+
+    for (let page = startPage; page <= endPage; page++) {
+      pagination.appendChild(createPageButton(page));
+    }
+
+    if (endPage < totalPages) {
+      const dots = document.createElement('span');
+      dots.textContent = '...';
+      pagination.appendChild(dots);
+      pagination.appendChild(createPageButton(totalPages));
+    }
+
+    if (totalPages > 1) {
+      const nextButton = document.createElement('button');
+      nextButton.textContent = '→';
+      nextButton.classList.add('arrow-button');
+      nextButton.disabled = currentPage === totalPages;
+      nextButton.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderMovies(currentPage);
+        }
+      });
+      pagination.appendChild(nextButton);
+    }
+  };
+
+  const handleSearch = () => {
+    query = input.value.trim();
+    currentPage = 1;
+    renderMovies(currentPage);
+  };
+
+  searchButton.addEventListener('click', handleSearch);
+  yearSelect.addEventListener('change', handleSearch);
+  xButton.addEventListener('click', () => {
+    input.value = '';
+    handleSearch();
+  });
   input.addEventListener('input', () => xButton.style.visibility = input.value.trim() ? 'visible' : 'hidden');
 
-  renderMovies(await fetchMovies());
+  // Initial load
+  renderMovies(currentPage);
 });
