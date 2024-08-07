@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const handleSearch = async () => renderMovies(filterByYear(await fetchMovies(input.value.trim()), yearSelect.value));
 
-  searchButton.addEventListener('click', handleSearch);
-  yearSelect.addEventListener('change', handleSearch);
+  searchButton.addEventListener('click', () => handleSearch());
+  yearSelect.addEventListener('change', () => handleSearch());
   xButton.addEventListener('click', () => input.value = '');
   input.addEventListener('input', () => xButton.style.visibility = input.value.trim() ? 'visible' : 'hidden');
 
