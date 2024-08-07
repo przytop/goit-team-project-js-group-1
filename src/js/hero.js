@@ -36,9 +36,9 @@ const getStarRatingHTML = voteAverage => {
   let starHTML = '';
   for (let i = 0; i < 5; i++) {
     if (i < stars) {
-      starHTML += '<img src="/img/star.svg" alt="star">';
+      starHTML += '<img src="./img/star.svg" alt="star">';
     } else {
-      starHTML += '<img src="/img/star-outline.svg" alt="star-outline">';
+      starHTML += '<img src="./img/star-outline.svg" alt="star-outline">';
     }
   }
   return starHTML;
