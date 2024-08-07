@@ -5,7 +5,7 @@ import openMovieInfoModal from './modal-window'; // Import funkcji otwierającej
 
 const tmdb = new TmdbApi();
 
-const displayMovieInfo = (movie) => {
+const displayMovieInfo = movie => {
   const hero = document.getElementById('hero-section');
   const heroTextCont = document.querySelector('.hero-text-cont');
   heroTextCont.innerHTML = `
@@ -15,7 +15,9 @@ const displayMovieInfo = (movie) => {
     </div>
     <p class="desc">${movie.overview}</p>
     <div class="hero-btn">
-      <button class="watch-btn" data-video-id="${movie.id})">Watch trailer</button> 
+      <button class="watch-btn" data-video-id="${
+        movie.id
+      })">Watch trailer</button> 
       <button class="details-btn">More details</button>
     </div>
   `;
@@ -32,30 +34,30 @@ const displayMovieInfo = (movie) => {
   detailsBtn.addEventListener('click', () => openMovieInfoModal(movie.id)); // Podpięcie modala
 };
 
-const getStarRatingHTML = (voteAverage) => {
-  const roundedRating = Math.round(voteAverage * 2) / 2;
-  let starHTML = '';
-
+// Nowa funkcja generująca HTML dla gwiazdek
+const getStarRatingHTML = voteAverage => {
+  const roundedRating = Math.round(voteAverage * 10) / 10;
+  const maxStars = 5;
   const fullStars = Math.floor(roundedRating / 2);
-  const hasHalfStar = roundedRating % 2 !== 0;
-  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+  const halfStar = roundedRating % 2 >= 1 ? 1 : 0;
+  const emptyStars = maxStars - fullStars - halfStar;
 
-  for (let i = 0; i < fullStars; i++) {
-    starHTML += '<img src="./img/star.svg" alt="full-star">';
-  }
+  const stars = [
+    ...Array(fullStars).fill(
+      '<svg class="star full"><use xlink:href="#icon-star"></use></svg>'
+    ),
+    ...Array(halfStar).fill(
+      '<svg class="star half"><use xlink:href="#icon-star-half"></use></svg>'
+    ),
+    ...Array(emptyStars).fill(
+      '<svg class="star empty"><use xlink:href="#icon-star-outline"></use></svg>'
+    ),
+  ].join('');
 
-  if (hasHalfStar) {
-    starHTML += '<img src="./img/star-half.svg" alt="half-star">';
-  }
-
-  for (let i = 0; i < emptyStars; i++) {
-    starHTML += '<img src="./img/star-outline.svg" alt="empty-star">';
-  }
-
-  return starHTML;
+  return `<span>${stars}</span>`;
 };
 
-const watchTrailer = async (movieId) => {
+const watchTrailer = async movieId => {
   try {
     const videos = await tmdb.getMovieVideos(movieId);
     const trailer = videos.find(video => video.type === 'Trailer');
