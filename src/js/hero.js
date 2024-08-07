@@ -10,7 +10,7 @@ const displayMovieInfo = movie => {
   heroTextCont.innerHTML = `
     <h2 class="title">${movie.title}</h2>
     <div class="star-rating">
-      <!-- ${getStarRatingHTML(movie.vote_average)} -->
+      ${getStarRatingHTML(movie.vote_average)}
     </div>
     <p class="desc">${movie.overview}</p>
     <div class="hero-btn">
@@ -32,15 +32,25 @@ const displayMovieInfo = movie => {
 };
 
 const getStarRatingHTML = voteAverage => {
-  const stars = Math.round(voteAverage / 2);
+  const roundedRating = Math.round(voteAverage * 2) / 2;
   let starHTML = '';
-  for (let i = 0; i < 5; i++) {
-    if (i < stars) {
-      starHTML += '<img src="./img/star.svg" alt="star">';
-    } else {
-      starHTML += '<img src="./img/star-outline.svg" alt="star-outline">';
-    }
+
+  const fullStars = Math.floor(roundedRating / 2);
+  const hasHalfStar = roundedRating % 2 !== 0;
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+  for (let i = 0; i < fullStars; i++) {
+    starHTML += '<img src="./img/star.svg" alt="full-star">';
   }
+
+  if (hasHalfStar) {
+    starHTML += '<img src="./img/star-half.svg" alt="half-star">';
+  }
+
+  for (let i = 0; i < emptyStars; i++) {
+    starHTML += '<img src="./img/star-outline.svg" alt="empty-star">';
+  }
+
   return starHTML;
 };
 
@@ -77,7 +87,7 @@ const modalOopsie = () => {
 
   const modalCont = document.getElementById('modal-cont');
   modalCont.innerHTML = `
-        <p>OOPS... <br> We are very sorry! <br> But we couldn't find the trailer.</p>
+        <p>OOPS... <br> We are very sorry! <br> But we couldn’t find the trailer.</p>
         <img class="image-cont">
         <button id="modal-close">
             <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -125,7 +135,7 @@ const displayDefaultHero = () => {
   textCont.classList.add('default-text-cont');
   const defaultTextCont = document.querySelector('.default-text-cont');
   defaultTextCont.innerHTML = `
-    <h2 class="title-default">Let's Make Your Own Cinema</h2>
+    <h2 class="title-default">Let’s Make Your Own Cinema</h2>
     <p class="desc-default">Is a guide to creating a personalized movie theater experience. 
     You'll need a projector, screen, and speakers. 
     Decorate your space, choose your films, and stock up on snacks for the full experience.</p>
