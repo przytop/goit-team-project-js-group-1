@@ -6,34 +6,25 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const backdrop = document.querySelector('.backdrop');
-const openBtn = document.querySelector('.modal-btn-open');
 
 export default function openMovieInfoModal(id) {
   backdrop.classList.remove('is-closed');
   createMovieInfoMarkup(id);
+  document.body.style.overflow = 'hidden';
 }
 
-function coloseMovieInfoModal() {
+function closeMovieInfoModal() {
   backdrop.classList.add('is-closed');
   backdrop.innerHTML = '';
+  document.body.style.overflow = 'auto';
 }
 
 export async function createMovieInfoMarkup(id) {
   const tmdb = new TmdbApi();
-  const lmm = new LocalMovieManager('myLibrary');
-  const backdrop = document.querySelector('.backdrop');
 
   try {
-    const {
-      title,
-      poster_path,
-      vote_average,
-      vote_count,
-      popularity,
-      genres,
-      overview,
-    } = await tmdb.getMovieDetails(id);
-    const genreNames = genres.map(genre => genre.name).join(' ');
+    const movie = await tmdb.getMovieDetails(id);
+    const genreNames = movie.genres.map(genre => genre.name).join(' ');
 
     backdrop.innerHTML = `
       <div class="modal-window">
@@ -58,20 +49,28 @@ export async function createMovieInfoMarkup(id) {
           </svg>
       
         </button>
-        <img class="modal-film-poster" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title} poster"/>
+        <img class="modal-film-poster" src="https://image.tmdb.org/t/p/w500${
+          movie.poster_path
+        }" alt="${movie.title} poster"/>
         <div class="modal-film-infos">
-          <h3 class="modal-film-title">${title}</h3>
+          <h3 class="modal-film-title">${movie.title}</h3>
           <table class="modal-film-stats">
             <tr class="modal-film-tab-row">
               <th class="modal-film-tab-header">Vote / Votes</th>
               <td class="modal-film-tab-data">
-                <span class="modal-window-accent-vote">${vote_average.toFixed(1)}</span>
-                <span class="modal-window-accent-votes">${vote_count}</span>
+                <span class="modal-window-accent-vote">${movie.vote_average.toFixed(
+                  1
+                )}</span>
+                <span class="modal-window-accent-votes">${
+                  movie.vote_count
+                }</span>
               </td>
             </tr>
             <tr class="modal-film-tab-row">
               <th class="modal-film-tab-header">Popularity</th>
-              <td class="modal-film-tab-data">${popularity}</td>
+              <td class="modal-film-tab-data">${movie.popularity.toFixed(
+                1
+              )}</td>
             </tr>
             <tr class="modal-film-tab-row">
               <th class="modal-film-tab-header">Genre</th>
@@ -79,34 +78,25 @@ export async function createMovieInfoMarkup(id) {
             </tr>
           </table>
           <h3 class="modal-film-desc-about">About</h3>
-          <p class="modal-film-desc">${overview}</p>
-          <button id="library-actions-btn" type="submit">Dodaj do mojej biblioteki</button>
+          <p class="modal-film-desc">${movie.overview}</p>
+          <button id="library-actions-btn" type="submit"></button>
         </div>
       </div>
     `;
 
     const closeBtn = document.querySelector('.modal-btn-close');
-    closeBtn.addEventListener('click', coloseMovieInfoModal);
+    closeBtn.addEventListener('click', closeMovieInfoModal);
 
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
-        coloseMovieInfoModal();
+        closeMovieInfoModal();
       }
     });
 
     const addLibraryBtn = document.getElementById('library-actions-btn');
     updateLibraryButton(id);
     addLibraryBtn.addEventListener('click', () => {
-      toggleLibrary({
-        id,
-        title,
-        poster_path,
-        vote_average,
-        vote_count,
-        popularity,
-        genres,
-        overview,
-      });
+      toggleLibrary(movie);
     });
   } catch (error) {
     console.error('Error fetching movie details:', error);
@@ -114,12 +104,11 @@ export async function createMovieInfoMarkup(id) {
 }
 
 function toggleLibrary(movie) {
-  const movieId = movie.id;
   const lmm = new LocalMovieManager('myLibrary');
-  const isInLibrary = lmm.getMovies().some(m => m.id === movieId);
+  const isInLibrary = lmm.getMovies().some(m => m.id === movie.id);
 
   if (isInLibrary) {
-    lmm.removeMovie(movieId);
+    lmm.removeMovie(movie.id);
     iziToast.info({
       title: 'Info',
       message: 'Removed from my library',
@@ -140,7 +129,7 @@ function toggleLibrary(movie) {
     });
   }
 
-  updateLibraryButton(movieId);
+  updateLibraryButton(movie.id);
 }
 
 function updateLibraryButton(movieId) {
@@ -154,5 +143,3 @@ function updateLibraryButton(movieId) {
     libraryBtn.textContent = 'Add to my library';
   }
 }
-
-openBtn.addEventListener('click', () => openMovieInfoModal(573435));
