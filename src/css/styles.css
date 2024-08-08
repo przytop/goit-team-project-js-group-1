@@ -16,6 +16,7 @@
 @import url('./modal-window.css');
 @import url('./upcoming-this-month.css');
 @import url('scroll-to-top.css');
+@import url('./loader.css');
 
 :root {
   --orange-color: #f87719;
@@ -35,6 +36,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --loader-width: 5vmin;
 }
 
 html {
