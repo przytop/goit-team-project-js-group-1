@@ -119,7 +119,7 @@ html[data-theme='light'] .modal-btn-close-icon {
   width: 248px;
   height: 315px;
   border-radius: 5px;
-  background: url('path_to_image');
+  /* background: url('path_to_image'); */
   object-fit: cover;
   margin-bottom: 22px;
 }
