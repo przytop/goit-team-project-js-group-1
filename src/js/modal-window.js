@@ -93,6 +93,15 @@ export async function createMovieInfoMarkup(id) {
       }
     });
 
+    backdrop.addEventListener('click', function (event) {
+      if (event.target.closest('.modal-window')) {
+        return;
+      }
+
+      closeMovieInfoModal();
+    });
+    
+
     const addLibraryBtn = document.getElementById('library-actions-btn');
     updateLibraryButton(id);
     addLibraryBtn.addEventListener('click', () => {
