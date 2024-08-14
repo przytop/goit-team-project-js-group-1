@@ -33,7 +33,7 @@
 
 .card {
   position: relative;
-  background-color: #fff;
+  background-color: var(--white-color);
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 280px;
@@ -70,16 +70,6 @@
   text-align: center;
 }
 
-.card-content {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-  color: #fff;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
 .card-content h2 {
   text-align: left;
 }
@@ -90,6 +80,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.card-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  color: #fff;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .stars {

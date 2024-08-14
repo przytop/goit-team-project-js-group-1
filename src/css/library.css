@@ -1,17 +1,17 @@
 .genre-form {
-  /* padding-left: 32px; */
-  padding-top: 80px;
   display: none;
 }
 
 .genre-select {
-  width: 200px;
-  padding: 12px;
-  font-size: 16px;
+  width: 173px;
+  font-size: 14px;
   color: var(--white-color);
   background-color: var(--black-color);
   border: solid 1px;
   border-radius: 4px;
+  padding: 12px;
+  margin-top: 40px;
+  margin-bottom: 16px;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -19,8 +19,8 @@
 }
 
 #genre {
-  overflow-y: auto; /* Add a scrollbar if content overflows */
-  z-index: 999; /* Ensure it's on top of other elements */
+  overflow-y: auto;
+  z-index: 999;
   border-radius: 5px;
 }
 
@@ -33,25 +33,23 @@ html[data-theme='light'] #genre {
 
 .my-library-movie-list {
   list-style: none;
-  /* width: 1280px; */
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 48px 0 40px;
 }
 
 .my-library-movie-list-item {
   position: relative;
-  width: 395px;
-  height: 574px;
-  padding-bottom: 32px;
+  background-color: var(--white-color);
   border-radius: 5px;
-}
-
-.my-library-movie-picture {
-  width: 100%;
-  height: 100%;
-  display: block;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  height: 406px;
+  overflow: hidden;
+  transition: transform 0.2s;
 }
 
 .my-library-gradient {
@@ -65,7 +63,7 @@ html[data-theme='light'] #genre {
     rgba(0, 0, 0, 0) 0%,
     rgba(0, 0, 0, 1) 100%
   );
-  pointer-events: none; /* Umożliwia kliknięcie obrazu pod gradientem */
+  pointer-events: none;
 }
 
 .my-library-movie {
@@ -76,27 +74,42 @@ html[data-theme='light'] #genre {
   flex-direction: column;
   font-size: 20px;
   color: var(--white-color);
+  text-align: left;
+  justify-content: space-between;
 }
 
-.my-library-movie-title {
+.my-library-movie h2 {
   text-transform: uppercase;
+  font-family: var(--font-roboto);
+  font-weight: 500;
+  font-size: 12px;
+  margin: 10px 0 5px;
+  text-transform: uppercase;
+}
+.my-library-movie p {
+  color: var(--grey-color);
+  font-family: var(--font-roboto);
+  font-weight: 500;
+  font-size: 12px;
+  margin: 5px 0;
 }
 
 .my-library-button {
   border: none;
   color: var(--black-color);
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-  display: block;
-  /* margin: auto; */
+  padding: 12px 24px;
+  margin-bottom: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   padding: 12px 24px;
   border-radius: 74px;
-  margin-bottom: 42px;
-  display: none;
 }
 
 .load {
   margin: auto;
-  /* margin-bottom: 42px; */
 }
 
 #my-library-button-search {
@@ -111,24 +124,47 @@ html[data-theme='light'] #genre {
   text-align: center;
   padding-bottom: 24px;
 }
+.stars {
+  display: inline-flex;
+  align-items: center;
+}
 
-@media (max-width: 768px) {
-  .genre-select {
-    width: 144px;
-  }
+.star {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.star.full use,
+.star.half use {
+  fill: url(#star-gradient);
+}
+
+.star.empty use {
+  stroke: url(#star-gradient);
+  fill: none;
+}
+@media screen and (min-width: 768px) {
   .my-library-button {
     margin-bottom: 40px;
   }
+
+  .genre-select {
+    width: 144px;
+    margin-top: 60px;
+    margin-bottom: 36px;
+  }
+
   .my-library-movie-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
 
   .my-library-movie-list-item {
-    width: 280px;
-    height: 406px;
+    width: 224px;
+    height: 325px;
   }
 
   .my-library-movie {
@@ -138,69 +174,47 @@ html[data-theme='light'] #genre {
     text-align: left;
   }
 
+  .my-library-movie h2,
+  .my-library-movie p {
+    font-size: 12px;
+    line-height: 20px;
+    text-align: left;
+  }
+
   .my-library-sorry-message {
     font-size: 24px;
     font-weight: 400;
     line-height: 32px;
     text-align: center;
   }
+
+  .stars {
+    margin-left: 22px;
+  }
 }
 
-@media (max-width: 480px) {
+@media screen and (min-width: 1280px) {
   .genre-select {
-    width: 173px;
+    width: 260px;
+    font-size: 16px;
+    margin-top: 80px;
+    margin-bottom: 48px;
   }
 
-  .my-library-movie-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .my-library-movie-list-item {
-    width: 280px;
-    height: 406px;
-  }
-
-  .my-library-movie {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 20px;
-    text-align: left;
-  }
-
-  .my-library-sorry-message {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 28px;
-    text-align: center;
-    width: 280px;
-    margin: auto;
-  }
-}
-
-@media (min-width: 768px) {
-  .my-library-button {
-    margin-bottom: 60px;
-  }
-  .my-library-movie-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  .my-library-movie-list-item {
-    width: 224px;
-    height: 325px;
-  }
-}
-
-@media (min-width: 1280px) {
   .my-library-button {
     margin-bottom: 88px;
   }
+
   .my-library-movie-list-item {
     width: 395px;
     height: 574px;
+  }
+
+  .my-library-movie h2 {
+    font-size: 20px;
+  }
+
+  .my-library-movie p {
+    font-size: 20px;
   }
 }
