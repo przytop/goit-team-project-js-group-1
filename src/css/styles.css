@@ -16,6 +16,7 @@
 @import url('./modal-window.css');
 @import url('./upcoming-this-month.css');
 @import url('scroll-to-top.css');
+@import url('./loader.css');
 
 :root {
   --orange-color: #f87719;
@@ -28,6 +29,7 @@
   --font-roboto: 'Roboto', sans-serif;
   --gradient-button-1: linear-gradient(45deg, #f87719, #f89f19);
   --gradient-button-2: linear-gradient(45deg, #f89f19, #f87719);
+  --loader-width: 5vmin;
 
   font-family: var(--font-roboto);
   font-synthesis: none;
