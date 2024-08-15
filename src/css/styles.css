@@ -27,6 +27,7 @@
   --font-roboto: 'Roboto', sans-serif;
   --gradient-button-1: linear-gradient(45deg, #f87719, #f89f19);
   --gradient-button-2: linear-gradient(45deg, #f89f19, #f87719);
+  --loader-width: 5vmin;
 
   font-family: var(--font-roboto);
   font-synthesis: none;
@@ -34,8 +35,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
-  --loader-width: 5vmin;
 }
 
 html {
