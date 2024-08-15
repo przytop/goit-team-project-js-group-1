@@ -1,7 +1,7 @@
-const loader = document.querySelector('.loader');
+// const loader = document.querySelector('.loader');
 
-showLoader();
-gallery.innerHTML = '';
+// showLoader();
+// gallery.innerHTML = '';
 
 function showLoader() {
   loader.classList.add('active');
