@@ -110,6 +110,7 @@ html[data-theme='light'] #genre {
 
 .load {
   margin: auto;
+  /*display: none;*/
 }
 
 #my-library-button-search {

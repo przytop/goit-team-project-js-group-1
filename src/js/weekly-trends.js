@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     async function displayGenres() {
       const screenWidth = window.innerWidth;
       let genresToShow = 2;
-
       if (screenWidth <= 600) {
         genresToShow = 1;
       }

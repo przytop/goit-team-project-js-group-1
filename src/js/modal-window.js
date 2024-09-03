@@ -21,7 +21,6 @@ function closeMovieInfoModal() {
 
 export async function createMovieInfoMarkup(id) {
   const tmdb = new TmdbApi();
-  const lmm = new LocalMovieManager('myLibrary');
 
   try {
     const movie = await tmdb.getMovieDetails(id);
@@ -153,9 +152,7 @@ function updateLibraryButton(movieId) {
 
   if (isInLibrary) {
     libraryBtn.textContent = 'Remove from my library';
-    libraryBtn.dataset.action = 'remove';
   } else {
     libraryBtn.textContent = 'Add to my library';
-    libraryBtn.dataset.action = 'add';
   }
 }

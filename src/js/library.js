@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     listItem.style.backgroundSize = 'cover';
     listItem.style.backgroundPosition = 'center';
     listItem.dataset.id = id;
-
     listItem.innerHTML = `
       <div class="my-library-gradient"></div>
       <div class="my-library-movie">
@@ -249,7 +248,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   updateLibraryView();
 });
 
-function toggleLibrary(movie) {
+/*function toggleLibrary(movie) {
   const lmm = new LocalMovieManager('myLibrary');
   const isInLibrary = lmm.getMovies().some(m => m.id === movie.id);
 
@@ -280,4 +279,4 @@ function toggleLibrary(movie) {
   }
 
   updateLibraryView();
-}
+}*/
