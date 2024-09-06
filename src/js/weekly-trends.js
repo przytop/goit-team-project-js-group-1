@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
 
       document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', event => {
+        card.addEventListener('click', () => {
           const id = card.getAttribute('data-id');
           if (id) {
             if (!id) {
