@@ -247,36 +247,3 @@ document.addEventListener('DOMContentLoaded', async function () {
   await fetchGenres();
   updateLibraryView();
 });
-
-/*function toggleLibrary(movie) {
-  const lmm = new LocalMovieManager('myLibrary');
-  const isInLibrary = lmm.getMovies().some(m => m.id === movie.id);
-
-  if (isInLibrary) {
-    lmm.removeMovie(movie.id);
-    iziToast.info({
-      title: 'Info',
-      message: 'Removed from my library',
-      backgroundColor: 'red',
-      messageSize: '13',
-      closeOnEscape: true,
-      closeOnClick: true,
-    });
-  } else {
-    if (movie.id) {
-      lmm.addMovie(movie);
-      iziToast.success({
-        title: 'Success',
-        message: 'Added to my library',
-        backgroundColor: 'orange',
-        messageSize: '13',
-        closeOnEscape: true,
-        closeOnClick: true,
-      });
-    } else {
-      console.error('Cannot add movie with undefined ID:', movie);
-    }
-  }
-
-  updateLibraryView();
-}*/

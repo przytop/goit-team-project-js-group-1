@@ -92,20 +92,18 @@ document.addEventListener('DOMContentLoaded', async function () {
       document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', () => {
           const id = card.getAttribute('data-id');
-          if (id) {
-            if (!id) {
-              console.error('Movie ID is undefined');
-              return;
-            }
 
-            openMovieInfoModal(id);
+          if (!id) {
+            console.error('Movie ID is undefined');
+            return;
           }
+
+          openMovieInfoModal(id);
         });
       });
     }
 
     displayGenres();
-
     window.addEventListener('resize', displayGenres);
   } catch (error) {
     console.error('Error fetching data:', error);
