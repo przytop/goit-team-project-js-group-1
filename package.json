@@ -15,6 +15,7 @@
   "author": "Pawel Przytomski <przytop@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
     "axios": "^1.7.7",
     "core-js": "^3.38.1",
     "izitoast": "^1.4.0",
