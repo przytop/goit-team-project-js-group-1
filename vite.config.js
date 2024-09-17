@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import glob from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default defineConfig(({ command }) => {
   return {
@@ -21,7 +22,8 @@ export default defineConfig(({ command }) => {
           },
           entryFileNames: 'commonHelpers.js',
         },
-        // external: ['axios'],
+        external: [],
+        plugins: [commonjs()],
       },
       outDir: '../dist',
     },
