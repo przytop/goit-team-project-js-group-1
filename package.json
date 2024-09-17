@@ -15,7 +15,7 @@
   "author": "Pawel Przytomski <przytop@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.7.3",
+    "axios": "^1.7.7",
     "core-js": "^3.38.1",
     "izitoast": "^1.4.0",
     "lodash.throttle": "^4.1.1",
