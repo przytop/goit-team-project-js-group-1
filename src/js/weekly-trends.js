@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   };
 
   const backdrop = document.querySelector('.backdrop');
-  
+
   function closeModal() {
     backdrop.classList.remove('is-visible');
     backdrop.classList.add('is-closed');
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     async function displayGenres() {
       const screenWidth = window.innerWidth;
       let genresToShow = 2;
-
       if (screenWidth <= 600) {
         genresToShow = 1;
       }
@@ -63,9 +62,15 @@ document.addEventListener('DOMContentLoaded', async function () {
         const emptyStars = maxStars - fullStars - halfStar;
 
         const stars = [
-          ...Array(fullStars).fill('<svg class="star full"><use xlink:href="#icon-star"></use></svg>'),
-          ...Array(halfStar).fill('<svg class="star half"><use xlink:href="#icon-star-half"></use></svg>'),
-          ...Array(emptyStars).fill('<svg class="star empty"><use xlink:href="#icon-star-outline"></use></svg>')
+          ...Array(fullStars).fill(
+            '<svg class="star full"><use xlink:href="#icon-star"></use></svg>'
+          ),
+          ...Array(halfStar).fill(
+            '<svg class="star half"><use xlink:href="#icon-star-half"></use></svg>'
+          ),
+          ...Array(emptyStars).fill(
+            '<svg class="star empty"><use xlink:href="#icon-star-outline"></use></svg>'
+          ),
         ].join('');
 
         card.style.backgroundImage = `url(${imageUrl})`;
@@ -85,17 +90,20 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
 
       document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', event => {
+        card.addEventListener('click', () => {
           const id = card.getAttribute('data-id');
-          if (id) {
-            openMovieInfoModal(id);
+
+          if (!id) {
+            console.error('Movie ID is undefined');
+            return;
           }
+
+          openMovieInfoModal(id);
         });
       });
     }
 
     displayGenres();
-
     window.addEventListener('resize', displayGenres);
   } catch (error) {
     console.error('Error fetching data:', error);

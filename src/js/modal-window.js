@@ -47,7 +47,6 @@ export async function createMovieInfoMarkup(id) {
               stroke-width="2"
             />
           </svg>
-      
         </button>
         <img class="modal-film-poster" src="https://image.tmdb.org/t/p/w500${
           movie.poster_path
@@ -97,15 +96,15 @@ export async function createMovieInfoMarkup(id) {
       if (event.target.closest('.modal-window')) {
         return;
       }
-
       closeMovieInfoModal();
     });
-    
 
     const addLibraryBtn = document.getElementById('library-actions-btn');
-    updateLibraryButton(id);
+    updateLibraryButton(movie.id);
+
     addLibraryBtn.addEventListener('click', () => {
       toggleLibrary(movie);
+      updateLibraryButton(movie.id);
     });
   } catch (error) {
     console.error('Error fetching movie details:', error);
@@ -115,6 +114,11 @@ export async function createMovieInfoMarkup(id) {
 function toggleLibrary(movie) {
   const lmm = new LocalMovieManager('myLibrary');
   const isInLibrary = lmm.getMovies().some(m => m.id === movie.id);
+
+  if (!movie.id) {
+    console.error('Movie ID is undefined:', movie);
+    return;
+  }
 
   if (isInLibrary) {
     lmm.removeMovie(movie.id);
