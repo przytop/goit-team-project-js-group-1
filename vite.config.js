@@ -21,7 +21,7 @@ export default defineConfig(({ command }) => {
           },
           entryFileNames: 'commonHelpers.js',
         },
-        external: ['axios'],
+        // external: ['axios'],
       },
       outDir: '../dist',
     },
